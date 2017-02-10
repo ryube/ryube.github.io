@@ -1,0 +1,375 @@
+healthcare.sateam.co.kr/IPC/adminaccount/admin_account_add.php
+healthcare.sateam.co.kr/IPC/devicemagement/devicemanagement.php
+healthcare.sateam.co.kr/IPC/devicemagement/devicemanagement_add.php
+
+healthcare.sateam.co.kr/IPC/adminnotice/home.php
+http://localhost/IPC/adminnotice/nurse_notice_add.php
+http://localhost/IPC/adminnotice/notice_detail_view.php
+
+http://localhost/IPC/adminaccount/admin_account_add_pop_id.php
+
+http://localhost/IPC/contentsdelivery/contents_management.php
+http://localhost/IPC/contentsdelivery/contents_management_detail_view.php
+http://localhost/IPC/contentsdelivery/contents_management_add.php
+http://localhost/IPC/contentsdelivery/delivery_status.php
+http://localhost/IPC/contentsdelivery/delivery_status_detail_view.php
+
+
+
+
+D:/Projects/Sec/Healthcare/WORK/Docs/30. 설계/20. HTML/IPC/contentsdelivery/contents_management.php
+D:/Projects/Sec/Healthcare/WORK/Docs/30. 설계/20. HTML/IPC/adminnotice/notice_detail_view.php
+
+
+
+<a target="_blank" href="/healthcare/IPC/devicemagement/devicemanagement_add.php">
+
+
+D:/Projects/Sec/Healthcare/WORK/Docs/30. 설계/20. HTML/mEMR/usermanagement/user_detailview.php
+
+http://localhost/mEMR/usermanagement/user_detailview.php/
+http://localhost/mEMR/usermanagement/user_adduser.php/
+http://localhost/mEMR/usermanagement/user_edituser.php/
+http://localhost/mEMR/usermanagement/org.php/
+http://localhost/mEMR/usermanagement/org_detailview.php
+
+http://localhost/mEMR/home/login.php
+http://localhost/mEMR/home/login_pop.php
+
+http://localhost/IPC/adminaccount/admin_account.php
+http://localhost/IPC/adminaccount/admin_account_detailinfo.php
+http://localhost/IPC/adminaccount/admin_account_poplist.php
+http://localhost/IPC/adminaccount/admin_account_add.php
+http://localhost/IPC/adminaccount/admin_account_edit.php
+
+
+http://localhost/mEMR/usermanagement/group_userlist.php
+
+http://localhost/mEMR/usermanagement/user_edituser_confirm.php
+http://localhost/mEMR/usermanagement/group_userlist.php
+
+
+http://localhost/IPC/settings/setting.php
+http://localhost/IPC/settings/setting_nurse_call.php
+http://localhost/IPC/settings/setting_nurse_call_add.php
+
+http://localhost/IPC/application/application.php
+http://localhost/IPC/application/application_detail_view.php
+http://localhost/IPC/application/application_add.php
+http://localhost/IPC/application/application_edit.php
+http://localhost/IPC/application/application_popup_distribute.php
+http://localhost/IPC/application/application_popup_distribute02.php
+http://localhost/IPC/application/application_popup_moveto.php
+http://localhost/IPC/application/application_popup_category.php
+==============
+1227
+
+http://localhost/IPC/patientnotice/notice.php
+http://localhost/IPC/patientnotice/notice_detail_view.php
+http://localhost/IPC/patientnotice/notice_add.php
+http://localhost/IPC/patientnotice/notice_popup_moveto.php
+http://localhost/IPC/patientnotice/notice_popup_category.php
+
+
+http://localhost/mEMR/setting/setting.php
+
+===================/
+1228
+http://localhost/IPC/patientmanagement/patientmanagement.php
+http://localhost/IPC/patientmanagement/patientmanagement_bedchange.php
+http://localhost/IPC/patientmanagement/patientmanagement_detail.php
+
+http://localhost/IPC/patientmanagement/patientmanagement_mapping.php
+
+===========================
+0102
+
+http://localhost/mEMR/usermanagement/user_adduser_pop02.php
+http://localhost/mEMR/usermanagement/org_add.php
+http://localhost/mEMR/usermanagement/org_edit.php
+http://localhost/mEMR/usermanagement/org_delete.php
+http://localhost/mEMR/devicemanagement/device_management_list.php
+http://localhost/mEMR/devicemanagement/device_management_edit.php
+
+http://localhost/mEMR/history/history_login.php
+http://localhost/mEMR/history/history_detail_view.php
+
+===========================
+0104
+
+http://localhost/mEMR/anantomy/contents_list.php
+http://localhost/mEMR/anantomy/contents_category_detail_view.php
+http://localhost/mEMR/anantomy/contents_addimage.php
+http://localhost/mEMR/anantomy/contents_editimage.php
+
+http://localhost/mEMR/anantomy/contents_category_list.php
+
+http://localhost/IPC/home/login_popup.php
+http://localhost/IPC/devicemagement/devicemanagement_add_pop_error.php
+http://localhost/IPC/devicemagement/devicemanagement_edit.php
+
+http://localhost/IPC/devicemagement/devicemanagement_pop_send_to.php
+http://localhost/IPC/contentsdelivery/contents_management_pop_category.php
+http://localhost/IPC/contentsdelivery/contents_management_category_move.php
+
+http://localhost/IPC/settings/setting_restriction.php
+http://localhost/IPC/settings/setting_ward_list.php
+http://localhost/IPC/settings/setting_ward.php
+
+
+==============================================
+01/07
+http:/localhost/IPC/home/login_forgot.php
+http:/localhost/mEMR/usermanagement/org_mz.php
+http:/localhost/mEMR/usermanagement/org_edit_mz.php
+
+=========
+01/08
+http:/localhost/mEMR/setting/setting.php
+http:/localhost/mEMR/devicemanagement/loading.php
+
+http:/localhost/mEMR/usermanagement/org_edit_moveto_mz.php
+http:/localhost/mEMR/usermanagement/group_mz.php
+http:/localhost/mEMR/usermanagement/group_edit_gruop_mz.php
+http:/localhost/mEMR/usermanagement/group_edit_gruop_moveto_mz.php
+
+
+===================
+01/09
+http:/localhost/IPC/contentsdelivery/contents_management_searchresult.php
+http:/localhost/IPC/home/login_forgot.php
+http:/localhost/mEMR/devicemanagement/device_management_no_result.php
+
+
+
+==============
+
+01/10
+
+http:/localhost/mEMR/usermanagement/org_pop_add_mz.php
+
+
+======================
+1/14 
+
+http:/localhost/mEMR/usermanagement/user_invite_mail.php	none
+
+
+======================
+1/15
+
+http:/localhost/mEMR/history/history_group_detail_view.php	none
+http:/localhost/mEMR/usermanagement/user_invite_mail.php none
+http:/localhost/mEMR/setting/storage.php
+http:/localhost/IPC/home/error.php
+
+=====================
+1/16
+
+http:/localhost/mEMR/usermanagement/user_invite_mail_pop_add_user.php
+http:/localhost/mEMR/devicemanagement/device_management_detail_view.php
+
+====================
+1/17
+http:/localhost/mEMR/setting/position.php
+http:/localhost/mEMR/usermanagement/org_mz_header_filter.php
+
+===================
+1/22
+http:/localhost/IPC/contentsdelivery/contents_management_category_add.php
+
+===================
+1/23
+http:/localhost/mEMR/setting/admin_hospital.php
+
+===================
+1/24
+http:/localhost/mEMR/usermanagement/user_invite_mail_pop_setting.php
+
+
+===================
+1/25
+http:/localhost/mEMR/devicemanagement/shared_device_list.php
+http:/localhost/mEMR/devicemanagement/shared_device_detail.php
+http:/localhost/mEMR/devicemanagement/shared_device_edit.php
+
+http://localhost/mEMR/anantomy/contents_list.php
+http://localhost/mEMR/anantomy/contents_category_detail_view.php
+http://localhost/mEMR/anantomy/contents_addimage.php#
+
+http://localhost/mEMR/anantomy/contents_category_list_mz.php
+http://localhost/mEMR/anantomy/contents_category_edit_mz.php
+
+==================
+1/28 
+placeholder 코딩수정 
+http://localhost/mEMR/usermanagement/org_mz_header_filter.php
+http://localhost/mEMR/usermanagement/user_adduser.php/
+http://localhost/IPC/adminnotice/nurse_notice_add.php
+
+
+====================
+1/29
+
+PSD 업데이트
+http://healthcare.sateam.co.kr/mEMR/history/history_group_detail_view.php
+http://healthcare.sateam.co.kr/mEMR/usermanagement/group_mz.php
+http://healthcare.sateam.co.kr/mEMR/usermanagement/group_edit_gruop_mz.php
+
+====================
+1/30
+
+psd 업데이트
+http://localhost/IPC/settings/setting.php
+
+====================
+2/1
+http://localhost/IPC/home/down_pop.php
+
+====================
+2/4
+http://localhost/mEMR/app/app_list.php
+http://localhost/mEMR/app/app_edit.php
+http://localhost/mEMR/app/app_edit_extra_pop.php
+
+http://localhost/mEMR/app/extra_app_list.php
+http://localhost/mEMR/app/extra_app_edit.php
+
+http://localhost/mEMR/app/tester_list.php
+http://localhost/mEMR/app/tester_list_pop.php
+
+===================/
+2/5
+
+http://localhost/IPC/contentsdelivery/delivery_status.php
+http://localhost/mEMR/usermanagement/group_edit_gruop_mz.php
+
+==================
+2/6
+http://localhost/IPC/careplan/careplan_list.php
+http://localhost/IPC/careplan/careplan_add_pop.php
+http://localhost/IPC/careplan/careplan_add_pop02.php
+
+
+
+==================
+2/7
+http://localhost/IPC/careplan/careplan_detail.php
+
+==================
+2/8
+http://localhost/IPC/provisioning/provisioning_list.php
+http://localhost/IPC/provisioning/provisioning_detail.php
+http://localhost/IPC/provisioning/provisioning_add.php
+http://localhost/IPC/provisioning/provisioning_edit.php
+
+==================
+2/15
+http://localhost/IPC/careplan/careplan_all_list.php
+
+==================
+2/19
+http://localhost/IPC/contentsdelivery/contents_management_distribute.php
+
+
+http://localhost/IPC/devicemagement/devicemanagement.php
+http://localhost/IPC/devicemagement/devicemanagement_detailinfo.php
+http://localhost/IPC/contentsdelivery/contents_management_pop_category.php
+http://localhost/IPC/home/login_forgot.php
+http://localhost/IPC/contentsdelivery/contents_management_searchresult.php
+http://localhost/IPC/careplan/careplan_add_pop02.php
+
+==========
+3/12
+http://localhost/IPC/settings/setting_nurse_call_restriction.php
+
+
+==================================
+현황판에 없는 링크 
+
+http://localhost/IPC/adminaccount/admin_account_poplist.php
+--
+0103
+http://healthcare.sateam.co.kr/mEMR/setting/admin_account.php
+--
+01/07
+http://healthcare.sateam.co.kr/mEMR/usermanagement/org_mz.php   
+http://healthcare.sateam.co.kr/mEMR/usermanagement/org_edit_mz.php
+=========
+http://localhost/mEMR/devicemanagement/loading.php
+http://healthcare.sateam.co.kr/mEMR/usermanagement/org_edit_moveto_mz.php
+http://healthcare.sateam.co.kr/mEMR/usermanagement/group_mz.php
+http://healthcare.sateam.co.kr/mEMR/usermanagement/group_edit_gruop_mz.php
+http://healthcare.sateam.co.kr/mEMR/usermanagement/group_edit_gruop_moveto_mz.php
+
+http:/localhost/mEMR/devicemanagement/device_management_no_result.php
+http:/localhost/IPC/contentsdelivery/contents_management_searchresult.php   
+
+---
+1/17
+http:/localhost/mEMR/setting/position.php
+http:/localhost/mEMR/usermanagement/org_mz_header_filter.php
+
+---
+1/22
+http:/localhost/IPC/contentsdelivery/contents_management_category_add.php
+
+
+
+<p><a href="/healthcare/IPC/adminnotice/nurse_notice_add.php" target="_blank">Sample link</a></p>
+<p class="desc"><a href="" target="_blank"></a></p>
+		
+		<h3></h3>
+		<!--[code lang="html"]-->
+		<!--[/code]-->
+
+
+
+<script type="text/javascript">
+	 $(document).ready(function () {
+	 	layoutSplit = new ContentsScreenControl2(CONTENTS_SCREEN_TYPE.vertical);
+	 	fakescroll.set('custom_scroll',{ x:{disable:true}});
+		fakescroll.set('custom_scroll1',{ x:{disable:true}});
+		fakescroll.set('custom_scroll2',{ x:{disable:true}});
+		fakescroll.set('custom_scroll3');
+		fakescroll.set('custom_scroll4');
+		fakescroll.set('custom_scroll5');
+		fakescroll.set('custom_scroll6');
+	 });
+	</script>
+
+<span class="label_holder">
+	<label for="notice_desc">설명~~~</label>
+	input/textarea 요소
+</span>
+
+인풋이 가변 요소 일시 
+
+<span class="label_holder vari">
+
+- vari 클래스 추가
+
+<span class="info_type1_chk_hori">
+	<input type="checkbox" id="patients_assigned01"><label for="patients_assigned01"><span class="ellipsis">Permission</span></label>
+	<input type="checkbox" id="patients_assigned02"><label for="patients_assigned02"><span class="ellipsis">Denial</span></label>
+</span>
+
+
+
+
+
+<div class="combobox on">
+	<a href="#"><span class="combobox_value"><span class="ellipsis">Name</span></span><span class="combobox_icon"></span></a>
+	<div class="combobox_list">
+		<ul>
+			<li><a href="#"><span class="ellipsis">option 1</span></a></li>
+			<li><a href="#"><span class="ellipsis">option 1</span></a></li>
+			<li><a href="#"><span class="ellipsis">option 1</span></a></li>
+		</ul>
+	</div>
+</div>
+
+f41f0fD:/Projects/Sec/Healthcare/WORK/Docs/30. 설계/20. HTML/IPC/devicemagement/devicemanagement_add_pop_error.php
+
+
+D:/Projects/Sec/Healthcare/WORK/Docs/30. 설계/20. HTML/IPC/contentsdelivery/contents_management_category_add.php

@@ -1,0 +1,55 @@
+﻿.ui-layout-toggler-west, 
+    .ui-layout-toggler-south {
+		border:		0;
+	}
+	.ui-layout-toggler-west div {
+		width:	8px;
+		height:	35px; /* 3x 35 = 105 total height */
+	}
+	.ui-layout-toggler-east div 
+	{
+	   box-align:center;
+display:-webkit-box;
+display:box;
+	    -ms-box-align: center;
+	-moz-box-align: center;
+	-webkit-box-align: center;
+	box-align : center;
+		width:	15px;
+		height:	35px; /* 3x 35 = 105 total height */
+	}
+	.ui-layout-toggler-south div {
+		width:	35px; /* 3x 35 = 105 total width */
+		height:	15px;
+		float:	left; /* keep on 1-line */
+	}
+	/*.btnToggler	{ background: #00C; }
+	.btnExpand	{ background: #090; }
+	.btnReset	{ background: #C00; }*/
+	
+	.btnToggler	{ background: #332259; }
+	.btnExpand	{ background: #8C3063; }
+	.btnReset	{ background: #F2AA80; }
+
+    .ui-layout-resizer {
+        background: #DDD;
+        border: 1px solid #BBB;
+        border-width: 0;
+    }
+
+    .ui-layout-toggler-north, .ui-layout-toggler-south {
+    border-width: 0 1px;
+    }
+    .ui-layout-toggler {
+    border: 1px solid #BBB;
+    background-color: #BBB;
+    }
+    .ui-layout-toggler .content 
+    {
+        margin: 0;
+    color: #666;
+    font-size: 12px;
+    font-weight: bold;
+    width: 100%;
+    padding-bottom: 0.35ex;
+    }

@@ -1,0 +1,137 @@
+body {background: #000000;}
+
+.container {position:relative; width: 1100px; margin:0 auto;  z-index:10; /* padding-bottom: 120px; */}
+.bg_left {position:absolute; top:0; left:-550px; width:50%; height: 100%; background:url(../img/ev_05/bg_left.jpg) no-repeat right 130px;  z-index: 2;}
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 100%; *margin-left:-1px; _margin-left:0px; background: url(../img/ev_05/bg_right.jpg) no-repeat 550px 130px; z-index: 2;}
+.wrap { padding-top: 130px; min-width: 1024px;}
+
+
+.qck_links {position: fixed; left: 50%; top: 50%; margin: -211px 0 0 625px; width: 85px; height: 271px;  background: url(../img/ev_05/qck_links.png) no-repeat 0 0;}
+.qck_links a {width: 43px; height: 43px; left: 19px;}
+.qck_links .btn1 {top: 70px;}
+.qck_links .btn2 {top: 115px;}
+.qck_links .btn3 {top: 158px;}
+.qck_links .btn4 {top: 202px;}
+.qck_links .btn5 {top: 324px;}
+
+.qck_links .btn1:hover {background: url(../img/ev_05/btn_q1.png) no-repeat 1px 0;}
+.qck_links .btn2:hover {background: url(../img/ev_05/btn_q2.png) no-repeat 1px 0;}
+.qck_links .btn3:hover {background: url(../img/ev_05/btn_q3.png) no-repeat 1px 0;}
+.qck_links .btn4:hover {background: url(../img/ev_05/btn_q4.png) no-repeat 1px 0;}
+
+.ev_01 {position:relative; height: 919px; background:url(../img/ev_05/bg_ev_01.jpg) no-repeat 0 0; z-index:40;}
+.ev_02 {position:relative; height: 1078px; background:url(../img/ev_05/bg_ev_02.jpg) no-repeat 0 0; z-index:40;}
+.ev_03 {position:relative; height: 967px; background:url(../img/ev_05/bg_ev_03.jpg) no-repeat 0 0; z-index:40;}
+.ev_04 {position:relative; height: 1062px; background:url(../img/ev_05/bg_ev_04.jpg) no-repeat 0 0; z-index:40;}
+.ev_05 {position:relative; height: 1051px; background:url(../img/ev_05/bg_ev_05.jpg) no-repeat 0 0; z-index:40;}
+
+.ev_02 .btn_noti1 {width: 164px; height: 32px; right: 0; top: 240px; background: url(../img/ev_05/btn_noti.png) no-repeat 0 0;}
+.ev_02 .wl1 {position: absolute; left: 37px; top: 577px;}
+.ev_02 .wl1 li {position: relative; float: left; width: 264px; height: 39px;}
+.ev_02 .wl1 .b1 {width: 114px; height: 39px; top: 0; left: 0;}
+.ev_02 .wl1 .b2 {width: 114px; height: 39px; top: 0; left: 120px;}
+
+.ev_02 .wl2 {position: absolute; left: 37px; top: 663px; }
+.ev_02 .wl2 li {position: relative; float: left; width: 1025px; height: 321px;}
+.ev_02 .wl2 .b1 {width: 173px; height: 59px; top: 221px; left: 466px;}
+.ev_02 .wl2 .b2 {width: 173px; height: 59px; top: 221px; left: 651px;}
+.ev_02 .wl2 .c {position: absolute; left: 452px; top: 76px;font-size: 30px; color: #fff;width: 92px;text-align: center;}
+
+.ev_03 .block {position: absolute; left: 50%; top: 194px; margin-left: -602px;width: 1201px; height: 772px; background: url(../img/ev_05/bg_cs.png) no-repeat 0 0; z-index: 100;}
+.ev_03 .btn_noti2 {width: 162px; height: 32px; right: 0; top: 249px;}
+.ev_03 .day_c {position: absolute; right: 754px; top: 309px;}
+.ev_03 .tc {position: absolute; right: 789px; top: 318px;}
+.ev_03 .btn_buy {width: 176px; height: 53px; right: 212px; top: 315px;}
+.ev_03 .btn_gift {width: 176px; height: 53px; right: 27px; top: 315px;}
+.ev_03 .btn_use {width: 780px; height: 57px; right: 0px; top: 840px;}
+.ev_03 .time_count {position: absolute; left: 527px; top: 308px;}
+.ev_03 .time_count span {margin-right: 22px;}
+
+.ev_03 .ft_tab_links {position: absolute; left: 0; top: 415px; z-index: 20;}
+.ev_03 .ft_tab_links li {position: relative; width: 322px; height: 69px;}
+.ev_03 .ft_tab_links li a, .ev_03 .ft_tab_links li span {display: block; position: absolute; left: 50%; top: 50%; width: 275px; height: 17px; margin: -8px 0 0 -137px; background-image: url(../img/ev_05/bg_ftab_txt.png); background-repeat: no-repeat; text-indent: -99999px;}
+.ev_03 .ft_tab_links li.l1 a,.ev_03 .ft_tab_links li.l1 span {background-position: -311px 0}
+.ev_03 .ft_tab_links li.l2 a,.ev_03 .ft_tab_links li.l2 span {background-position: -311px -48px}
+.ev_03 .ft_tab_links li.l3 a,.ev_03 .ft_tab_links li.l3 span {background-position: -311px -96px}
+.ev_03 .ft_tab_links li.l4 a,.ev_03 .ft_tab_links li.l4 span {background-position: -311px -144px}
+.ev_03 .ft_tab_links li.l5 a,.ev_03 .ft_tab_links li.l5 span {background-position: -311px -192px}
+.ev_03 .ft_tab_links li.l6 a,.ev_03 .ft_tab_links li.l6 span {background-position: -311px -240px}
+
+.ev_03 .ft_tab_links li.on.l1 a,.ev_03 .ft_tab_links li.on.l1 span {background-position: 0 0}
+.ev_03 .ft_tab_links li.on.l2 a,.ev_03 .ft_tab_links li.on.l2 span {background-position: 0 -48px}
+.ev_03 .ft_tab_links li.on.l3 a,.ev_03 .ft_tab_links li.on.l3 span {background-position: 0 -96px}
+.ev_03 .ft_tab_links li.on.l4 a,.ev_03 .ft_tab_links li.on.l4 span {background-position: 0 -144px}
+.ev_03 .ft_tab_links li.on.l5 a,.ev_03 .ft_tab_links li.on.l5 span {background-position: 0 -192px}
+.ev_03 .ft_tab_links li.on.l6 a,.ev_03 .ft_tab_links li.on.l6 span {background-position: 0 -240px}
+
+.ev_03 .ft_tabs {position: absolute; left: 0; top: 415px; width: 1106px; height: 414px; z-index: 10;}
+.ev_03 .ft_tab {display: none;position: relative; width: 1106px; height: 414px;}
+.ev_03 .ft_tab.on {display: block;}
+.ev_03 .ft_tab ul {position: absolute; left: 339px; top: 15px; width: 759px; height: 390px;}
+.ev_03 .ft_tab li {position: relative; float: left; width: 253px; height: 130px; background: url(../img/ev_05/ft_g_off.png) no-repeat 0 0;}
+.ev_03 .ft_tab .r {display: none; position: absolute; left: -3px; top: -3px; width: 84px; height: 83px; background: url(../img/ev_05/ft_g_r.png) no-repeat 0 0;}
+.ev_03 .ft_tab li.on {background: url(../img/ev_05/ft_g_on.png) no-repeat 0 0;}
+.ev_03 .ft_tab li.ex {background: url(../img/ev_05/ft_g_e.png) no-repeat 0 0;}
+.ev_03 .ft_tab .on .r {display: block;}
+.ev_03 .ft_tab li.ex.on .r{background-image: url(../img/ev_05/ft_g_r1.png);}
+
+#ft_s1 {background: url(../img/ev_05/ftab_01.png) no-repeat 0 0;}
+#ft_s2 {background: url(../img/ev_05/ftab_02.png) no-repeat 0 0;}
+#ft_s3 {background: url(../img/ev_05/ftab_03.png) no-repeat 0 0;}
+#ft_s4 {background: url(../img/ev_05/ftab_04.png) no-repeat 0 0;}
+#ft_s5 {background: url(../img/ev_05/ftab_05.png) no-repeat 0 0;}
+#ft_s6 {background: url(../img/ev_05/ftab_06.png) no-repeat 0 0;}
+
+.ev_03 .btn_season_buy {width: 331px; height: 55px; left: 751px; top: 848px;}
+
+.ev_04 .count {position: absolute; right: 500px; top: 310px;}
+.ev_04 .count img {margin:0 3px;}
+.ev_04 .btn_coin1 {width: 184px; height: 53px; left: 891px; top: 303px;}
+.ev_04 .btn_coin_chk {width: 135px; height: 53px; left: 745px; top: 303px;}
+.ev_04 .cl {position: absolute; left: 25px; top: 555px; width: 1110px; height: 627px;}
+.ev_04 .cl li {float: left; position: relative; width: 222px; height: 209px;}
+.ev_04 .cl a {left: 0; top: 0; width: 161px; height: 39px;background: url(../img/ev_05/btn_item_take_off.png) no-repeat 0 0;}
+.ev_04 .cl .on a {background: url(../img/ev_05/btn_item_take.png) no-repeat 0 0;}
+
+.ev_05 .count {position: absolute; right: 500px; top: 310px;}
+.ev_05 .count img {margin:0 3px;}
+.ev_05 .btn_coin2 {width: 183px; height: 53px; left: 892px; top: 304px;}
+.ev_05 .btn_coin_chk {width: 135px; height: 53px; left: 746px; top: 305px;}
+.ev_05 .cg {position: absolute; left: 53px; top: 568px; width: 1112px; height: 564px;}
+.ev_05 .cg li {float: left; position: relative; width: 278px; height: 282px;}
+.ev_05 .cg a {left: 0; top: 0; width: 161px; height: 39px;}
+.ev_05 .cg .on a {background: url(../img/ev_05/btn_item_take1.png) no-repeat 0 0;}
+.ev_05 .cg span {position: absolute; font-size: 14px; color: #fff; right: 128px;}
+.ev_05 .cg span.c1 {top: 58px;}
+.ev_05 .cg span.c2 {top: 84px;}
+
+
+.footer {position:relative; height: 285px; background:url(../img/ev_05/bg_footer.jpg) no-repeat 0 0; z-index:40; text-align: center;}
+.footer p {position: relative; margin: 0 auto; padding: 124px 0 0 0;}
+.footer .footer_fix {position: relative; width: 589px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url(../img/txt_foot.png) no-repeat 0 50%;}
+.footer .btn {height: 28px; top: 0px;}
+.footer .redduck {top: 0; left: 0px; width: 100px;}
+.footer .eventqna {right: 104px; width: 65px;}
+.footer .pmangevent {right: 0; width: 86px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.footer .neowizgames_ci {width: 94px; height: 26px; background:url(../img/ci_neowiz.png) no-repeat 50% 50%;}
+.footer .daum_ci {width: 94px; height: 26px; background:url(../img/ci_daum.png) no-repeat 50% 50%;}
+.footer .naver_ci {width: 94px; height: 26px; background:url(../img/ci_naver.png) no-repeat 50% 50%;}
+
+.layer_pop {position: absolute; z-index: 100; display:none; margin-top: -25px; opacity: 0; filter: alpha(opacity=0);}
+.layer_pop.on {display: block;}
+.layer_pop .layer_close {position: absolute; display: block; text-indent: -9999px; z-index: 101}
+
+.pop_noti01 {width: 957px; height: 556px; top: 1418px !important;background: url(../img/ev_05/pop_noti1.png) no-repeat 0 100%;}
+.pop_noti01 .layer_close {right: 24px; top: 22px; width: 53px; height: 53px;}
+
+.pop_noti02 {width: 957px; height: 556px; top: 2476px !important;background: url(../img/ev_05/pop_noti2.png) no-repeat 0 100%;}
+.pop_noti02 .layer_close {right: 24px; top: 22px; width: 53px; height: 53px;}
+
+
+.pop_caution1 {width: 957px; height: 496px; top: 3447px !important;background: url(../img/ev_05/pop_caution1.png) no-repeat 0 100%;}
+.pop_caution1 .layer_close {right: 24px; top: 22px; width: 53px; height: 53px;}
+
+.pop_caution2 {width: 957px; height: 496px; top: 2543px !important;background: url(../img/ev_05/pop_caution2.png) no-repeat 0 100%;}
+.pop_caution2 .layer_close {right: 24px; top: 22px; width: 53px; height: 53px;}
+

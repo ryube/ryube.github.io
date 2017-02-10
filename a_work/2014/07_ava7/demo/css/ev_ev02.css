@@ -1,0 +1,41 @@
+body {background: #010101;}
+
+.container {position:relative; width:990px; margin:0 auto;  z-index:10; }
+.bg_left {position:absolute; top:0; left:-495px; width:50%; height: 1791px; background:url(../img/ev_7_2/bg_left.jpg) no-repeat right 170px; }
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 1791px; *margin-left:-1px; _margin-left:0px; background: url(../img/ev_7_2/bg_right.jpg) no-repeat 495px 170px; }
+.wrap {overflow: hidden;}
+
+.event_01 {position:relative; height: 960px; background:url(../img/ev_7_2/ev_01.jpg) no-repeat; z-index:40;}
+.event_01 .btn_noti01 {width: 189px; height: 60px; left: 718px; top: 788px;}
+
+.event_02  {position:relative; height: 693px; background:url(../img/ev_7_2/ev_02.jpg) no-repeat; z-index:40;}
+.itembuy {display: block; width: 225px; height: 49px; position: absolute;}
+.itembuy .buy {width: 106px; height: 49px; left: 0; top: 0;}
+.itembuy .gift {width: 106px; height: 49px; right: 0; top: 0;}
+.itembuy .off {background: url(../img/ev_7_2/btn_soldout.jpg) no-repeat 0 0;}
+.event_02 .ani7 {left: 241px; top: 197px;}
+.event_02 .sp {left: 241px; top: 565px;}
+.event_02 .ani7sp {left: 543px; top: 565px;}
+.event_02 .count {display: block; width: 134px; height: 50px; position: absolute; left: 780px; top: 565px; background:url(../img/ev_7_2/bg_count.jpg) no-repeat;}
+.event_02 .count p {padding-top: 17px;text-align: center; font-size: 14px; color: #7a7c7f; font-weight: bold;}
+.event_02 .count p strong {color: #ea9817; padding-left: 5px;}
+
+.footer {position:relative; height:138px; text-align: center; background:url(../img/ev_7_2/bg_footer.jpg) no-repeat; z-index:40;}
+.footer p {padding-top: 4px;}
+.footer .footer_fix {position: relative; width: 596px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url(../img/ev_7_2/txt_foot.png) no-repeat 0 50%;}
+.footer .btn {height: 28px; top:0px;}
+.footer .redduck {left: 0px; width: 100px;}
+.footer .eventqna {right: 110px; width: 65px;}
+.footer .pmangevent {right: 0; width: 101px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.footer .neowizgames_ci {width: 94px; height: 26px; background:url(../img/ev_7_2/neowiz_ci.png) no-repeat 50% 50%;}
+.footer .daum_ci {width: 94px; height: 26px; background:url(../img/ev_7_2/daum_ci.png) no-repeat 50% 50%;}
+.footer .naver_ci {width: 94px; height: 26px; background:url(../img/ev_7_2/naver_ci.png) no-repeat 50% 50%;}
+
+
+.layer_pop {position: absolute; z-index: 100; display:none;}
+.layer_pop .pop_body {position: absolute; width: 100%; height: 100%; left: 0; bottom: 0;}
+.layer_pop .layer_close {position: absolute; display: block; right: 20px; top: 20px; width: 37px; height: 34px; text-indent: -9999px; z-index: 101}
+
+.pop_notice01  {width: 698px; height: 239px; top: 1048px !important; background: url(../img/ev_7_2/pop_noti.png) no-repeat 0 100%;}
+.pop_notice01 .layer_close {position: absolute; display: block; right: 20px; top: 18px; width: 25px; height: 25px; text-indent: -9999px; z-index: 101}

@@ -1,0 +1,74 @@
+@font-face {
+    font-family:'Neutra2Text Light';
+    src: url("../a_fonts/Neutra2Text-Light.eot");
+    src: url("../a_fonts/Neutra2Text-Light.eot?#iefix") format('embedded-opentype'),
+         url("../a_fonts/Neutra2Text-Light.woff") format('woff'),
+         url("../a_fonts/Neutra2Text-Light.ttf") format('truetype'),
+         url("../a_fonts/Neutra2Text-Light.svg#Neutra2Text-Light") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Neutra2Text Book';
+    src: url("../a_fonts/Neutra2Text-Book.eot");
+    src: url("../a_fonts/Neutra2Text-Book.eot?#iefix") format('embedded-opentype'),
+         url("../a_fonts/Neutra2Text-Book.woff") format('woff'),
+         url("../a_fonts/Neutra2Text-Book.ttf") format('truetype'),
+         url("../a_fonts/Neutra2Text-Book.svg#Neutra2Text-Book") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Neutra2Text Bold';
+    src: url("../a_fonts/Neutra2Text-Bold.eot");
+    src: url("../a_fonts/Neutra2Text-Bold.eot?#iefix") format('embedded-opentype'),
+         url("../a_fonts/Neutra2Text-Bold.woff") format('woff'),
+         url("../a_fonts/Neutra2Text-Bold.ttf") format('truetype'),
+         url("../a_fonts/Neutra2Text-Bold.svg#Neutra2Text-Bold") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Neutra2Display Titling';
+    src: url("../a_fonts/Neutra2Display-Titling.eot");
+    src: url("../a_fonts/Neutra2Display-Titling.eot?#iefix") format('embedded-opentype'),
+         url("../a_fonts/Neutra2Display-Titling.woff") format('woff'),
+         url("../a_fonts/Neutra2Display-Titling.ttf") format('truetype'),
+         url("../a_fonts/Neutra2Display-Titling.svg#Neutra2Display-Titling") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family:'Neutra2Text Demi';
+    src: url("../a_fonts//Neutra2Text-Demi.eot");
+    src: url("../a_fonts//Neutra2Text-Demi.eot?#iefix") format('embedded-opentype'),
+         url("../a_fonts//Neutra2Text-Demi.woff") format('woff'),
+         url("../a_fonts//Neutra2Text-Demi.ttf") format('truetype'),
+         url("../a_fonts//Neutra2Text-Demi.svg#Neutra2Text-Demi") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../a_fonts/NanumBarunGothic.eot");
+  src: url("../a_fonts/NanumBarunGothic.eot?#iefix") format('embedded-opentype'),
+       url("../a_fonts/NanumBarunGothic.woff") format('woff'),
+       url("../a_fonts/NanumBarunGothic.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'NanumBarunGothic';
+  font-style: bold;
+  font-weight: 800;
+  src: url("../a_fonts/NanumBarunGothicBold.eot");
+  src: url("../a_fonts/NanumBarunGothicBold.eot?#iefix") format('embedded-opentype'),
+       url("../a_fonts/NanumBarunGothicBold.woff") format('woff'),
+       url("../a_fonts/NanumBarunGothicBold.ttf") format('truetype');
+}

@@ -1,0 +1,42 @@
+
+.ev1-open {}
+.ev2-open {}
+
+
+.tl_body h2 {
+	transition: all 1s cubic-bezier(0.75, 0, 0.25, 1);
+}
+.tl_body .ev_1 {transform: translate( -100px, 0);}
+.tl_body .ev_2 {transform: translate( 100px, 0);}
+.ev1-open .tl_body .ev_1 {transform: translate( 0, 0); opacity: 1; filter: alpha(opacity=100);}
+.ev2-open .tl_body .ev_2 {transform: translate( 0, 0); opacity: 1; filter: alpha(opacity=100);}
+
+#ev_01, #ev_02 {transform: translate( -100px, 0); z-index: -1; opacity: 0;filter: alpha(opacity=0);
+	transition: .5s all .5s cubic-bezier(0.75, 0, 0.25, 1);
+}
+
+.bg_holder {transition: all 2s cubic-bezier(0.9, 0.11, 0.61, 0.96);}
+#sideboard {transition: all 1s cubic-bezier(0.75, 0, 0.25, 1);}
+.ev1-open #ev_01 {z-index: 40; transform: rotateY(32deg) skew( 0deg, 10deg) translate( 0px, 0)!important; opacity: 1;filter: alpha(opacity=100);}
+.ev2-open #ev_02 {z-index: 40; transform: translate( 0, 0); opacity: 1;filter: alpha(opacity=100);}
+.ev2-open #sideboard {transform: translate( 0, 0) rotateY(0deg) skew( 0deg, 0deg);}
+
+.ev2-open .bg_holder {left: -100%;}
+.ev1-open .cha span {opacity: 1;filter: alpha(opacity=100);}
+.ev2-open .cha span {opacity: 0;filter: alpha(opacity=0);}
+.cha {perspective: 400px }
+.cha span {transition: all .5s cubic-bezier(0.9, 0.11, 0.61, 0.96);}
+.cha span.sha {transition-delay: .2s;transform: translate3d( 0, 0, 0) rotateY(0deg) skew( 0deg, 0deg);}
+.cha span.cha {transition-delay: .3s;transform: translate3d( 0, 0, 0) rotateY(0deg) skew( 0deg, 0deg);}
+.cha span.cloud {transition-delay: 1s;transform: translate3d( 0, 0, 0) rotateY(0deg) skew( 0deg, 0deg);}
+
+.ev2-open .cha span.sha {transition-delay: .2s;transform: translate3d( 0, 80px, 0) rotateY(0deg) skew( 0deg, 0deg);}
+.ev2-open .cha span.cha {transition-delay: .3s;transform: translate3d( 0, 80px, 0) rotateY(0deg) skew( 0deg, 0deg);}
+.ev2-open .cha span.cloud {transition-delay: 1s;transform: translate3d( 0, 10px, 100px) rotateY(0deg) skew( 0deg, 0deg);}
+
+.notibox .noti {transition: all .5s cubic-bezier(0.75, 0, 0.25, 1);}
+.btn_botnoti i {transition: .25s all .5s cubic-bezier(0.75, 0, 0.25, 1);}
+
+.btn_botnoti {transition: all .25s linear;}
+.dept1 a {transition: all .25s cubic-bezier(0.75, 0, 0.25, 1);}
+.tab_content > div {transition: all .5s cubic-bezier(0.75, 0, 0.25, 1);}

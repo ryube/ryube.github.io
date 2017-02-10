@@ -1,0 +1,96 @@
+body {background: #030101;}
+
+.container {position:relative; width:1100px; margin:0 auto;  z-index:10; }
+.bg_left {position:absolute; top:0; left:-550px; width:50%; height: 10250px; background:url('../img/ev_intro/bg_left.jpg') right top no-repeat; }
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 10250px; *margin-left:-1px; _margin-left:0px; background:url('../img/ev_intro/bg_right.jpg') 550px top no-repeat; }
+.wrap {overflow: hidden;}
+.wrap_intro_nav {position: relative; width: 1140px; margin: 0 auto; z-index: 50;}
+.pm_intro_nav {position: absolute; left: -64px; top: -65px;width: 332px; height: 529px; background: url('../img/ev_intro/bg_intro_nav_set.png') no-repeat 0 0; z-index: 100;}
+.bg_0 {background-position: -332px 0;}
+.bg_1 {background-position: -664px 0;}
+.bg_2 {background-position: -996px 0;}
+.bg_3 {background-position: -1328px 0;}
+.bg_4 {background-position: -1660px 0;}
+.pm_intro_nav .btn_movie {width: 69px; height: 66px; left: 118px; top: 93px;}
+.pm_intro_nav .btn_synopsis {width: 79px; height: 49px; left: 29px; top: 145px;}
+.pm_intro_nav .btn_infector {width: 73px; height: 77px; left: 82px; top: 194px;}
+.pm_intro_nav .btn_human {width: 78px; height: 66px; left: 118px; top: 280px;}
+.pm_intro_nav .btn_map {width: 72px; height: 73px; left: 64px; top: 346px;}
+
+.header {position:relative; height: 1237px; background:url('../img/ev_intro/bg_header.jpg') no-repeat; z-index:40;}
+.mov {position: absolute; left: 100px; top: 635px;width: 900px; height: 535px; z-index: 50;}
+
+.event_01 .scene_01 {position:relative; height: 2403px; background:url('../img/ev_intro/bg_ev01_01.jpg') no-repeat; z-index:40;}
+.wrap_p_hide {position: absolute; left: 50%; top: 481px; margin-left:  -137px; width: 274px; height: 73px; background: url('../img/ev_intro/img_not_today.png') no-repeat 0 0;}
+.wrap_p_hide input {position: absolute; width: 14px; height: 14px; left: 36px; top: 24px;}
+.wrap_p_hide a {width: 184px; height: 34px; left: 56px; top: 13px;}
+.zombie_fade {}
+.zombie_fade span {display: block; position: absolute; opacity: 0; filter: alpha(opacity=0); margin: 5px 5px 0 0;}
+.zombie_fade span img {vertical-align: top;}
+.zombie_fade .obj_01 {left: 355px; top: 997px; width: 153px; height: 197px;}
+.zombie_fade .obj_02 {left: 545px; top: 1028px; width: 273px; height: 257px;}
+.zombie_fade .obj_03 {left: 454px; top: 788px; width: 813px; height: 607px;}
+
+.para_ani01 span {display: block; position: absolute; opacity: 0; filter: alpha(opacity=0);}
+.para_ani01 span img {vertical-align: top;}
+.para_ani01 .obj_01 {left: 291px; bottom: 578px; width: 115px; height: 138px; padding-bottom: 90px;}
+.para_ani01 .obj_02 {left: 906px; bottom: 648px; width: 206px; height: 245px; padding-bottom: 120px;}
+.para_ani01 .obj_03 {left: 0px; bottom: 568px; width: 262px; height: 292px; padding-bottom: 140px;}
+
+.event_01 .scene_02 {position:relative; height: 980px; background:url('../img/ev_intro/bg_ev01_02.jpg') no-repeat; z-index:40;}
+.event_02 {position:relative; height: 1870px; background:url('../img/ev_intro/bg_ev02.jpg') no-repeat; z-index:40;}
+.event_03 {position:relative; height: 1655px; background:url('../img/ev_intro/bg_ev03.jpg') no-repeat; z-index:40;}
+.event_04 {position:relative; height: 1915px; background:url('../img/ev_intro/bg_ev04.jpg') no-repeat; z-index:40;}
+
+.para_ani02 span {display: block; position: absolute; opacity: 0; filter: alpha(opacity=0);}
+.para_ani02 span img {vertical-align: top;}
+.para_ani02 .obj_01 {left: 47px; bottom: 1196px; width: 206px; height: 245px; padding-bottom: 120px;}
+.para_ani02 .obj_02 {left: 550px; bottom: 1195px; width: 116px; height: 139px; padding-bottom: 60px;}
+.para_ani02 .obj_03 {left: 812px; bottom: 1175px; width: 246px; height: 274px; padding-bottom: 120px;}
+.para_ani02 .obj_04 {left: 690px; bottom: 1391px; width: 71px; height: 85px; padding-bottom: 30px;}
+
+.event_04 .map_point {position: absolute; left: 0; top: 755px; width: 100%; height: 431px;}
+.event_04 .btn_screen_l, .event_04 .btn_screen_r {width: 49px; text-indent: -9999px; height: 55px; opacity: .5; filter: alpha(opacity=50);}
+.event_04 .btn_screen_l:hover, .event_04 .btn_screen_r:hover {opacity: 1; filter: alpha(opacity=100);}
+.event_04 .btn_screen_l {background: url('../img/ev_intro/btn_screen_left.png') no-repeat 0 0;}
+.event_04 .btn_screen_r {background: url('../img/ev_intro/btn_screen_right.png') no-repeat 0 0;}
+.event_04 .sp01 {left: 417px; top: 35px;}
+.event_04 .sp02 {left: 658px; top: 10px;}
+.event_04 .sp03 {left: 333px; top: 97px;}
+.event_04 .sp04 {left: 521px; top: 136px;}
+.event_04 .sp05 {left: 717px; top: 115px;}
+.event_04 .sp06 {left: 427px; top: 190px;}
+.event_04 .sp07 {left: 637px; top: 194px;}
+.event_04 .sp08 {left: 420px; top: 344px;}
+.event_04 .sp09 {left: 658px; top: 362px;}
+.event_04 .map_point_list {position: absolute; left: 119px; top: 1409px;width: 960px; height: 330px;}
+.event_04 .map_point_list li {float: left; width: 320px; height: 170px; position: relative;}
+.event_04 .map_point_list li a {width: 210px; height: 45px; left: 0; top: 0;}
+
+
+.footer {position:relative; height:190px; text-align: center; background:url('../img/ev_intro/bg_footer.jpg') no-repeat; z-index:40;}
+.footer p {padding-top: 75px;}
+.footer .footer_fix {position: relative; width: 635px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url('../img/ev_intro/txt_foot.png') no-repeat 0 50%;}
+.footer .btn {height: 28px; top:0px;}
+.footer .redduck {left: 0px; width: 100px;}
+.footer .eventqna {right: 0; width: 65px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.daum {width: 64px; height: 26px; background:url('../img/ev_intro/btn_daum.png') no-repeat 0 0;}
+.naver_ci {width: 75px; height: 26px; background:url('../img/naver_ci.png') no-repeat 50% 50%;}
+.neowizgames {width: 94px; height: 26px; background:url('../img/ev_intro/btn_neowiz.png') no-repeat 50% 50%;}
+.footer .pmangevent {width: 99px; height: 26px; background: url('../img/ev_intro/btn_pmang_evall.png') no-repeat 50% 50%; margin-right: 0; margin-left: 3px;}
+
+
+.layer_pop {position: absolute; z-index: 100; display:none;}
+.pop_screen .layer_close {position: absolute; display: block; right: 50px; top: 48px; width: 44px; height: 44px; text-indent: -9999px; background: url('../img/ev_intro/btn_layer_-close.png') no-repeat 0 0; z-index: 101}
+.pop_screen {top: 8814px !important; background: url('../img/ev_intro/bg_pop_slider.png') no-repeat 0 0; width: 968px; height: 585px;}
+.pop_screen .img_holder {position: absolute; width: 900px; height: 500px; left: 39px; top: 28px; overflow: hidden;}
+.pop_screen .img_holder img {display: none;}
+.pop_screen .btn_sc_r, .pop_screen .btn_sc_l {position: absolute; top: 440px; display: block; width: 25px; height: 50px; z-index: 200; text-indent: -9999px;}
+.pop_screen .btn_sc_r {right: 69px; background: url('../img/ev_intro/btn_slider_left.png') no-repeat 0 0;}
+.pop_screen .btn_sc_l {right: 154px; background: url('../img/ev_intro/btn_slider_right.png') no-repeat 0 0;}
+
+.pop_banner {display: block; left: 786px !important; top: 40px !important; width: 350px; height: 360px; background: url('../img/ev_intro/pop_banner.png') no-repeat 0 0;}
+.pop_banner .layer_close {position: absolute; display: block; right: 36px; top: 23px; width: 43px; height: 43px; text-indent: -9999px; z-index: 101}
+.pop_banner .btn_not_today {left: 69px; top: 285px; width: 215px; height: 34px;}
+.pop_banner .btn_b_link {width: 350px; height: 225px; left: 0; top: 60px;}

@@ -1,0 +1,62 @@
+body {background: #010101;}
+
+.container {position:relative; width:990px; margin:0 auto;  z-index:10; }
+.bg_left {position:absolute; top:0; left:-495px; width:50%; height: 2505px; background:url(../img/ev_7_1/bg_left.jpg) no-repeat right 170px; }
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 2505px; *margin-left:-1px; _margin-left:0px; background: url(../img/ev_7_1/bg_right.jpg) no-repeat 495px 170px; }
+.wrap {overflow: hidden;}
+
+.event_01 {position:relative; height: 1218px; background:url(../img/ev_7_1/ev_01.jpg) no-repeat; z-index:40;}
+.event_01 .btn_party {width: 208px; height: 105px; right: 168px; top: 492px;}
+.event_01 .a_bg {display: block; position: absolute; width: 418px; height: 324px; left: 451px; top: 449px; background: url(../img/ev_7_1/btn_apply.jpg) no-repeat 0 0;}
+.event_01 .btn_party:hover + .a_bg {display: none;}
+.event_01 .btn_noti01 {width: 87px; height: 18px; right: 240px; top: 294px;}
+
+.event_02  {position:relative; height: 558px; background:url(../img/ev_7_1/ev_02.jpg) no-repeat; z-index:40;}
+.event_02 .btn_noti02 {width: 105px; height: 29px; left: 491px; top: 121px;}
+.event_02 .btn_fan {width: 160px; height: 66px; left: 0px; top: 410px;}
+.event_02 .btn_ucc {width: 197px; height: 66px; left: 179px; top: 410px;}
+
+.event_03  {position:relative; height: 425px; background:url(../img/ev_7_1/ev_03.jpg) no-repeat; z-index:40;}
+.event_03 .btn_noti03 {width: 105px; height: 29px; left: 560px; top: 40px;}
+.event_03 .btn_pops {width: 144px; height: 66px; right: 0px; top: 241px;}
+
+.footer {position:relative; height:90px; text-align: center; background:url(../img/ev_7_1/bg_foot.jpg) no-repeat; z-index:40;}
+.footer p {padding-top: 4px;}
+.footer .footer_fix {position: relative; width: 596px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url(../img/ev_7_1/txt_foot.png) no-repeat 0 50%;}
+.footer .btn {height: 28px; top:0px;}
+.footer .redduck {left: 0px; width: 100px;}
+.footer .eventqna {right: 110px; width: 65px;}
+.footer .pmangevent {right: 0; width: 101px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.footer .neowizgames_ci {width: 94px; height: 26px; background:url(../img/ev_7_1/neowiz_ci.png) no-repeat 50% 50%;}
+.footer .daum_ci {width: 94px; height: 26px; background:url(../img/ev_7_1/daum_ci.png) no-repeat 50% 50%;}
+.footer .naver_ci {width: 94px; height: 26px; background:url(../img/ev_7_1/naver_ci.png) no-repeat 50% 50%;}
+
+
+.layer_pop {position: absolute; z-index: 100; display:none;}
+.layer_pop .pop_body {position: absolute; width: 100%; height: 100%; left: 0; bottom: 0;}
+.layer_pop .layer_close {position: absolute; display: block; right: 20px; top: 20px; width: 37px; height: 34px; text-indent: -9999px; z-index: 101}
+
+.pop_notice01  {width: 698px; height: 265px; top: 468px !important; background: url(../img/ev_7_1/bg_pop_party.png) no-repeat 0 100%;}
+.pop_notice01 .layer_close {position: absolute; display: block; right: 20px; top: 18px; width: 25px; height: 25px; text-indent: -9999px; z-index: 101}
+
+.pop_notice02  {width: 698px; height: 265px; top: 1526px !important; background: url(../img/ev_7_1/bg_pop_cele.png) no-repeat 0 100%;}
+.pop_notice02 .layer_close {position: absolute; display: block; right: 20px; top: 18px; width: 25px; height: 25px; text-indent: -9999px; z-index: 101}
+
+.pop_notice03  {width: 698px; height: 265px; top: 2018px  !important; background: url(../img/ev_7_1/bg_pop_burning.png) no-repeat 0 100%;}
+.pop_notice03 .layer_close {position: absolute; display: block; right: 20px; top: 18px; width: 25px; height: 25px; text-indent: -9999px; z-index: 101}
+
+.pop_apply {width: 698px; height: 547px; top: 468px !important; background: url(../img/ev_7_1/bg_pop_apply.png) no-repeat 0 100%;}
+.pop_apply .layer_close {position: absolute; display: block; left: 353px; top: 463px; width: 107px; height: 36px; text-indent: -9999px; z-index: 101}
+.pop_apply .btn_confirm {left: 235px; top: 463px;  width: 107px; height: 36px; }
+.pop_apply .pop_body input[type="text"] { height: 14px; padding: 11px 10px 10px; color: #fff; font-size: 14px; font-weight: bold; background: transparent; outline: none; text-align: center;}
+.pop_apply .pop_body input.user_name {position: absolute; left: 117px; bottom: 316px; width: 76px;}
+.pop_apply .pop_body .phone_num {position: absolute; left: 306px; bottom: 316px; overflow: hidden;}
+.pop_apply .pop_body .phone_num input {width: 47px; padding: 11px 4px 10px; float: left;}
+.pop_apply .btn_modi {width: 107px; height: 36px; left: 522px; top: 195px;}
+.pop_apply .input_chk {width: 13px; height: 13px; margin: 0; padding: 0; position: absolute; left: 69px; bottom: 104px;}
+.pop_apply .btn_poppri {width: 65px; height: 23px; left: 290px; top: 427px;}
+.pop_apply .desc {position: absolute; left: 69px; bottom: 129px; width: 540px; height: 115px; padding: 10px; overflow-x: hidden; overflow-y: scroll; line-height: 20px; color: #e1e1e1;}
+.pop_apply .desc h3 {font-weight: bold;}
+.pop_apply .desc ul {margin: 10px 5px;}
+.pop_apply .desc p {margin: 15px 5px;}

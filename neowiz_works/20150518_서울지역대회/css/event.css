@@ -1,0 +1,214 @@
+@charset "euc-kr";
+
+/* css 초기화 ================================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, select, input, textarea {
+	margin:0; padding:0; border:0; vertical-align:baseline; }
+body, input, textarea, select, td { font-size:12px; font-family: '나눔바른고딕', NanumBarunGothic, '돋음', dotum; color:#000000; }
+h1, h2, h3, h4, h5, h6 { font-size:12px; }
+h1, h2, h3, h4, h5, h6, strong { font-weight:bold; }
+a { text-decoration:none; color:#000000; }
+a:hover { text-decoration:underline; }
+em { font-style:normal; } 
+ol, ul { list-style: none; }
+table { margin:0; outline:0; border-collapse:collapse; border-spacing:0; }
+caption, th, td { font-weight:normal; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+/* css 초기화 ================================================================================== */
+
+.btn, .btn_layer, .btn_mov, .btn_pos { display:block; position:absolute; background: url(../img/blank.gif); text-indent:-9999px; z-index:10; background-size: 100%;}
+.wrap { position:relative; width:100%; height:100%; padding-top: 0; overflow: hidden; }
+.hide {position: absolute; left: -9000px;}
+.contents { position:relative; width:100%; z-index:30; }
+
+/** {transition: all .25s; -webkit-transition: all .25s;}*/
+
+.wrap_pm_gnb {position: absolute; left: 0; top: 0; width: 100%; height: 154px; z-index: 200;}
+.wrap_pm_gnb.fixed {position: fixed; top: 0;}
+.wrap_pm_gnb .pm_gnb {position: relative; width: 1200px; height: 154px; margin: 0 auto; background: url(../img/ev_nav.png) no-repeat 0 0; z-index: 100;}
+.wrap_pm_gnb .bg_left { position: absolute; top: 0; left: -600px; width:50%; height: 154px; background:url(../img/ev_nav_left.png) repeat-x right top;}
+.wrap_pm_gnb .bg_right { position: absolute; top: 0; right: -600px; left: auto !important; width:50%; height: 166px; background:url(../img/ev_nav_right.png) repeat-x left top;}
+
+.wrap_pm_gnb a.btn_ava_logo {left: 0px; top: 0; width: 124px; height: 107px;}
+.wrap_pm_gnb a.btn_login {right: 133px; top: 34px; width: 66px; height: 32px;}
+.wrap_pm_gnb a.btn_login.on {background: url(../img/btn_logout.jpg) no-repeat 0 0;}
+.wrap_pm_gnb a.btn_gamestart {right: 24px; top: 34px; width: 101px; height: 32px;}
+
+.gnb_link {position: absolute; left: 139px; top: 0px;}
+.gnb_link li {float: left; position: relative; height: 127px;}
+.gnb_link li a {display: block; height: 100%; left: 0; top: 0; background: no-repeat; text-indent: -9999px;}
+.gnb_link .flex-active a, .gnb_link li a:hover {background-image: url(../img/ev_nav_on.png) }
+.gnb_link li.l01 a {width: 137px; background-position: 0 0;} 
+.gnb_link li.l02 a {width: 135px; background-position: -137px 0;} 
+.gnb_link li.l03 a {width: 136px; background-position: -272px 0;} 
+.gnb_link li.l04 a {width: 135px; background-position: -408px 0;} 
+.gnb_link li.l05 a {width: 135px; background-position: -543px 0;} 
+.gnb_link li.l06 a {width: 135px; background-position: -678px 0;} 
+
+
+.container {position:relative; min-width: 1200px; margin:0 auto;  z-index:10;}
+
+.ev_head {position:relative; height: 1500px; background:url(../img/bg_wrap.jpg) no-repeat 50% 0; z-index:40;}
+
+.lanparty_slider {height: 1500px; overflow: hidden;}
+.lanparty_slider .slides li {position: relative; display: none; height: 1500px; overflow: hidden;}
+.flex-direction-nav {position: absolute; left:0; top:0; z-index: 100; display: none;}
+.flex-direction-nav .flex-prev, .flex-direction-nav .flex-next {position: absolute; width: 62px; height: 68px; background-position: 0 0; background-repeat: no-repeat; text-indent: -9999px;}
+
+
+.lanparty_slider li span {display: block; position: absolute; width: 500px; height: 500px;}
+.lanparty_slider .holder {width: 2500px; height: 1500px; position: absolute; left: 50%; top: 0; margin: 0 0 0 -1250px;}
+
+.lanparty_slider li span.bg01 {left: 0; top: 0;}
+.lanparty_slider li span.bg02 {left: 500px; top: 0;}
+.lanparty_slider li span.bg03 {left: 1000px; top: 0;}
+.lanparty_slider li span.bg04 {left: 1500px; top: 0;}
+.lanparty_slider li span.bg05 {left: 2000px; top: 0;}
+.lanparty_slider li span.bg06 {left: 0; top: 500px;}
+.lanparty_slider li span.bg07 {left: 500px; top: 500px;}
+.lanparty_slider li span.bg08 {left: 1000px; top: 500px;}
+.lanparty_slider li span.bg09 {left: 1500px; top: 500px;}
+.lanparty_slider li span.bg10 {left: 2000px; top: 500px;}
+.lanparty_slider li span.bg11 {left: 0; top: 1000px;}
+.lanparty_slider li span.bg12 {left: 500px; top: 1000px;}
+.lanparty_slider li span.bg13 {left: 1000px; top: 1000px;}
+.lanparty_slider li span.bg14 {left: 1500px; top: 1000px;}
+.lanparty_slider li span.bg15 {left: 2000px; top: 1000px;}
+
+.lanparty_slider li.ev_01 span.bg01 {background: url(../img/1/main_1_01.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg02 {background: url(../img/1/main_1_02.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg03 {background: url(../img/1/main_1_03.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg04 {background: url(../img/1/main_1_04.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg05 {background: url(../img/1/main_1_05.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg06 {background: url(../img/1/main_1_06.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg07 {background: url(../img/1/main_1_07.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg08 {background: url(../img/1/main_1_08.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg09 {background: url(../img/1/main_1_09.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg10 {background: url(../img/1/main_1_10.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg11 {background: url(../img/1/main_1_11.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg12 {background: url(../img/1/main_1_12.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg13 {background: url(../img/1/main_1_13.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg14 {background: url(../img/1/main_1_14.png) no-repeat 0 0;}
+.lanparty_slider li.ev_01 span.bg15 {background: url(../img/1/main_1_15.png) no-repeat 0 0;}
+
+.lanparty_slider li.ev_02 span.bg01 {background: url(../img/3/main_1_01.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg02 {background: url(../img/3/main_1_02.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg03 {background: url(../img/3/main_1_03.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg04 {background: url(../img/3/main_1_04.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg05 {background: url(../img/3/main_1_05.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg06 {background: url(../img/3/main_1_06.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg07 {background: url(../img/3/main_1_07.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg08 {background: url(../img/3/main_1_08.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg09 {background: url(../img/3/main_1_09.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg10 {background: url(../img/3/main_1_10.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg11 {background: url(../img/3/main_1_11.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg12 {background: url(../img/3/main_1_12.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg13 {background: url(../img/3/main_1_13.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg14 {background: url(../img/3/main_1_14.png) no-repeat 0 0;}
+.lanparty_slider li.ev_02 span.bg15 {background: url(../img/3/main_1_15.png) no-repeat 0 0;}
+
+.lanparty_slider li.ev_03 span.bg01 {background: url(../img/4/main_1_01.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg02 {background: url(../img/4/main_1_02.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg03 {background: url(../img/4/main_1_03.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg04 {background: url(../img/4/main_1_04.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg05 {background: url(../img/4/main_1_05.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg06 {background: url(../img/4/main_1_06.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg07 {background: url(../img/4/main_1_07.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg08 {background: url(../img/4/main_1_08.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg09 {background: url(../img/4/main_1_09.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg10 {background: url(../img/4/main_1_10.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg11 {background: url(../img/4/main_1_11.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg12 {background: url(../img/4/main_1_12.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg13 {background: url(../img/4/main_1_13.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg14 {background: url(../img/4/main_1_14.png) no-repeat 0 0;}
+.lanparty_slider li.ev_03 span.bg15 {background: url(../img/4/main_1_15.png) no-repeat 0 0;}
+
+.lanparty_slider li.ev_04 span.bg01 {background: url(../img/5/main_1_01.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg02 {background: url(../img/5/main_1_02.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg03 {background: url(../img/5/main_1_03.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg04 {background: url(../img/5/main_1_04.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg05 {background: url(../img/5/main_1_05.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg06 {background: url(../img/5/main_1_06.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg07 {background: url(../img/5/main_1_07.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg08 {background: url(../img/5/main_1_08.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg09 {background: url(../img/5/main_1_09.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg10 {background: url(../img/5/main_1_10.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg11 {background: url(../img/5/main_1_11.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg12 {background: url(../img/5/main_1_12.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg13 {background: url(../img/5/main_1_13.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg14 {background: url(../img/5/main_1_14.png) no-repeat 0 0;}
+.lanparty_slider li.ev_04 span.bg15 {background: url(../img/5/main_1_15.png) no-repeat 0 0;}
+
+.lanparty_slider li.ev_05 span.bg01 {background: url(../img/6/main_1_01.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg02 {background: url(../img/6/main_1_02.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg03 {background: url(../img/6/main_1_03.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg04 {background: url(../img/6/main_1_04.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg05 {background: url(../img/6/main_1_05.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg06 {background: url(../img/6/main_1_06.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg07 {background: url(../img/6/main_1_07.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg08 {background: url(../img/6/main_1_08.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg09 {background: url(../img/6/main_1_09.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg10 {background: url(../img/6/main_1_10.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg11 {background: url(../img/6/main_1_11.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg12 {background: url(../img/6/main_1_12.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg13 {background: url(../img/6/main_1_13.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg14 {background: url(../img/6/main_1_14.png) no-repeat 0 0;}
+.lanparty_slider li.ev_05 span.bg15 {background: url(../img/6/main_1_15.png) no-repeat 0 0;}
+
+.lanparty_slider li.ev_06 span.bg01 {background: url(../img/2/main_1_01.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg02 {background: url(../img/2/main_1_02.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg03 {background: url(../img/2/main_1_03.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg04 {background: url(../img/2/main_1_04.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg05 {background: url(../img/2/main_1_05.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg06 {background: url(../img/2/main_1_06.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg07 {background: url(../img/2/main_1_07.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg08 {background: url(../img/2/main_1_08.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg09 {background: url(../img/2/main_1_09.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg10 {background: url(../img/2/main_1_10.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg11 {background: url(../img/2/main_1_11.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg12 {background: url(../img/2/main_1_12.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg13 {background: url(../img/2/main_1_13.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg14 {background: url(../img/2/main_1_14.png) no-repeat 0 0;}
+.lanparty_slider li.ev_06 span.bg15 {background: url(../img/2/main_1_15.png) no-repeat 0 0;}
+
+.btn_rule {width: 172px; height: 46px; left: 50%; top: 875px; margin-left: -95px;}
+.btn_apply {width: 235px; height: 64px; left: 50%; top: 1096px; margin-left: -117px;}
+.map {position: absolute; left: 50%; top: 570px; margin-left: -432px}
+
+/* 미리보기 */
+.preview {visibility:hidden; position:absolute; overflow:hidden; margin:3px 0 0 1px; padding:10px 14px 10px 14px; width:420px; color:#555; border:1px solid #e5e5e5; background:#ffffff; font-size:13px; line-height:21px; z-index:50; text-align:left; word-break:break-all; white-space:normal;}
+
+.userMenu {position:absolute; border-collapse: collapse; z-index:33 !important; border:solid 1px #e5e5e5; border-bottom: 0 none; padding: 9px 0;}
+.userMenu table {background:#fff;}
+.userMenu td {padding:10px 10px; border-bottom: solid 1px #e5e5e5; background: #fff; cursor: pointer; vertical-align: middle; color: #777;}
+.userMenu .over {background: #eee;}
+.userMenu .udActivate {background: #eee; color: #333;}
+.userMenu .udDeactivate {background: #fff;}
+
+
+.footer {position:relative; width: 1200px; margin:-50px auto 0; height: 50px; text-align: center; z-index:40;}
+.footer p {padding: 0px 0 0 0;}
+.footer .footer_fix {position: relative; width: 589px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url(../img/txt_foot.png) no-repeat 0 50%;}
+.footer .btn {height: 28px; top: 0px;}
+.footer .redduck {top: 0; left: 0px; width: 100px;}
+.footer .eventqna {right: 104px; width: 65px;}
+.footer .pmangevent {right: 0; width: 86px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.footer .neowizgames_ci {width: 94px; height: 26px; background:url(../img/ci_neowiz.png) no-repeat 50% 50%;}
+.footer .daum_ci {width: 94px; height: 26px; background:url(../img/ci_daum.png) no-repeat 50% 50%;}
+.footer .naver_ci {width: 94px; height: 26px; background:url(../img/ci_naver.png) no-repeat 50% 50%;}
+
+
+.layer_pop {position: absolute; z-index: 1000; display:none; margin-top: -25px; opacity: 0; filter: alpha(opacity=0);}
+.layer_pop.on {display: block;}
+.layer_pop .layer_close {position: absolute; display: block; text-indent: -9999px; z-index: 101}
+
+.pop_dim {position: fixed; left: 0; top: 0; width: 100%; height: 100%; z-index: 990; display:none; opacity: 0; filter: alpha(opacity=0); background: #000}
+.pop_dim.on {display: block;}
+/*
+.pop_onair {width: 1100px; height: 865px; background: url(../img/pop_onair.png) no-repeat 0 0;}
+.pop_onair .layer_close {width: 50px; height: 50px;  right: 0px; top: 0px;*/

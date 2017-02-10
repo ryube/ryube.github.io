@@ -1,0 +1,92 @@
+@charset "euc-kr";
+
+/* css 초기화 ================================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, select, input, textarea {
+	margin:0; padding:0; border:0; vertical-align:baseline; }
+body, input, textarea, select, td { font-size:12px; font-family:돋움; color:#000000; }
+h1, h2, h3, h4, h5, h6 { font-size:12px; }
+h1, h2, h3, h4, h5, h6, strong { font-weight:bold; }
+a { text-decoration:none; color:#000000; }
+a:hover { text-decoration:underline; }
+em { font-style:normal; } 
+ol, ul { list-style: none; }
+table { margin:0; outline:0; border-collapse:collapse; border-spacing:0; }
+caption, th, td { font-weight:normal; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+/* css 초기화 ================================================================================== */
+
+a.btn, .btn_layer { display:block; position:absolute; background: url(../img/blank.gif); text-indent:-9999px; z-index:10;}
+.case_view {position: fixed;_position: absolute;top: 300px;right: 0;padding: 5px;background: #000;border: 2px solid #000;border-right: 0;opacity: 0.5;filter: alpha(opacity=50);z-index: 5000;}
+.case_view a {display: block;padding: 4px 5px 2px 5px;color: #fff;font-weight: bold;text-align: right;}
+.replace_text { position:absolute; left:-9999px; }
+.wrap { position:relative; width:100%; height:100%; padding-top: 170px;}
+.hide {position: absolute; left: -9000px;}
+.contents { position:relative; width:100%; z-index:30; }
+
+.wrap_pm_gnb {position: absolute; left: 0; top: 0; width: 100%;height: 170px; z-index: 200;}
+.wrap_pm_gnb.fixed {position: fixed; top: 0;}
+.wrap_pm_gnb .pm_gnb {position: relative; width: 1200px; height: 170px; margin: 0 auto; background: url(../img/ev_gnb.jpg) no-repeat 0 0; z-index: 100;}
+.wrap_pm_gnb .bg_left { position:absolute; top:0; left:-600px; width:50%; height: 170px;  background:url(../img/ev_gnb_left.jpg) right top no-repeat; }
+.wrap_pm_gnb .bg_right { position:absolute; top:0; left:50%; width:50%; height: 170px;  *margin-left:-1px; _margin-left:0px; background:url(../img/ev_gnb_right.jpg) 600px top no-repeat; }
+
+.pm_gnb .btn_7th {width: 133px; height: 122px; left: 11px; top: 23px;}
+
+.pm_gnb .t1 {position: absolute; left: 226px; top: 41px; padding-top: 50px; width: 350px; height: 96px;}
+.pm_gnb .t1:hover {background: url(../img/bg_t1.jpg) no-repeat 0 0;}
+.pm_gnb .t1 li {float: left; padding-right: 8px;}
+.pm_gnb .t1 li a {display: block; width: 100px; height: 44px; background: url(../img/btn_skin.jpg) no-repeat 0 0; text-indent: -99999px;}
+.pm_gnb .t1 li.list02 a {background-position: -108px 0}
+.pm_gnb .t1 li.list03 a {background-position: -216px 0}
+
+.pm_gnb .t1 li.list01 a:hover {background-position: 0 -44px;}
+.pm_gnb .t1 li.list02 a:hover {background-position: -108px -44px;}
+.pm_gnb .t1 li.list03 a:hover {background-position: -216px -44px;}
+
+.pm_gnb .t1 li.list01.on a {background-position: 0 -88px;}
+.pm_gnb .t1 li.list02.on a {background-position: -108px -88px;}
+.pm_gnb .t1 li.list03.on a {background-position: -216px -88px;}
+
+.pm_gnb .t2 {position: absolute; left: 612px; top: 41px; padding-top: 50px; width: 420px; height: 96px;}
+.pm_gnb .t2:hover {background: url(../img/bg_t2.jpg) no-repeat 0 0;}
+.pm_gnb .t2 li {float: left; padding-right: 8px;}
+.pm_gnb .t2 li a {display: block; height: 44px; background: url(../img/btn_ev.jpg) no-repeat 0 0; text-indent: -99999px;}
+
+.pm_gnb .t2 li.list01 a {width: 148px; background-position: 0 0}
+.pm_gnb .t2 li.list02 a {width: 44px; background-position: -156px 0}
+.pm_gnb .t2 li.list03 a {width: 96px; background-position: -208px 0}
+.pm_gnb .t2 li.list04 a {width: 44px; background-position: -312px 0}
+
+.pm_gnb .t2 li.list01 a:hover {background-position: 0 -44px}
+.pm_gnb .t2 li.list02 a:hover {background-position: -156px -44px}
+.pm_gnb .t2 li.list03 a:hover {background-position: -208px -44px}
+.pm_gnb .t2 li.list04 a:hover {background-position: -312px -44px}
+
+.pm_gnb .t2 li.list01.on a {background-position: 0 -88px}
+.pm_gnb .t2 li.list02.on a {background-position: -156px -88px}
+.pm_gnb .t2 li.list03.on a {background-position: -208px -88px}
+.pm_gnb .t2 li.list04.on a {background-position: -312px -88px}
+
+
+
+a.btn_login {width: 71px; height: 35px; right: 85px; top: 41px;}
+a.btn_login.on {background: url(../img/btn_login.jpg) no-repeat 0 0;}
+a.btn_game_start {width: 97px; height: 31px; right: 13px; top: 53px; background: url(../img/btn_start.jpg) no-repeat 0 0;}
+a.btn_ava {width: 69px; height: 35px; right: 16px; top: 41px;}
+a.btn_gamestart {width: 140px; height: 44px; right: 17px; top: 91px;}
+a.btn_gamestart:hover {background: url(../img/btn_game_start.jpg) no-repeat 0 0;}
+
+.userMenu {position:absolute;z-index:33 !important;border:solid 1px #000000;background:#f6c74f;}
+.userMenu table { background:#f6c74f; border-collapse:collapse;}
+.userMenu td {padding:9px 15px 7px 10px;background:#f6c74f;cursor:pointer;_cursor:hand;vertical-align:middle;color:#000000;letter-spacing:-1px;border-top:1px solid #e9b631;}
+.userMenu tr:first-child td {border-top:none;}
+.userMenu .over {background:#f6c74f;}
+.userMenu .udActivate {background:#f6c74f;color:#077fb7;}
+.userMenu .udDeactivate {background:#f6c74f;}
+
+.naver_ci {width: 91px; height: 26px; background:url(../img/naver_ci.png) no-repeat 50% 50%;}
+.daum {width: 64px; height: 26px; background:url(../img/btn_daum.png) no-repeat 0 0;}

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>피망 - 대한민국 No.1 게임포털 피망!</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<link type="text/css" rel="stylesheet" href="http://mm.pmang.com/pmang/is/event/2016/0724/css/event.css">
+<script src="http://www.pmang.com/global/javascript/jq/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://mm.pmang.com/pmang/is/event/2016/0724/js/jquery.flexslider.js"></script>
+<script type="text/javascript" src="http://mm.pmang.com/pmang/is/event/2016/0724/js/event.js"></script>
+</head>
+<body>
+<!--  개발 시 삭제 -->
+<style type="text/css">
+.scroll_value {padding: 10px;background: #1c5e92; border-radius: 6px; color: #fff; font: bold 15px dotum; position: fixed; left: 0%; bottom: 0%; text-align: center; z-index:9999; content: "scroll_value : "}
+</style>
+<div class="scroll_value" style=""></div>
+<!-- //개발 시 삭제 -->
+	<div class="container">
+		<div class="section ev_loop">
+			<a href="#" class="btn btn_logo">IRONSIGHT</a>
+			<div class="side">
+				<a href="#" class="btn_home">홈<u></u></a>
+				<a href="#" class="btn_login">로그인<u></u></a>
+				<a href="#" class="btn_gamestart">게임 스타트<u></u></a>
+				<a href="#" class="btn_nottoday">오늘하루보지않기<u></u></a>
+			</div>
+		 	<div class="pattern"></div>
+			<div class="bg"></div>
+			<div class="yt_video">
+				<div id="yt_video"></div>
+			</div>
+		
+			<h1>당신이 원하는 FPS는 무엇입니까?</h1>
+			<a href="#" class="btn btn_go">Go <u></u></a>
+			<span class="btn graph"><em></em></span>
+			<div class="section_select">
+				<div class="sec_box c1"><a href="#">
+					<i></i>
+					<b class="bg"><u></u></b>
+					<span class="btn t"><u></u></span>
+				</a></div>
+				<div class="sec_box c2"><a href="#">
+					<i></i>
+					<b class="bg"><u></u></b>
+					<span class="btn t"><u></u></span>
+				</a></div>
+				<div class="sec_box c3"><a href="#">
+					<i></i>
+					<b class="bg"><u></u></b>
+					<span class="btn t"><u></u></span>
+				</a></div>
+				<div class="sec_box c4"><a href="#">
+					<i></i>
+					<b class="bg"><u></u></b>
+					<span class="btn t"><u></u></span>
+				</a></div>
+				<div class="sec_box c5"><a href="#">
+					<i></i>
+					<b class="bg"><u></u></b>
+					<span class="btn t"><u></u></span>
+				</a></div>
+				<div class="sec_box c6"><a href="#">
+					<i></i>
+					<b class="bg"><u></u></b>
+					<span class="btn t"><u></u></span>
+				</a></div>
+			</div>
+		</div>
+		<div class="footer">
+			<p class="footer_in">
+				<a href="http://www.neowizgames.com/" class="neowizgames_ci" target="_blank" title="네오위즈 게임즈"></a>
+				<a href="http://wiplegames.com/" class="wiple_ci" target="_blank" title="WIPLE"></a>
+				<span class="copyright"></span>
+				<!-- <a href="#" class="btn_eventqna" target="_blank" title="이벤트 문의"></a> -->
+			</p>
+		</div>
+	</div>
+	<div class="pop_dim"></div>
+	
+<!--  개발 시 삭제 -->
+<style>
+#ui-helper {z-index: 999999}
+</style>
+<script type="text/javascript">
+	$.getScript('http://ndl.ds.neowiz.com/~ji9/ui-helper/js/jquery.ui-helper.js');
+	$.u = {
+		theme: 'legacy', // [flat || mini || legacy]
+		color: '#e81818', // if theme:'flat' ex) [#000000 || red]
+		marginLeft: -600, // start left position
+		animate: false, // start then move left position animation
+		position: 'fixed', // [fixed || absolute || static]
+		top: 200, // panel top position
+		draggable: true, // [true || false]
+		movementX: false, // if draggable, only horizon movement
+		helper : [
+			{
+				title : '기본 동작',
+				fold : false, // start then, pane fold [true || false]
+				items : [
+					{
+						subject : '로그인',
+						description : '로그인 전/후 토글하기',
+						value : 'button',
+						input : 'button', // [radio || checkbox || button]
+						checked : false, // default checked option
+						run : function() {
+							$('.btn_login').toggleClass('on');
+						}
+					}
+
+				]
+			}
+			
+		]
+	}
+</script>
+<!-- 개발 시 삭제 -->
+</body>
+</html>

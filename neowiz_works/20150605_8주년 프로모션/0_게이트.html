@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>피망 - 대한민국 No.1 게임포털 피망!</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<link type="text/css" rel="stylesheet" href="http://mm.pmang.com/pmang/ava/event/2015/0605/css/event.css">
+<link type="text/css" rel="stylesheet" href="http://mm.pmang.com/pmang/ava/event/2015/0605/css/event_gate.css">
+<script src="http://www.pmang.com/global/javascript/jq/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://mm.pmang.com/pmang/ava/event/2015/0605/js/event.js"></script>
+</head>
+<body>
+<!--  개발 시 삭제 -->
+<div style="height:40px; border-bottom:4px solid red; background:#fff;"></div>
+<style type="text/css">
+.scroll_value {padding: 10px;background: #1c5e92; border-radius: 6px; color: #fff; font: bold 15px dotum; position: fixed; left: 0%; bottom: 0%; text-align: center; z-index:9999; content: "scroll_value : "}
+</style>
+<div class="scroll_value" style=""></div>
+<!-- //개발 시 삭제 -->
+<div class="wrap">
+	<div class="section container">
+		<div class="section ev_01">
+			<a href="#" class="btn btn_logo">AVA</a>
+			<a href="#" class="btn btn_notweek">일주일간 보지 않기</a>
+			<a href="#" class="btn btn_nottoday">오늘 하루 보지 않기</a>
+			<a href="#" class="btn btn_login">로그인</a>
+			<a href="#" class="btn btn_gamestart">게임시작</a>
+			
+			<h1 class="hide">축하의 빵빠레를 울려라 ! AVA 8 주년</h1>
+			<a href="#" class="btn btn_noti">8 주년 이벤트 공지</a>
+
+			<ul class="ev_links">
+				<li class="li1 on"><a href="1_라스트맨스탠딩.html" class="btn">혼자 잘살아라 [라스트맨 스탠딩]<i></i></a></li>
+				<li class="li2 on"><a href="2_데스벨리.html" class="btn">참 잘났어요 [데스밸리 리뉴얼]<i></i></a></li>
+				<li class="li3 on"><a href="3_감염.html" class="btn">원하는대로 [감염모드 개선]<i></i></a></li>
+				<li class="li4"><a href="#" class="btn">아싸 따봉 8주년 신나는 이벤트<i></i></a></li>
+				<li class="li5 on"><a href="5_선물가게_최종.html" class="btn">쌩큐베리감사 8주년 선물가게<i></i></a></li>
+			</ul>
+			<span class="char"></span>
+			<span class="rz r1"></span>
+			<span class="rz r2"></span>
+			<span class="rz r3"></span>
+			<span class="rz r4"></span>
+			<span class="rz r5"></span>
+		</div>
+		<div class="footer">
+			<p>
+				<!-- Naver CI -->
+				<!-- <a href="#" class="btn_ci naver_ci" title="Naver"></a> -->
+				<!-- DAUM CI -->
+				<a href="#" class="btn_ci daum_ci" title="Daum"></a>
+				<!-- NEOWIZ CI -->
+				<a href="http://www.neowizgames.com/" class="btn_ci neowizgames_ci" target="_blank" title="네오위즈 게임즈"></a>
+				<span class="footer_fix">
+					<a href="http://www.redduck.com/" class="btn redduck" target="_blank" title="레드덕"></a>
+					<a href="#" class="btn eventqna" target="_blank" title="이벤트 문의"></a>
+					<a href="#" class="btn pmangevent" target="_blank" title="피망 전체 이벤트"></a>
+					<span class="copyright"></span>
+				</span>
+			</p>
+		</div>
+	</div>
+	<div class="bg_left"></div><div class="bg_right"></div>
+</div>
+<!--  개발 시 삭제 -->
+<style>
+#ui-helper {z-index: 999999}
+</style>
+<script type="text/javascript">
+	$.getScript('http://ndl.ds.neowiz.com/~ji9/ui-helper/js/jquery.ui-helper.js');
+	$.u = {
+		theme: 'legacy', // [flat || mini || legacy]
+		color: '#e81818', // if theme:'flat' ex) [#000000 || red]
+		marginLeft: -600, // start left position
+		animate: false, // start then move left position animation
+		position: 'fixed', // [fixed || absolute || static]
+		top: 200, // panel top position
+		draggable: true, // [true || false]
+		movementX: false, // if draggable, only horizon movement
+		helper : [
+			{
+				title : '기본 동작',
+				fold : false, // start then, pane fold [true || false]
+				items : [
+					{
+						subject : '로그인',
+						description : '로그인 전/후 토글하기',
+						value : 'button',
+						input : 'button', // [radio || checkbox || button]
+						checked : false, // default checked option
+						run : function() {
+							$('.btn_login').toggleClass('on');
+						}
+					}
+
+				]
+			}
+		]
+	}
+</script>
+<!-- 개발 시 삭제 -->
+</body>
+</html>

@@ -1,0 +1,721 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>피망 - 대한민국 No.1 게임포털 피망!</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<script type="text/javascript" src="http://www.pmang.com/global/javascript/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="http://file.pmang.kr/images/pmang/ava/superleague/css/layout.css">
+<script type="text/javascript" src="http://file.pmang.kr/images/pmang/ava/superleague/js/ui_avasuper.js"></script>
+</head>	
+<body class="sl_sub">
+<!-- 개발시 삭제 -->
+	<style type="text/css">
+	</style>
+
+	<!--  임시 GNB -->
+	<div style="height:40px; border-bottom:3px solid red; background:#fff;"></div>
+
+<!--// 개발시 삭제 -->
+<div class="wrap">
+	<div class="section header">
+		<!-- bg --><div class="bg_left"></div><div class="bg_right"></div><!-- // bg -->
+		<div class="section contents">
+			<ul class="nav">
+				<li><a href="#" class="sl">Super league</a></li>
+				<li><a href="#" class="notice">리그공지</a></li>
+				<li class="on"><a href="#" class="clan">클랜리그</a></li>
+				<li><a href="#" class="personal">개인리그</a></li>
+				<li><a href="#" class="reward">혜택과 보상</a></li>
+				<li><a href="#" class="hall">명예의 전당</a></li>
+			</ul>
+			<a href="#" class="btn_ava_home">A.V.A 홈페이지로 이동</a>
+			<span class="gamestart"><a href="#">게임 시작</a></span>
+		</div>
+	</div>
+	<div class="section top_visual">
+		<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_sub_sl.png" alt="Victory Seacon 3 Super League">
+		<!-- 로그인 전 -->
+		<div class="loginbox_on log_off">
+			<!-- <span class="loginbox_lv"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/level/28.gif" alt=""></span> -->
+			<span class="loginbox_userid">먼저 로그인 해주세요</span>
+			<!-- SNS 로그인 -->
+			<span class="sns"><a href="#"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/ico_login_f.png" title="facebook" alt="facebook"></a><a href="#"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/ico_login_g.png" title="google+" alt="google+"></a></span>
+			<a href="#" class="btn_login">로그아웃</a>
+			<div class="clan_record">
+				<strong class="hide">클랜리그</strong>
+				<!-- <p class="clan_mark"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""></p> -->
+				<p class="clan_name">-</p>
+				<p class="clan_rank">-</p>
+			</div>
+			<div class="person_record">
+				<strong class="hide">개인리그</strong>
+				<p class="round">라운드작전 : <span class="rank">-</span></p>
+				<p class="escort">호위작전 : <span class="rank">-</span></p>
+			</div>
+		</div>
+	</div>	
+	<div class="section wrap_container">	
+		<!-- bg --><div class="bg_left"></div><div class="bg_right"></div><!-- // bg -->
+		<div class="section container">
+			<div class="contents">
+				<h3 class="tl_seasoninfo">
+					<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_preseason_01.png" alt="캠프배치전 시즌정보">
+					<span class="desc">2013 Victory Season 1 ( 9.13 ~ 10.13 )</span>
+					<div class="combobox_01">
+						<p class="tl_combobox">다른시즌 정보보기</p>
+						<ul>
+							<li><a href="#"><span>2013 Victory 배치캠프 Season (09.11 ~ 10.22)</span></a></li>
+							<li><a href="#"><span>2013 Victory 배치캠프 Season (09.11 ~ 10.22)</span></a></li>
+							<li><a href="#"><span>2013 Victory 배치캠프 Season (09.11 ~ 10.22)</span></a></li>
+							<li><a href="#"><span>2013 Victory 배치캠프 Season (09.11 ~ 10.22)</span></a></li>
+							<li><a href="#"><span>2013 Victory 배치캠프 Season (09.11 ~ 10.22)</span></a></li>
+						</ul>
+					</div>
+				</h3>
+				<div class="camp_promote_noti">현재 클랜리그 2013년 1차 캠프배치전이 진행 중 입니다. </div>
+				<!-- 배치전 -->
+				<div class="camp_ranksummary_box arrangement">
+					<div class="wrap_promote_box">
+						<div class="tab_promote_link">
+							<ul>
+								<li><a href="#sl_promote_potent">골드캠프 ~ 실버캠프 접전구간</a></li>
+								<li><a href="#sl_demote_potent">실버캠프 ~ 브론즈캠프 접전구간</a></li>
+							</ul>
+						</div>
+						<div class="wrap_promote_contents">
+							<div id="sl_promote_potent" class="promote_content">
+								<table class="tbl_ranksummary">
+									<colgroup>
+										<col class="col_rank">
+										<col class="col_camp">
+										<col class="col_name">
+										<col class="col_rp">
+									</colgroup>
+									<thead>
+										<tr>
+											<th class="rank"><p>순위</p></th>
+											<th class="camp"><p>소속캠프 (골드/실버)</p></th>
+											<th class="name"><p>클랜명</p></th>
+											<th class="rp"><p>클랜 RP</p></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="Goldcamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="Goldcamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+										<tr>
+											<td class="camp_cut" colspan="4"><div>골드캠프 진입 컷오프</div></td>
+										</tr>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_silver.png" alt="Silvercamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_silver.png" alt="Silvercamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div id="sl_demote_potent" class="promote_content">
+								<table class="tbl_ranksummary">
+									<colgroup>
+										<col class="col_rank">
+										<col class="col_camp">
+										<col class="col_name">
+										<col class="col_rp">
+									</colgroup>
+									<thead>
+										<tr>
+											<th class="rank"><p>순위</p></th>
+											<th class="camp"><p>소속캠프 (실버/브론즈)</p></th>
+											<th class="name"><p>클랜명</p></th>
+											<th class="rp"><p>클랜 RP</p></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_silver.png" alt="Silvercamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_silver.png" alt="Silvercamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+										<tr>
+											<td class="camp_cut" colspan="4"><div>실버캠프 진입 컷오프</div></td>
+										</tr>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_bronze.png" alt="Bronzecamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+										<tr>
+											<td class="rank"><p>
+												<em>1</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+											</p></td>
+											<td class="camp"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_bronze.png" alt="Bronzecamp"></p></td>
+											<td class="name"><p>
+												<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+											</p></td>
+											<td class="rp"><p>34,534</p></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<script>tabContents('.tab_promote_link', '.wrap_promote_contents', 0)//('탭 링크', '탭 대상', '보여줄 탭 대상 넘버')</script>	
+					</div>
+					<div class="wrap_mostrank_box">
+						<div class="tab_mostrank_link">
+							<ul>
+								<li><a href="#sl_mostwin_top5">최다승리 TOP 5</a></li>
+								<li><a href="#sl_mostmatches_top5">최다경기수 TOP 5</a></li>
+							</ul>
+						</div>
+						<div class="wrap_mostrank_contents">
+							<div id="sl_mostwin_top5" class="mostrank_content">
+								<table class="tbl_mostrank">
+									<colgroup>
+										<col class="name">
+										<col class="match">
+									</colgroup>
+									<thead>
+										<tr>
+											<th class="name"><p>클랜명</p></th>
+											<th class="match"><p>경기수</p></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">최다승리클랜어허허허</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div id="sl_mostmatches_top5" class="mostrank_content">
+								<table class="tbl_mostrank">
+									<colgroup>
+										<col class="name">
+										<col class="match">
+									</colgroup>
+									<thead>
+										<tr>
+											<th class="name"><p>클랜명</p></th>
+											<th class="match"><p>경기수</p></th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">경기많이한클랜어허허허</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+										<tr>
+											<td class="name"><p><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a></p></td>
+											<td class="match">9,888</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<script>tabContents('.tab_mostrank_link', '.wrap_mostrank_contents', 0)//('탭 링크', '탭 대상', '보여줄 탭 대상 넘버')</script>
+						</div>
+					</div>
+				</div>
+				<div class="total_leaderboard">
+					<div class="leaderboard_head">
+						<h4>캠프배치전 전체 순위표</h4>
+						<div class="clan_search">
+							<input type="text" value="검색 창 이올시다">
+							<a href="#" class="btn_clansearch">검색</a>
+						</div>
+					</div>
+					<div class="leaderboard_body">
+						<table class="tbl_total_leaderboard">
+							<colgroup>
+								<col class="col_rank">
+								<col class="col_camp">
+								<col class="col_name">
+								<col class="col_rp">
+								<col class="col_win">
+								<col class="col_lose">
+								<col class="col_per">
+								<col class="col_mem">
+							</colgroup>
+							<thead>
+								<tr>
+									<th class="rank"><p>순위</p></th>
+									<th class="null">예상캠프 등급</th>
+									<th class="name"><p>클랜명</p></th>
+									<th class="rp"><p>클랜 RP</p></th>
+									<th class="win">승</th>
+									<th class="lose">패</th>
+									<th class="per">승률</th>
+									<th class="mem">클랜원수</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<!-- 골드캠프 컷라인 / 캠프 최하위 순위에 체크하시면 됩니다. -->
+								<tr class="cut_line">
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_gold.png" alt="goldcamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_silver.png" alt="silvercamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_silver.png" alt="silvercamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<!-- 실버캠프 컷라인 -->
+								<tr class="cut_line">
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_silver.png" alt="silvercamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_bronze.png" alt="bronzecamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<!-- 커트 라인 -->
+								<tr class="cut_line">
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_bronze.png" alt="bronzecamp"></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_none.png" alt=""></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+								<tr>
+									<td class="rank">
+										<p>
+											<em>5</em><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+										</p>
+									</td>
+									<td class="camp"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/img_clancamp_none.png" alt=""></td>
+									<td class="name">
+										<p>
+											<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_s_01.png" alt=""><a href="#">클랜혜택받으려고만든클랜</a>
+										</p>
+									</td>
+									<td class="rp"><p>256,938</p></td>
+									<td class="win">6,938</td>
+									<td class="lose">6,938</td>
+									<td class="per">0%</td>
+									<td class="mem">53</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="sl_paging">
+							<a href="#" class="btn_page_left"><span class="hide">이전</span></a>
+							<span class="num">
+								<a class="on">1</a>
+								<a href="#">2</a>
+								<a href="#">3</a>
+								<a href="#">4</a>
+								<a href="#">5</a>
+								<a href="#">6</a>
+								<a href="#">7</a>
+								<a href="#">8</a>
+								<a href="#">9</a>
+								<a href="#">999</a>
+							</span>
+							<a href="#" class="btn_page_right"><span class="hide">다음</span></a>
+						</div>
+					</div>
+					<div class="leaderboard_foot"></div>
+				</div>
+				<div class="last_update_box">최종 업데이트 : 2013년 12월 23일</div>
+				<div class="camp_notice">
+					<ul class="dot_list01">
+						<li>이번 시즌 대진 일정 및 경기 결과를 확인 할 수 있습니다. </li>
+						<li>클랜명을 클릭하시면 해당 클랜 구성원들의 성적을 확인하실 수 있습니다.</li>
+						<li>슈퍼리그 랭킹은 매일 1회 업데이트 됩니다.</li>
+					</ul>
+					<div class="camp_move"><a href="#">실버캠프로 이동</a><span class="line">|</span><a href="#">브론즈캠프로 이동</a></div>
+				</div>
+			</div>
+			<div class="section footer">
+				<div class="footer_content png">
+					<a href="#" class="btn_neowiz">Newowiz Games</a>
+					<a href="#" class="btn_redduck">Redduck</a>
+					<p class="hide">&copy; NEOWIZ GAMES. All rights reserved. &copy; RED DUCK Inc.</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</body>
+</html>

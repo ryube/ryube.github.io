@@ -1,0 +1,56 @@
+body {background: #010101;}
+
+.container {position:relative; width:1100px; margin:0 auto;  z-index:10; }
+.bg_left {position:absolute; top:0; left:-550px; width:50%; height: 1570px; background:url(../img/teaser/bg_left.jpg) no-repeat right 0; }
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 1570px; *margin-left:-1px; _margin-left:0px; background: url(../img/teaser/bg_right.jpg) no-repeat 550px 0; }
+.wrap {overflow: hidden; padding-top: 0; min-width: 1280px;}
+
+.pm_teaser {position:relative; height: 373px; background:url(../img/teaser/bg_ev01.jpg) no-repeat; z-index:40;}
+.pm_teaser .btn_g_login {width: 79px; height: 39px; left: 823px; top: 68px;}
+.pm_teaser .btn_g_login.on {background: url(../img/teaser/btn_logout.jpg) no-repeat 0 0;}
+.pm_teaser .btn_g_avahome {width: 100px; height: 37px; left: 907px; top: 68px;}
+.pm_teaser .btn_g_gamestart {width: 77px; height: 37px; left: 1013px; top: 68px;}
+.pm_teaser .btn_g_avalogo {width: 153px; height: 49px; left: 21px; top: 65px;}
+.pm_teaser .la_tc {display: block; position: absolute; width: 181px; height: 13px; left: 203px; top: 81px;}
+
+.countdown {position: absolute; left: 250px; top: 175px;}
+.countdown li { float:left; margin-right:76px; width:92px;}
+.countdown span { float:left; width:46px;height: 140px; background:url(../img/teaser/number.png) no-repeat; display:block; }
+.countdown span.n0 { background-position: 0 0; }
+.countdown span.n1 { background-position: -46px 0; }
+.countdown span.n2 { background-position: -92px 0; }
+.countdown span.n3 { background-position: -138px 0; }
+.countdown span.n4 { background-position: -184px 0; }
+.countdown span.n5 { background-position: -230px 0; }
+.countdown span.n6 { background-position: -276px 0; }
+.countdown span.n7 { background-position: -322px 0; }
+.countdown span.n8 { background-position: -368px 0; }
+.countdown span.n9 { background-position: -414px 0; }
+
+.event_01  {position:relative; height: 997px; background:url(../img/teaser/bg_ev02.jpg) no-repeat; z-index:40;}
+.event_01 .btn_mov {width: 460px; height: 470px; left: 320px; top: 0;}
+.event_01 .btn_mov:hover {background: url(../img/teaser/btn_hover.jpg) no-repeat 0 0;}
+
+.footer {position:relative; height:200px; text-align: center; background:url(../img/teaser/bg_footer.jpg) no-repeat; z-index:40;}
+.footer p {padding-top: 100px;}
+.footer .footer_fix {position: relative; width: 819px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url(../img/teaser/txt_foot.png) no-repeat 0 50%;}
+.footer .btn {height: 28px; top:0px;}
+.footer .redduck {left: 0px; width: 100px;}
+.footer .eventqna {right: 100px; width: 65px;}
+.footer .pmangevent {right: 0; width: 95px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.footer .neowizgames_ci {width: 94px; height: 26px; background:url(../img/teaser/neowiz_ci.png) no-repeat 50% 50%;}
+.footer .daum_ci {width: 94px; height: 26px; background:url(../img/teaser/daum_ci.png) no-repeat 50% 50%;}
+.footer .naver_ci {width: 94px; height: 26px; background:url(../img/teaser/naver_ci.png) no-repeat 50% 50%;}
+
+.layer_pop {position: absolute; z-index: 100; display:none;}
+.layer_pop .pop_body {position: absolute; width: 100%; height: 100%; left: 0; bottom: 0;}
+.layer_pop .layer_close {position: absolute; display: block; right: 20px; top: 20px; width: 37px; height: 34px; text-indent: -9999px; z-index: 101}
+
+.pm_video {position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: 999; display: none;}
+.pm_video .bg{ position: absolute; left: 0; right:0; top: 0; bottom: 0; display: block; background: #000; opacity: .75; filter: Alpha(Opacity=75);} 
+.pm_video iframe {position: absolute; top: -999999px;}
+.on.pm_video iframe {position: relative; top: 0;}
+.pm_video .video_box {position: absolute; left:50%; top: 50%; margin: -499px 0 0 -640px; width: 1280px; height: 720px; background: transparent;}
+.pm_video .video_box .f_mov {width: 100%; height: 100%;}
+.pm_video .video_box .btn_mov_close {width: 80px; height: 35px; right: 0; top: -50px; background: url(../img/teaser/btn_mov_close.png) no-repeat 0 0;}

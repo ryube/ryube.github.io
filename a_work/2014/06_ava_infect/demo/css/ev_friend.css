@@ -1,0 +1,99 @@
+body {background: #ded7d1;}
+
+.container { position:relative; width:1000px; margin:0 auto;  z-index:10; }
+.bg_left { position:absolute; top:0; left:-500px; width:50%; height: 4115px; background:url('../img/ev_friend/bg_left.jpg') right top no-repeat; }
+.bg_right { position:absolute; top:0; left:50%; width:50%; height: 4115px; *margin-left:-1px; _margin-left:0px; background:url('../img/ev_friend/bg_right.jpg') 500px top no-repeat; }
+
+
+.header { position:relative; height:1009px; background:url('../img/ev_friend/bg_header.jpg') no-repeat; z-index:40; }
+.btn_notice {left: 420px; top: 550px; width: 160px; height: 37px;}
+.btn_how {left: 408px; top: 881px; width: 184px; height: 35px;}
+
+
+
+.event_01 { position:relative; height:664px; background:url('../img/ev_friend/bg_ev01.jpg') no-repeat; z-index:40;}
+.event_01 .input_code_issue, .event_01 .input_code_insert {position: absolute; left: 138px; width: 578px; height: 24px; /*46px;*/ padding: 11px 0 11px; line-height: 24px; font-family: Tahoma; font-size: 24px; color: #271b01; background: transparent; text-align: center;}
+.event_01 .input_code_issue {top: 261px;}
+.event_01 .input_code_insert {top: 479px;}
+
+.btn_code_issue, .btn_code_insert {right: 107px; width: 121px; height: 121px;}
+.btn_code_issue {top: 222px;}
+.btn_code_insert {top: 440px;}
+
+.btn_invite_kakao, .btn_invite_pmang, .btn_invite_sns {width: 179px; height: 36px; top: 460px; }
+.btn_invite_kakao {left: 130px;}
+.btn_invite_pmang {left: 412px;}
+.btn_invite_sns {left: 692px;}
+
+.event_02 { position:relative; height:590px; background:url('../img/ev_friend/bg_ev02.jpg') no-repeat; z-index:40;}
+
+.event_03 { position:relative; height:1706px; background:url('../img/ev_friend/bg_ev03.jpg') no-repeat; z-index:40;}
+.btn_infect_to_01, .btn_infect_to_02, .btn_infect_from_01, .btn_infect_from_02 {width: 129px; height: 130px; top: 377px;}
+.btn_infect_to_01 {left: 145px;}
+.btn_infect_to_02 {left: 312px;}
+.btn_infect_from_01 {left: 557px;}
+.btn_infect_from_02 {left: 724px;}
+
+.footer { position:relative; height:128px; text-align: center; background:url('../img/ev_friend/bg_footer.jpg') no-repeat; z-index:40;}
+.footer p {padding-top: 75px;}
+.footer .footer_fix {position: relative; width: 635px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url('../img/ev_friend/txt_foot.png') no-repeat 0 50%;}
+.footer .btn {height: 28px; top:0px;}
+.footer .redduck { left: 0px; width: 100px;}
+.footer .eventqna { right: 0; width: 65px;}
+.footer .btn_ci { margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.daum {width: 64px; height: 26px; background:url('../img/ev_friend/btn_daum.png') no-repeat 0 0;}
+.neowizgames {width: 94px; height: 26px; background:url('../img/ev_friend/btn_neowiz.png') no-repeat 50% 50%;}
+.footer .pmangevent {width: 99px; height: 26px; background: url('../img/ev_friend/btn_pmang_evall.png') no-repeat 50% 50%; margin-right: 0; margin-left: 3px;}
+
+
+.layer_pop {position: absolute; z-index: 100; display:none;}
+.layer_pop .layer_close {position: absolute; display: block; right: 14px; top: 14px; width: 32px; height: 32px; text-indent: -9999px}
+
+
+
+.pop_notice {left: 94px !important; top: 588px !important; width: 813px; height: 649px; background: url('../img/ev_friend/bg_pop_notice.png');}
+.pop_pmang_msg {left: 94px !important; top: 1939px !important; width: 813px; height: 255px; background: url('../img/ev_friend/bg_pop_pmang.png');}
+.pop_kakao_msg {left: 94px !important; top: 1939px !important; width: 813px; height: 255px; background: url('../img/ev_friend/bg_pop_kakao.png');}
+.pop_sns_msg {left: 94px !important; top: 1939px !important; width: 813px; height: 255px; background: url('../img/ev_friend/bg_pop_sns.png');}
+
+.pop_sns_msg .my_code_send {position: absolute; left: 514px;  top: 131px; width: 202px; color: #9d998d; line-height: 20px}
+.pop_sns_msg .sns {position: absolute; left: 95px; top: 135px; width: 320px; height: 64px;}
+.pop_sns_msg .sns a {float: left; display: block; width: 66px; height: 64px; text-indent: -9999px; margin-right: 11px;}
+
+.pop_pmang_msg .my_buddy_list {position: absolute; left: 97px; top: 99px; width: 306px; height: 110px; overflow-y: scroll;}
+.pop_pmang_msg .my_buddy_list ul {width: 276px;}
+.pop_pmang_msg .my_buddy_list ul li {position: relative; padding: 4px 0 3px; background: url('../img/ev_friend/line_step2_list.jpg') no-repeat 0 100%; line-height: 15px;}
+.pop_pmang_msg .my_buddy_list ul li a {color: #d6cec6} 
+.pop_pmang_msg .my_buddy_list ul li .send {position: absolute; right: 0; top: 4px; color: #73684f; font-weight: bold;}
+.pop_pmang_msg .my_buddy_list ul li .send a {color: #bf1f1f;}
+.pop_pmang_msg .my_code_send {position: absolute; left: 514px;  top: 113px; width: 202px; color: #9d998d; line-height: 20px}
+
+.pop_infect {left: 94px !important; top: 2575px !important; width: 813px; height: 528px; background: url('../img/ev_friend/bg_pop_item.png');}
+.pop_infect h4 {padding-top: 30px; text-align: center; color: #d6cbc2; font-size: 18px; font-weight: normal; letter-spacing: -1px;}
+.pop_infect h4 .user {font-weight: bold; text-decoration: underline;}
+.pop_infect h4 p {font-size: 12px; color: #9f9588; padding-top: 5px; letter-spacing: 0;}
+.pop_infect .tl_table {position: absolute; left: 0; top: 115px; width: 100%; height: 20px;color: #bf1f1f; font-weight: bold; text-align: center;}
+
+.tbl_head {position: absolute; left: 46px; top: 148px;}
+.wrap_tbl {position: absolute; left: 46px; top: 222px; width: 747px; height: 248px; overflow-y: scroll;}
+.tbl_infect {width:707px;}
+.tbl_infect col.blank {width: 16px;}
+.tbl_infect col.num {width: 53px;}
+.tbl_infect col.name {width: 98px;}
+.tbl_infect col.connect {width: 135px;}
+.tbl_infect col.comp_1 {width: 135px;}
+.tbl_infect col.comp_10 {width: 135px;}
+.tbl_infect col.comp_50 {width: 135px;}
+
+.tbl_infect th, .tbl_infect td { vertical-align: middle; text-align: center; line-height: 17px;}
+.tbl_infect th {height: 55px; font-weight: bold; color: #2f2001;}
+.tbl_infect th span {display: block; font-weight: normal;}
+.tbl_infect tbody tr {background: url('../img/ev_friend/line_step2_list.jpg') repeat-x 0 100%; }
+.tbl_infect td {color: #9f9588; height: 36px;}
+.tbl_infect td a {color: #bf1f1f; font-weight: bold;}
+.tbl_infect td.name a {color: #9f9588; font-weight: normal;}
+
+.pop_infect .pop_link_box {position: absolute; top: 486px; left: 0;width: 100%; text-align: center;}
+.pop_infect .pop_link_box a {position: static; display: inline; text-align: center; color: #9f9588;}
+.pop_infect .pop_link_box a span {color: #bf1f1f;}
+

@@ -1,0 +1,1 @@
+<script>window.location = "/guide/contents/directory/item1.php"</script>

@@ -1,0 +1,69 @@
+@charset "euc-kr";
+
+/* css reset ================================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, select, input, textarea {
+	margin:0; padding:0; border:0; vertical-align:baseline;}
+body, input, textarea, select, td {font-size:12px; font-family: '³ª´®¹Ù¸¥°íµñ', NanumBarunGothic, 'µ¸À½', dotum;}
+h1, h2, h3, h4, h5, h6 {font-size:12px; }
+h1, h2, h3, h4, h5, h6, strong {font-weight:bold;}
+a {text-decoration:none; color: #333;}
+a:hover {text-decoration: none;}
+em {font-style:normal; } 
+ol, ul {list-style: none; }
+table {margin:0; outline:0; border-collapse:collapse; border-spacing:0;}
+caption, th, td {font-weight:normal;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+i {font-style: normal;} 
+/* css reset ================================================================================== */
+
+/* common */
+#cmPopAlign { position:absolute; top:43px; left:50%; margin-left:-550px; width:1100px; z-index:99; }
+
+.ava_sub a:hover {text-decoration: underline;}
+textarea {resize: none;}
+.hide {position: absolute; top: -99999px;}
+.ac {text-align: center !important;}
+.al {text-align: left !important;}
+.ar {text-align: right !important;}
+.brb {border-bottom: 1px solid #e7e7e7;}
+.brt {border-top: 1px solid #e7e7e7;}
+.pv30 {padding: 30px 0;}
+.pt40 {padding-top: 40px;} .pt60 {padding-top: 60px;}
+.pl50 {padding-left: 50px;}
+.mt30 {margin-top: 30px;}
+.w140 {width: 140px;} .w195 {width: 195px;} .w235 {width: 235px;} 
+.btn {position: absolute; display: block; text-indent: -99999px; background: url(../img/common/blank.gif) repeat 0 0; text-align: left;}
+.layer_pop {position: absolute; z-index: 100; display: none;}
+.clear {zoom:1;}
+.clear:after {content: ""; display: block; clear: both;}
+.scroll_value {padding: 10px;background: #1c5e92; border-radius: 6px; color: #fff; font: bold 15px dotum; position: fixed; left: 0%; bottom: 0%; text-align: center; z-index:9999; content: "scroll_value : "}
+
+
+/* thor modal */
+.modal_pop, .modal_pop .dim_bg{left: 0; top: 0; width: 100%; height: 100%; z-index: 1100;}
+.modal_pop {position: absolute; display: none;}
+.modal_pop .dim_bg {position: fixed; background: #000; opacity: 0.8; z-index: 1105;}
+.modal_pop .d2{position: fixed; background: #fff; opacity: 0; filter: alpha(opacity=0); z-index: 1106;}
+.modal_pop .yt_holder {z-index: 110; position: absolute; left: 0; top: 670px; width: 960px; height: 570px; border: 2px solid #cccccc; background-color: #000}
+.modal_pop .modal_body {width: 964px; height: 1244px; position: relative; z-index: 1110;}
+.modal_pop .modal_body .btn_not_today {z-index: 110; right: 46px; top: 615px;width: 100px; height: 40px;background: url(../img/modal/thor/btn_modal_not.jpg) no-repeat 0 0;}
+.modal_pop .modal_body .btn_close {z-index: 110; right: 0; top: 615px; width: 41px; height: 40px; background: url(../img/modal/thor/btn_modal_close.jpg) no-repeat 0 0;}
+.modal_pop .modal_body .obj {opacity: 0;z-index: 200;position: absolute; display: block;}
+.modal_pop .modal_body .l1 {z-index: 100;left: -468px; top: 0; width: 865px; height: 1102px; background: url(../img/modal/thor/thor_l1.png) no-repeat 0 0;}
+.modal_pop .modal_body .l2 {z-index: 99;left: 403px; top: 0; width: 937px; height: 733px; background: url(../img/modal/thor/thor_l2.png) no-repeat 0 0;}
+.modal_pop .modal_body .l3 {z-index: 98;left: 207px; top: -4px; width: 1237px; height: 755px; background: url(../img/modal/thor/thor_l3.png) no-repeat 0 0;}
+.modal_pop .modal_body .c1 {z-index: 97;left: -234px; top: 402px; width: 859px; height: 341px; background: url(../img/modal/thor/thor_c1.png) no-repeat 0 0;}
+.modal_pop .modal_body .c2 {z-index: 98;left: -63px; top: 292px; width: 1357px; height: 593px; background: url(../img/modal/thor/thor_c2.png) no-repeat 0 0;}
+.modal_pop .modal_body .g1 {z-index: 95;left: -323px; top: 0; width: 1431px; height: 807px; background: url(../img/modal/thor/thor_g1.png) no-repeat 0 0;}
+.modal_pop .modal_body .tl {z-index: 101;left: -79px; top: 0; width: 1105px; height: 305px; background: url(../img/modal/thor/thor_t0.png) no-repeat 0 0;}
+.modal_pop .modal_body .t1 {z-index: 102;left: 465px; top: 280px; width: 970px; height: 188px; background: url(../img/modal/thor/thor_t1.png) no-repeat 0 0;}
+.modal_pop .modal_body .t2 {z-index: 103;left: 356px; top: 82px; width: 773px; height: 112px; background: url(../img/modal/thor/thor_t2.png) no-repeat 0 0;}
+.modal_pop .modal_body .t3 {z-index: 104;left: -65px; top: 46px; width: 970px; height: 188px; background: url(../img/modal/thor/thor_t3.png) no-repeat 0 0;}
+.modal_pop .modal_body .t4 {z-index: 105;left: 12px; top: 120px; width: 773px; height: 142px; background: url(../img/modal/thor/thor_t4.png) no-repeat 0 0;}
+.modal_pop .btn_thor {width: 145px; height: 69px; background: url(../img/thor/modal/btn_thor.png) no-repeat 0 0;left: 819px;top: 540px;z-index: 110;}
+

@@ -1,0 +1,70 @@
+@charset "euc-kr";
+
+/* css 초기화 ================================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, select, input, textarea {
+	margin:0; padding:0; border:0; vertical-align:baseline; }
+body, input, textarea, select, td { font-size:12px; font-family:돋움; color:#000000; }
+h1, h2, h3, h4, h5, h6 { font-size:12px; }
+h1, h2, h3, h4, h5, h6, strong { font-weight:bold; }
+a { text-decoration:none; color:#000000; }
+a:hover { text-decoration:underline; }
+em { font-style:normal; } 
+ol, ul { list-style: none; }
+table { margin:0; outline:0; border-collapse:collapse; border-spacing:0; }
+caption, th, td { font-weight:normal; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+/* css 초기화 ================================================================================== */
+
+a.btn, .btn_layer, .btn_mov { display:block; position:absolute; background: url(../img/blank.gif); text-indent:-9999px; z-index:10;}
+.case_view {position: fixed;_position: absolute;top: 300px;right: 0;padding: 5px;background: #000;border: 2px solid #000;border-right: 0;opacity: 0.5;filter: alpha(opacity=50);z-index: 5000;}
+.case_view a {display: block;padding: 4px 5px 2px 5px;color: #fff;font-weight: bold;text-align: right;}
+.replace_text { position:absolute; left:-9999px; }
+.wrap { position:relative; width:100%; height:100%; padding-top: 133px;}
+.hide {position: absolute; left: -9000px;}
+.contents { position:relative; width:100%; z-index:30; }
+
+.wrap_pm_gnb {position: absolute; left: 0; top: 0; width: 100%;height: 133px; z-index: 200;}
+.wrap_pm_gnb.fixed {position: fixed; top: 0;}
+.wrap_pm_gnb .pm_gnb {position: relative; width: 1280px; height: 133px; margin: 0 auto; background: url(../img/ev_gnb.png) no-repeat 0 0; z-index: 100;}
+.wrap_pm_gnb .bg_left { position:absolute; top:0; left:-640px; width:50%; height: 133px; background:url(../img/ev_gnb_left.png) right top no-repeat; }
+.wrap_pm_gnb .bg_right { position:absolute; top:0; left:50%; width:50%; height: 133px;  *margin-left:-1px; _margin-left:0px; background:url(../img/ev_gnb_right.png) 640px top no-repeat;}
+
+.wrap_pm_gnb ul.t1 {position: absolute; width: 623px; height: 120px; left: 256px; top: 0;}
+.wrap_pm_gnb ul.t1 li {float: left; height: 120px;}
+.wrap_pm_gnb ul.t1 li.list01 {width: 197px;}
+.wrap_pm_gnb ul.t1 li.list02 {width: 220px;}
+.wrap_pm_gnb ul.t1 li.list03 {width: 206px;}
+.wrap_pm_gnb ul.t1 a {display: block; height: 100%; text-indent: -99999px; background: url(../img/btn_gnb.png) no-repeat 0 0;}
+.wrap_pm_gnb ul.t1 .list01 a {background-position: 0 100%;}
+.wrap_pm_gnb ul.t1 .list02 a {background-position: -197px 100%;}
+.wrap_pm_gnb ul.t1 .list03 a {background-position: -417px 100%;}
+.wrap_pm_gnb ul.t1 .list01 a:hover, .wrap_pm_gnb ul.t1 .list01.on a {background-position: 0 0;}
+.wrap_pm_gnb ul.t1 .list02 a:hover, .wrap_pm_gnb ul.t1 .list02.on a {background-position: -197px 0;}
+.wrap_pm_gnb ul.t1 .list03 a:hover, .wrap_pm_gnb ul.t1 .list03.on a {background-position: -417px 0;}
+
+.wrap_pm_gnb a.btn_ava_logo {left: 14px; top: 17px; width: 188px; height: 88px;}
+.wrap_pm_gnb a.btn_login {width: 80px; height: 42px; right: 250px; top: 47px;}
+.wrap_pm_gnb a.btn_login.on {background: url(../img/btn_logout.jpg) no-repeat 0 0;}
+.wrap_pm_gnb a.btn_ava {width: 80px; height: 42px; right: 162px; top: 47px;}
+.wrap_pm_gnb a.btn_gamestart {width: 133px; height: 42px; right: 20px; top: 47px;}
+
+.userMenu {position:absolute;z-index:33 !important;border:solid 1px #000000;background:#f6c74f;}
+.userMenu table { background:#f6c74f; border-collapse:collapse;}
+.userMenu td {padding:9px 15px 7px 10px;background:#f6c74f;cursor:pointer;_cursor:hand;vertical-align:middle;color:#000000;letter-spacing:-1px;border-top:1px solid #e9b631;}
+.userMenu tr:first-child td {border-top:none;}
+.userMenu .over {background:#f6c74f;}
+.userMenu .udActivate {background:#f6c74f;color:#077fb7;}
+.userMenu .udDeactivate {background:#f6c74f;}
+
+.naver_ci {width: 91px; height: 26px; background:url(../img/naver_ci.png) no-repeat 50% 50%;}
+.daum {width: 64px; height: 26px; background:url(../img/btn_daum.png) no-repeat 0 0;}
+
+.pop_cir_gift.layer_pop {position: absolute; top: 160px; right: -46px; z-index: 100; display: block; width: 350px; height: 360px; background: url(http://mm.pmang.kr/pmang/ava/event/2014/0722/img/pop_gift.png) no-repeat 0 100%;}
+.pop_cir_gift .layer_close {position: absolute; display: block; width: 45px; height: 45px; right: 35px; top: 24px; text-indent: -9999px; z-index: 101}
+.pop_cir_gift .btn_link {width: 278px; height: 230px; left: 33px; top: 53px;}
+.pop_cir_gift .btn_not_today {width: 275px; height: 55px; left: 39px; top: 283px;}

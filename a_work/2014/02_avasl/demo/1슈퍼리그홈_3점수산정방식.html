@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>피망 - 대한민국 No.1 게임포털 피망!</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+<script type="text/javascript" src="http://www.pmang.com/global/javascript/jquery.js"></script>
+<link type="text/css" rel="stylesheet" href="http://file.pmang.kr/images/pmang/ava/superleague/css/layout.css">
+<script type="text/javascript" src="http://file.pmang.kr/images/pmang/ava/superleague/js/ui_avasuper.js"></script>
+</head>		
+<body class="sl_main">
+<!-- 개발시 삭제 -->
+<!--  임시 GNB -->
+<div style="height:40px; border-bottom:3px solid red; background:#fff;"></div>
+<div class="case_view" style="display: none;">
+	<a href="#" onclick="ev1(); return false;" >로그인 후</a>
+	<a href="#" onclick="ev2(); return false;" >로그인 전</a>
+	<a href="#" onclick="recordView('0'); return false;">[개인 전적 영역] 로그아웃 상태</a>
+	<a href="#" onclick="recordView('1'); return false;">[개인 전적 영역] 클랜정보 없슴</a>
+	<a href="#" onclick="recordView('2'); return false;">[개인 전적 영역] 클랜리그 정보 없슴</a>
+	<a href="#" onclick="recordView('3'); return false;">[개인 전적 영역] 개인리그 정보 없슴</a>
+	<a href="#" onclick="recordView('4'); return false;">[개인 전적 영역] 캐릭터 정보 없슴</a>
+</div>
+<script>
+	$(document).ready( function(){
+
+	});
+
+	function elemMove(target) {
+		$('html, body').stop(true, false).animate({ scrollTop: $(target).offset().top}, 300);
+	}
+	function ev1() {
+		$('.loginbox').hide();
+		$('.loginbox_on').show();
+		elemMove('.loginbox');
+	}
+	function ev2() {
+		$('.loginbox_on').hide();
+		$('.loginbox').show();
+		elemMove('.loginbox'); 
+	}
+	function recordView(n) {
+		$('.aside_record').hide()
+		$('.aside_record').eq(n).show()
+		elemMove('.aside_record');
+	}
+</script>
+<!--// 개발시 삭제 -->
+<div class="wrap">
+	<div class="section header">
+		<!-- bg --><div class="bg_left"></div><div class="bg_right"></div><!-- // bg -->
+		<div class="section contents">
+			<ul class="nav">
+				<li class="on"><a href="#" class="sl">Super league</a></li>
+				<li><a href="#" class="notice">리그공지</a></li>
+				<li><a href="#" class="clan">클랜리그</a></li>
+				<li><a href="#" class="personal">개인리그</a></li>
+				<li><a href="#" class="reward">혜택과 보상</a></li>
+				<li><a href="#" class="hall">명예의 전당</a></li>
+			</ul>
+			<a href="#" class="btn_ava_home">A.V.A 홈페이지로 이동</a>
+			<span class="gamestart"><a href="#">게임 시작</a></span>
+		</div>
+	</div>
+	<div class="section top_visual">
+		<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_main_sl.png" alt="A.V.A Super League">
+	</div>	
+	<div class="section wrap_container">	
+		<!-- bg --><div class="bg_left"></div><div class="bg_right"></div><!-- // bg -->
+		<div class="section container">
+			<div class="contents">
+				<div class="tab_main_noti">
+					<ul>
+						<li>
+							<a href="#ava_sl_info"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_01.png" alt="슈퍼리그 안내"></a>
+							<span class="line"></span>
+						</li>
+						<li>
+							<a href="#ava_sl_schedule"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_02.png" alt="진행일정"></a>
+							<span class="line"></span>
+						</li>
+						<li class="on">
+							<a href="#ava_sl_rule"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_03.png" alt="점수산정 방식"></a>
+							<span class="line"></span>
+						</li>
+						<li>
+							<a href="#ava_sl_guide"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_04.png " alt="클랜리그 가이드"></a>
+							<span class="line"></span>
+						</li>
+					</ul>
+				</div>
+				<div class="tab_main_contents">
+					<div id="ava_sl_schedule" class="tab_content">
+						<div class="main_sl_rp_rule">
+							<div class="rp_desc">
+								슈퍼리그 랭킹은 랭킹 포인트(RP)에 의해 산정되며, 랭킹 포인트는 클랜리그에 사용되는 <em>클랜 랭킹포인트(CRP)와<br />   개인리그에 사용되는 개인 랭킹포인트(PRP)</em> 2 종류가 있습니다.
+								<h6>포인트 구분</h6>
+								<dl>
+									<dt>개인 랭킹 포인트 (개인 RP)</dt>
+									<dd>리그 경기 결과에 따라 획득한 플레이어의 개인 랭킹 포인트입니다. 누적된 개인 랭킹 포인트로 개인 리그 내 순위가 결정됩니다.</dd>
+									<dt>클랜 랭킹 포인트 (클랜 RP)</dt>
+									<dd>각 클랜 최상위 플레이어 5명의 클랜 랭킹 포인트를 합산한 결과입니다. 누적된 클랜 랭킹 포인트로 클랜 리그 내 순위가 결정됩니다.</dd>
+								</dl>
+								<p>2 가지 랭킹 포인트는 매시즌 초기화 되며 1200점에서 시작하게 됩니다</p>
+								<p>자신의 랭킹 포인트와 상대팀과의 랭킹 포인트를 기준으로 승/패에 따라 포인트가 획득 또는 차감됩니다.</p>
+								<ol>
+									<li>A . 자신의 팀보다 <em>높은 랭킹 포인트를 가진 팀과의 경기에서 승리했을 경우, 더 많은 점수를 획득할 수 있습니다.</em></li>
+									<li>B . 랭킹 포인트는 마지막 클랜전 플레이 종료 시점으로부터 10일 경과 후 매일 5점씩 차감됩니다.
+										<p>(1500점 이상일 경우 차감. 1500점 이하일 경우엔 차감되지 않음)</p>
+									</li>
+								</ol>
+							</div>
+							<h5><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_main_rprule_01.png" alt="클랜리그 점수 산정"></h5>
+							<div class="rp_desc01">
+								<ul>
+									<li>최초 포인트(클랜 RP) 1200</li>
+									<li>승리 시, 상대 클랜 팀과의 랭킹 포인트를 비교하여 포인트 획득</li>
+									<li>마지막 클랜전 종료 시점 10일 이후부터 매일 5점씩 포인트 차감</li>
+									<li>클랜원 상위 5명의 클랜 RP를 합산하여 랭킹 산정</li>
+								</ul>
+							</div>
+							<h5><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_main_rprule_02.png" alt="개인리그 점수 산정"></h5>
+							<p class="per_rp_desc">
+								일반 팀 매칭 방식으로 진행되며 (최초 기본 랭킹 포인트 : 1200) , 상대 팀 구성원과의 랭킹 포인트를 비교하여, 점수를 획득합니다.<br />
+								포인트 획득 및 차감 패널티는 클랜리그의 방식과 동일하며, 획득한 개인 RP로 개인리그 순위가 정해집니다.
+							</p>
+							
+						</div>
+					</div>
+					<!-- <div id="ava_sl_info" class="tab_content"></div>
+					<div id="ava_sl_rule" class="tab_content">점수산정 방식</div>
+					<div id="ava_sl_guide" class="tab_content">클랜리그 가이드</div> -->
+				</div>
+				<!--<script>tabContents('.tab_main_noti', '.tab_main_contents', 0)//('탭 링크', '탭 대상', '보여줄 탭 대상 넘버')</script>-->
+			</div>
+			<div class="section aside">
+				<!-- 로그인 전 -->
+				<div class="loginbox">
+					<span class="loginbox_userid">먼저 로그인 해주세요</span>
+					<a href="#" class="btn_login">로그인</a>
+					<!-- SNS 로그인 -->
+					<span class="sns"><a href="#"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/ico_login_f.png" title="facebook" alt="facebook"></a><a href="#"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/ico_login_g.png" title="google+" alt="google+"></a></span>
+				</div> 
+				<!-- 로그인 후 -->
+				<div class="loginbox_on">
+					<span class="loginbox_lv"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/level/28.gif" alt=""></span>
+					<span class="loginbox_userid">월요일아침같은포맨</span>
+					<a href="#" class="btn_login">로그아웃</a>
+				</div>
+				<!-- 전적 로그인 전 -->
+				<div class="aside_record" style="display:;">
+					<div class="clan_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="클랜리그 전적"></h3>
+						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
+						<p class="clan_name">-</p>
+						<!-- 클랜 티어 선택 gold / silver / bronze  -->
+						<div class="clan_frame">
+							<div class="clan_mark">
+								<span class="mark"><!-- <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""> --></span>
+							</div> 
+						</div>
+						<div class="rank_txt">
+							<span class="msg">로그인 해 주세요.</span>
+						</div>
+					</div>
+					<div class="personal_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="개인리그전적"></h3>
+						<div class="map_score">
+							<div class="round">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="라운드 작전"></p>
+								<span class="rank">-</span>
+								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span> -->
+							</div>
+							<div class="escort">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="호위 작전"></p>
+								<span class="rank">-</span>
+								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 전적 슈퍼리그 정보 없슴 -->
+				<div class="aside_record" style="display:none;">
+					<div class="clan_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="클랜리그 전적"></h3>
+						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
+						<p class="clan_name">-</p>
+						<!-- 클랜 티어 선택 gold / silver / bronze class = gold / silver / bronze -->
+						<div class="clan_frame">
+							<div class="clan_mark">
+								<span class="mark"><!-- <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""> --></span>
+							</div>
+						</div>
+						<div class="rank_txt">
+							<span class="msg">소속된 클랜이 없습니다.</span>
+						</div>
+					</div>
+					<div class="personal_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="개인리그전적"></h3>
+						<div class="map_score">
+							<div class="round">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="라운드 작전"></p>
+								<span class="rank">640,326위</span>
+								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+							</div>
+							<div class="escort">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="호위 작전"></p>
+								<span class="rank">640,326위</span>
+								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span>
+							</div>
+						</div>
+					</div>
+					<p class="aside_league_link">
+						<a href="#">내 슈퍼리그 정보 모두 보기</a>
+					</p>
+				</div>
+				<!-- 전적 클랜리그 정보 없슴 -->
+				<div class="aside_record" style="display:none;">
+					<div class="clan_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="클랜리그 전적"></h3>
+						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
+						<p class="clan_name">A.Reputation</p>
+						<!-- 클랜 티어 선택 gold / silver / bronze  -->
+						<div class="clan_frame">
+							<div class="clan_mark">
+								<span class="mark"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""></span>
+							</div>
+						</div>
+						<div class="rank_txt">
+							<span class="msg">클랜리그에 도전해 보세요!</span>
+						</div>
+					</div>
+					<div class="personal_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="개인리그전적"></h3>
+						<div class="map_score">
+							<div class="round">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="라운드 작전"></p>
+								<span class="rank">640,326위</span>
+								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
+							</div>
+							<div class="escort">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="호위 작전"></p>
+								<span class="rank">640,326위</span>
+								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span>
+							</div>
+						</div>
+					</div>
+					<p class="aside_league_link">
+						<a href="#">내 슈퍼리그 정보 모두 보기</a>
+					</p>
+				</div>
+				<!-- 전적 개인리그 정보 없슴 -->
+				<div class="aside_record" style="display:none;">
+					<div class="clan_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="클랜리그 전적"></h3>
+						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
+						<p class="clan_name">A.Reputation</p>
+						<!-- 클랜 티어 선택 gold / silver / bronze  -->
+						<div class="clan_frame gold">
+							<div class="clan_mark">
+								<span class="mark"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""></span>
+							</div>
+						</div>
+						<div class="rank_txt">
+							<strong class="rank">369위</strong><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/txt_goldcamp_01.png" alt="Gold Camp">
+						</div>
+					</div>
+					<div class="personal_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="개인리그전적"></h3>
+						<div class="map_score">
+							<div class="round">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="라운드 작전"></p>
+								<span class="rank">-</span>
+								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span> -->
+							</div>
+							<div class="escort">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="호위 작전"></p>
+								<span class="rank">-</span>
+								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span> -->
+							</div>
+						</div>
+					</div>
+					<p class="aside_league_link">
+						<a href="#">내 슈퍼리그 정보 모두 보기</a>
+					</p>
+				</div>
+				<!-- 전적 캐릭터 정보 없슴 -->
+				<div class="aside_record" style="display: none;">
+					<div class="clan_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="클랜리그 전적"></h3>
+						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
+						<p class="clan_name">-</p>
+						<!-- 클랜 티어 선택 gold / silver / bronze  -->
+						<div class="clan_frame">
+							<div class="clan_mark">
+								<span class="mark"><!-- <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""> --></span>
+							</div>
+						</div>
+						<div class="rank_txt">
+							<span class="msg">캐릭터 생성 후 클랜리그에 도전해 보세요!</span>
+						</div>
+					</div>
+					<div class="personal_record">
+						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="개인리그전적"></h3>
+						<div class="map_score">
+							<div class="round">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="라운드 작전"></p>
+								<span class="rank">-</span>
+								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span> -->
+							</div>
+							<div class="escort">
+								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="호위 작전"></p>
+								<span class="rank">-</span>
+								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span> -->
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="section footer">
+				<div class="footer_content png">
+					<a href="#" class="btn_neowiz">Newowiz Games</a>
+					<a href="#" class="btn_redduck">Redduck</a>
+					<p class="hide">&copy; NEOWIZ GAMES. All rights reserved. &copy; RED DUCK Inc.</p>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+</body>
+</html>

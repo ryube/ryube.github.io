@@ -1,0 +1,33 @@
+
+/*gnb bg*/
+.wrap_pm_gnb .pm_gnb {background: url(../img/ev4/bg_gnb.png) no-repeat 0 0;}
+.wrap_pm_gnb .bg_left {background:url(../img/ev4/bg_gnb_left.png) no-repeat right top;}
+.wrap_pm_gnb .bg_right {background:url(../img/ev4/bg_gnb_right.png) no-repeat left top;}
+
+
+.container {position:relative; width:1200px; margin:0 auto;  z-index:10;}
+.bg_left {position:absolute; top:0; left:-600px; width:50%; height: 100%; background:url(../img/ev4/bg_left.jpg) no-repeat right 0; }
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 100%; *margin-left:-1px; _margin-left:0px; background: url(../img/ev4/bg_right.jpg) no-repeat 600px 0; }
+.wrap {overflow: hidden; padding-top: 0; min-width: 1024px;}
+
+.ev_01 {position:relative; height:1849px; background:url(../img/ev4/bg_ev01.jpg) no-repeat 0 0; z-index:40;font-family:dotum;}
+.ev_01 .title{position:absolute;top:185px;left:50%;margin-left:-307px;background:url(../img/ev4/ti.png) no-repeat center top;display:block;width:614px;height:186px;text-indent:-9999px;overflow:hidden;z-index:100}
+.ev_01 .btn_upload, .ev_01 .btn_url{width:322px;height:101px;top:694px}
+.ev_01 .btn_upload{background:url(../img/ev4/btn_upload.png) no-repeat;left:275px}
+.ev_01 .btn_url{background:url(../img/ev4/btn_url.png) no-repeat;right:275px;}
+.ev_01 .list{position:absolute;    top: 1270px;    left: -22px;font-size:11px;line-height:16px}
+.ev_01 .list dl{float:left;margin-left:22px;width:222px;color:#999;height:231px}
+.ev_01 .list dt{color:#fff;height:176px}
+.ev_01 .list dt a{color:#fff}
+.ev_01 .list .ti{display:inline-block;color:#8f5108;width:45px}
+.ev_01 .list .thum{display:block;width:222px;height:125px;margin-bottom:8px}
+.ev_01 .list li{position:relative;float:left;width:190px;height:305px;margin-left:8px; /*margin-bottom: 39px;*/}
+.ev_01 .list li .btn_change{background:url(../img/ev4/btn_change.png) no-repeat;width:190px;height:44px}
+.ev_01 .list li.mar{margin-left:28px}
+.ev_01 .paging{width:100%;text-align:center;position:absolute;top:1755px;font-size:13px}
+.ev_01 .paging a{color:#666;margin:0 5px}
+.ev_01 .paging a:hover, .ev_01 .paging a.on{color:#fa8800;text-decoration:underline}
+.ev_01 .paging .img{font-weight:bold}
+.ev_02 {position:relative; height:304px; background:url(../img/ev4/bg_ev02.jpg) no-repeat 0 0; z-index:40;text-indent:-9999px;}
+#loop_video1 {position: absolute; right:-53px; top:94px; width:502px; height:280px;z-index:50}
+.footer {border-top:1px solid #2a2621;background:#1f1a15}

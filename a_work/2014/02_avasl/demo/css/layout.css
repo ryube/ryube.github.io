@@ -1,0 +1,856 @@
+@charset "euc-kr";
+
+/* css reset ================================================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td, select, input, textarea {
+	margin:0; padding:0; border:0; vertical-align:baseline; }
+body, input, textarea, select, td { font-size:12px; font-family: dotum; color:#999999; }
+h1, h2, h3, h4, h5, h6 { font-size:12px; }
+h1, h2, h3, h4, h5, h6, strong { font-weight:bold; }
+a { text-decoration:none; color:#999999; }
+a:hover { text-decoration:underline; }
+em { font-style:normal; } 
+ol, ul { list-style: none; }
+table { margin:0; outline:0; border-collapse:collapse; border-spacing:0; }
+caption, th, td { font-weight:normal; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+/* css reset ================================================================================== */
+
+.case_view {position: fixed;_position: absolute;top: 300px;right: 0;padding: 5px;background: #fff;border: 2px solid #000;border-right: 0;opacity: 0.5;filter: alpha(opacity=50);z-index: 5000;}
+.case_view a {display: block;padding: 4px 5px 2px 5px;color: #000;font-weight: bold;text-align: right;}
+
+/* common */
+.hide {position: absolute; left: -9999px;}
+.ac {text-align: center !important;}
+.al {text-align: left !important;}
+.ar {text-align: right !important;}
+
+.pos_ch img {position: relative; top: 2px;}
+/* body*/
+html, body {min-width: 1220px; background: url(../images/bg_pattern_01.gif) repeat 0 0;}
+.sl_pop {background: url(../images/bg_pattern_01.gif) repeat 0 0;}
+/* layout */
+.wrap {position:relative; width:100%; height:100%;}
+.header .contents, .top_visual, .wrap_container .container {position: relative; width: 1220px; margin: 0 auto; z-index: 10;}
+.header {position: relative; z-index: 40;}
+.top_visual {position: relative; margin-top: -43px;}
+.wrap_container {position: relative; margin-top: -81px; zoom:1;}
+.wrap_container .container {zoom:1;}
+.wrap_container .container:after {content: ""; display: block; clear: both;}
+.footer {clear: both; height: 110px; padding:80px 0 0 20px;}
+
+.sl_main .top_visual {height: 480px;}
+.sl_main .wrap_container .container .contents {float: left; width: 900px; padding: 81px 0  0 20px;}
+.sl_main .wrap_container .container .aside {position: relative; margin-left: 920px; width: 300px; padding-top: 81px;}
+
+.sl_sub .top_visual {height: 270px;}
+.sl_sub .wrap_container .container .contents {padding:81px 35px 80px 40px;}
+.sl_sub .footer {padding-left: 40px;}
+
+/* bg */
+.sl_main .wrap {background: #25272b url(../images/bg_main_visual.jpg) no-repeat 50% 0;}
+.sl_sub .wrap {background: #25272b url(../images/bg_sub_visual.jpg) no-repeat 50% 0;}
+
+.bg_left { position:absolute; top:0; left:-610px; width:50%; height:100%; background-position: right top; background-repeat: no-repeat; z-index: 1; }
+.bg_right { position:absolute; top:0; left:50%; width:50%; height:100%; background-position: 610px top; background-repeat: no-repeat; z-index: 1;}
+.header .bg_left {height: 120px;background-image: url(../images/bg_header_left.png);}
+.header .bg_right {height: 120px;background-image: url(../images/bg_header_right.png);}
+.wrap_container .bg_left {background-image: url(../images/bg_container_left.png);}
+.wrap_container .bg_right {background-image: url(../images/bg_container_right.png);}
+.header .contents {height: 120px; background: url(../images/bg_header_center.png) no-repeat 0 0;}
+.sl_main .wrap_container .container {background: url(../images/bg_container_center.png) no-repeat 0 0;}
+.sl_sub .wrap_container .container {background: url(../images/bg_container_center_sub.png) no-repeat 0 0;}
+
+/* header */
+.nav {height: 80px;}
+.nav {float:left; padding-right: 21px;}
+.nav li {float:left; position: relative;}
+.nav li a {display: block; height: 80px; background: url(../images/btn_nav_set.jpg) no-repeat 0 0; text-indent: -9999px;}
+.nav li .sl {width: 190px; background-position: 0 0;}
+.nav li .notice {width: 130px; background-position: -190px 0;}
+.nav li .clan {width: 131px; background-position: -320px 0;}
+.nav li .personal {width: 129px; background-position: -451px 0;}
+.nav li .reward {width: 149px; background-position: -580px 0;}
+.nav li .hall {width: 153px; background-position: -729px 0;}
+
+.nav li .sl:hover {background-position: 0 -80px;}
+.nav li .notice:hover {background-position: -190px -80px;}
+.nav li .clan:hover {background-position: -320px -80px;}
+.nav li .personal:hover {background-position: -451px -80px;}
+.nav li .reward:hover {background-position: -580px -80px;}
+.nav li .hall:hover {background-position: -729px -80px;}
+
+.nav li.on .sl {background-position: 0 -160px;}
+.nav li.on .notice {background-position: -190px -160px;}
+.nav li.on .clan {background-position: -320px -160px;}
+.nav li.on .personal {background-position: -451px -160px;}
+.nav li.on .reward {background-position: -580px -160px;}
+.nav li.on .hall {background-position: -729px -160px;}
+
+.btn_ava_home {float:left;display: block; width: 172px; height: 80px; background: url(../images/btn_nav_set.jpg) no-repeat -903px 0; text-indent: -9999px;}
+.btn_ava_home:hover {background-position: -903px -80px;}
+.gamestart {display: block; position: absolute; right: -13px; top: 6px; width: 153px; height: 74px; background: url(../images/btn_game_start.png) no-repeat 0 0;}
+.gamestart a {display: block; position: absolute; left: 16px; top: 14px; width: 119px; height: 40px; text-indent: -9999px;}
+.gamestart a:hover {background: url(../images/btn_game_start_over.jpg) no-repeat 0 0;}
+
+
+.evt_nav {height: 77px; padding-left: 19px;}
+.evt_nav li {float: left; height: 77px; position: relative;}
+.evt_nav a {height: 70px; background-image: url(../images/bg_evt_nav.jpg);}
+.evt_nav a, .btn_sl_evt, .btn_evt_gamestart {display: block; background-repeat: no-repeat; text-indent: -9999px;}
+.btn_sl_evt, .btn_evt_gamestart {position: absolute; top: 19px; height: 40px; background-image: url(../images/bg_evt_nav.jpg);}
+
+.evt_nav a.sl {width: 161px; background-position: -19px 0;}
+.evt_nav a.notice {width: 108px; background-position: -180px 0;}
+.evt_nav a.clan {width: 107px; background-position: -288px 0;}
+.evt_nav a.personal {width: 108px; background-position: -395px 0;}
+.evt_nav a.reward {width: 126px; background-position: -503px 0;}
+.evt_nav a.hall {width: 124px; background-position: -629px 0;}
+.evt_nav a.evt_ava_home {width: 147px; background-position: -753px 0;}
+.btn_sl_evt {right: 118px; width: 180px; background-position: -922px -19px;}
+.btn_evt_gamestart {right:5px; top: 19px; width: 110px; background-position: -1107px -19px;}
+
+.nav_2dept {display: none; position: absolute; width: 150px; left:50%; margin-left: -76px; top: 72px; border: 1px solid #6b5c3f; border-bottom: 0 none; z-index: 50;}
+.header ul li:hover .nav_2dept {display: block;}
+.nav_2dept li {vertical-align: top; height: 39px; border-bottom: 1px solid #6b5c3f;}
+.nav_2dept li a {width: 150px; height: 26px; padding-top: 13px; line-height: 15px; background: url(../images/bg_nav_sub.jpg) no-repeat 0 0; text-indent: 0; text-align: center; font-size: 14px; color: #ab8d53; text-decoration: none;}
+.nav_2dept li a:hover {color: #fff;}
+
+
+/* 이벤트 상단 네비 */
+.evt_nav .sl:hover {background-position: -19px -77px;}
+.evt_nav .notice:hover {background-position: -180px -77px;}
+.evt_nav .clan:hover {background-position: -288px -77px;}
+.evt_nav .personal:hover {background-position: -395px -77px;}
+.evt_nav .reward:hover {background-position: -503px -77px;}
+.evt_nav .hall:hover {background-position: -629px -77px;}
+.evt_nav .evt_ava_home:hover {background-position: -753px -77px;}
+.btn_sl_evt:hover {right: 118px; width: 180px; background-position: -922px -96px;}
+.btn_evt_gamestart:hover {right:5px; top: 19px; width: 110px; background-position: -1107px -96px;}
+
+.evt_nav .on .sl {background-position: -19px -154px;}
+.evt_nav .on .notice {background-position: -180px -154px;}
+.evt_nav .on .clan {background-position: -288px -154px;}
+.evt_nav .on .personal {background-position: -395px -154px;}
+.evt_nav .on .reward {background-position: -503px -154px;}
+.evt_nav .on .hall {background-position: -629px -154px;}
+
+/*footer*/
+
+.footer_content {height: 20px; position: relative; background: url(../images/bg_footer_txt.png) no-repeat 0 0;}
+.footer_content a {display: block; height: 20px; text-indent: -9999px; position: absolute; top: 0;}
+.footer_content .btn_neowiz {width: 95px; left: 0;}
+.footer_content .btn_redduck {width: 100px; left: 123px;}
+/* top visual */
+
+
+/* main contents */
+.sl_main .tab_main_noti {padding-top: 45px;}
+.tab_main_noti ul {height: 64px;}
+.tab_main_noti ul li {float: left; width: 205px; opacity: 0.5; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; filter: alpha(opacity=50); }
+.tab_main_noti ul li a {display: block; padding-top: 23px; height: 38px; text-align: center;}
+.tab_main_noti ul li .line {display: block; width: 100%; height: 3px; overflow: hidden; background: url(../images/line_tab_underbar.gif) no-repeat 50% -3px;}
+.tab_main_noti ul li.on {opacity: 1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100);}
+.tab_main_noti ul li.on .line {background-position: 50% 0;}
+.tab_main_contents {padding-bottom: 40px;}
+.main_sl_info {}
+.main_sl_info .summary {padding:45px 0; line-height: 28px; font-size: 14px;}
+.main_sl_info .summary_img {position: relative; left: -23px;}
+.tab_main_contents .question {margin: 40px 0 50px; padding:14px 0 0 69px; height: 49px; background: url(../images/bl_main_q.png) no-repeat 0 0;}
+.tab_main_contents .question span {display: inline-block; _display: inline; zoom:1; padding-right: 39px; color: #ac8e51; font-size: 18px; line-height: 21px; font-weight: bold; background: url(../images/arw_main_q_right.png) no-repeat 100% 0;}
+.tab_main_contents .question a {color: #ac8e51;}
+.main_sl_info .answer h5 {padding-bottom: 24px; letter-spacing: -1px; padding-top: 60px;}
+.main_sl_info .answer p {line-height: 24px;}
+.main_sl_info .answer .sl_info_visual {position: relative; left: -47px; width: 916px; height: 715px; background: url(../images/img_main_slinfo_02.png) no-repeat 0 0;}
+.main_sl_info .answer .sl_info_visual_after {margin-top: -55px;}
+.main_sl_info_bg {width: 881px; height: 583px; margin-left: -52px; background: url(../images/img_main_slinfo_03.png) no-repeat 0 0;}
+
+.main_sl_schedule .sl_schedule_desc {padding-top: 45px;line-height: 28px; font-size: 14px;}
+.main_sl_schedule .schedule_imgbox { width: 893px; height: 1477px; background: url(../images/bg_sl_schedule.png) no-repeat 0 0;}
+.main_sl_schedule .schedule_imgbox * {position: absolute; top: -9999px;}
+
+.main_sl_rp_rule .rp_desc {padding: 45px 0 50px;font-size: 14px; line-height: 28px; }
+.main_sl_rp_rule .rp_desc strong, .main_sl_rp_rule .rp_desc em {color: #ac8e51;}
+.main_sl_rp_rule .rp_desc ol {padding-top: 5px; font-size: 12px;}
+.main_sl_rp_rule .rp_desc ol li p {padding-left: 21px; margin-top: 0px;}
+.main_sl_rp_rule .rp_desc01 {margin: 25px 0 45px; height: 649px; background: url(../images/bg_rprule_01.png) no-repeat 0 0;}
+.main_sl_rp_rule .rp_desc01 * {position: absolute; top: -9999px;}
+.main_sl_rp_rule .per_rp_desc{margin-top: 20px; line-height: 24px;}
+.main_sl_rp_rule h6 {font-weight: normal; font-size: 14px; margin-top: 30px;}
+.main_sl_rp_rule dl dt {margin-top: 20px; font-size: 14px; font-weight: bold; color: #ab8d51;}
+.main_sl_rp_rule dl dd {margin-top: 10px; font-size: 12px;}
+.main_sl_rp_rule .rp_desc p {margin: 15px 0 0;}
+
+.main_sl_clanguide {padding-top: 60px;}
+.main_sl_clanguide h5 {}
+.main_sl_clanguide p.desc {font-size: 14px; line-height: 28px; margin: 30px 0;}
+.main_sl_clanguide p.desc strong {display: block; margin-top: 20px; color: #ab8d51;}
+.main_sl_clanguide .camp_guide01 { margin-left: -90px; width: 916px; height: 600px; background: url(../images/bg_main_clanguide_01.png) no-repeat 0 0;}
+.main_sl_clanguide .camp_guide01 ol {position: absolute; top: -9999px;}
+.main_sl_clanguide .camp_guide02 {margin-left: -40px; height: 883px; background: url(../images/bg_main_clanguide_02.png) no-repeat 0 0;}
+.main_sl_clanguide .camp_guide02 table {position: absolute; top: -9999px;}
+/* aside */
+.aside .loginbox,.aside .loginbox_on {position: absolute; left: -38px; top: 14px; width: 378px; height: 144px;}
+.aside .loginbox {background: url(../images/bg_idsection.png) no-repeat 0 0;}
+.aside .loginbox_on {background: url(../images/bg_idsection_on.png) no-repeat 0 0;}
+
+.loginbox_userid, .loginbox a{color: #350500; font-weight: bold;}
+.loginbox_userid {display: block; position: absolute; left: 62px; top: 63px; letter-spacing: -1px;}
+.loginbox_on .loginbox_userid {width: 158px;left: 98px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.log_off .loginbox_userid {width: auto; left: 62px;}
+
+.loginbox_lv {display:block; width: 30px; height: 30px; position: absolute; left: 55px; top: 54px; }
+.btn_login {display: block; position: absolute; left: 263px; top: 57px; width: 59px; height: 24px; text-indent: -9999px;}
+ 
+.loginbox .sns, .log_off .sns {display: block; position: absolute; right: 124px; top: 62px; height: 15px; text-align: right; white-space: nowrap;}
+.loginbox .sns a, .log_off .sns a{margin-left:5px;}
+
+.aside_record {min-height: 510px; background: url(../images/bg_aside_record.png) no-repeat 0 111px;}
+.aside_record .clan_record h3{padding: 81px 0 16px; text-align: center;}
+
+.aside_record .clan_frame {position: relative; width: 260px; height: 175px; margin: 0 auto;background: url(../images/bg_clanrecord_frame_set.png) no-repeat -780px 0;}
+.aside_record .clan_record .gold {background-position: 0 0;}
+.aside_record .clan_record .silver {background-position: -260px 0;}
+.aside_record .clan_record .bronze {background-position: -520px 0;}
+
+.aside_record .gold .clan_mark {background-position: -23px -26px;}
+.aside_record .silver .clan_mark {background-position: -213px -26px;}
+.aside_record .bronze .clan_mark {background-position: -403px -26px;}
+
+.aside_record .clan_frame .clan_mark {position: absolute; top: 11px; left: 61px;}
+.aside_record .clan_mark {width: 145px; height: 121px; margin: 0 auto; padding-top:23px; position: relative; text-align: center; background: url(../images/bg_tier_circle.png) no-repeat -593px -26px;}
+
+.aside_record .clan_record {height: 424px; text-align: center;}
+.aside_record .clan_record .season {padding-top: 27px; height: 36px;}
+.aside_record .clan_record .clan_name, .aside_record .clan_record .clan_name a {padding-bottom: 3px; line-height: 15px; height: 15px;font-size: 14px; letter-spacing: -1px; text-align: center; font-weight: bold; color: #fff;}
+.aside_record .clan_record .rank_txt {height: 18px; line-height: 18px; color: #fff;}
+.aside_record .clan_record .rank_txt * {vertical-align: middle;}
+.aside_record .clan_record .rank_txt .msg {letter-spacing: -1px;}
+.aside_record .clan_record .rank_txt .rank {font-size: 18px; font-weight: bold; letter-spacing: -1px; position: relative; top: 2px;}
+.aside_record .clan_record .rank_txt .pos_ch {padding:0 13px 0 8px;color: #999999;}
+.aside_record .clan_record .rank_txt .pos_ch img {position: relative; top: -2px;}
+
+.aside_record .personal_record {text-align: center;}
+.aside_record .personal_record h3 { padding:19px 0 16px; height: 15px;}
+.aside_record .personal_record .map_score {height: 106px;}
+.aside_record .personal_record .map_score .round,.aside_record .personal_record .map_score .escort {float: left; width: 150px;}
+.aside_record .personal_record .map_score .tl {height: 14px; padding: 22px 0 9px;}
+.aside_record .personal_record .map_score .rank {display: block; line-height: 15px; font-size: 14px; color: #fff; padding-bottom: 5px;}
+
+.aside_league_link {text-align: center; padding-top: 35px;}
+.aside_league_link a {font-size: 14px; font-weight: bold; letter-spacing: -1px; color: #ac8e51; padding-right: 17px; background: url(../images/bl_aside_link.jpg) no-repeat 100% 50%;}
+
+/* sub */
+
+.top_visual .loginbox_on {position: absolute; right: -36px; top: -7px; width: 378px; height :292px; background: url(../images/bg_sub_userinfo.png) no-repeat 0 0;}
+.top_visual .log_off { background: url(../images/bg_sub_userinfo_off.png) no-repeat 0 0;}
+
+.loginbox_on .clan_record {position: absolute; left: 106px; top: 114px; width: 180px; padding-left: 43px;}
+.loginbox_on .clan_record .clan_mark {position: absolute; left: 11px; top: 8px;}
+.loginbox_on .clan_record .clan_name {padding: 2px 0 8px; color: #fff;}
+.loginbox_on .clan_record .clan_name a {color: #fff;}
+.loginbox_on .clan_record .clan_rank strong {font-size: 14px; color: #fff;}
+.loginbox_on .clan_record .clan_rank img {margin-left: 8px; }
+
+.loginbox_on .person_record {position: absolute; left: 106px; top: 187px; width: 210px; padding-left: 13px;}
+.loginbox_on .person_record .round {padding: 3px 0 8px;}
+.loginbox_on .person_record .rank {color: #fff;}
+.loginbox_on .person_record .pos_ch {padding-left: 8px;}
+
+.tl_myrecord, .tl_seasoninfo {padding:80px 0 25px;background: url(../images/line_myrecord_tit.png) no-repeat 50% 100%; text-align: center; position: relative; z-index: 40;}
+.tab_myrecord ul {zoom:1;}
+.tab_myrecord ul:after {content: ""; display: block; clear: both;}
+.tab_myrecord ul li {float: left; width: 190px; opacity: 0.3; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"; filter: alpha(opacity=30);}
+.tab_myrecord ul li a {display: block; min-height: 122px; background: url(../images/bg_tab_myrecord_state.png) no-repeat 0 71px; text-align: center; text-decoration: none; cursor: pointer;}
+.tab_myrecord ul li a span {display: block;}
+.tab_myrecord ul li a .period {padding: 20px 0 13px; height: 14px;}
+.tab_myrecord ul li a .tl {font-size: 24px; height: 31px; padding-bottom: 44px; font-weight: bold;}
+.tab_myrecord ul li .clan_mark {display: block; width: 190px; height: 205px;}
+.tab_myrecord ul li .clan_mark .mark {display: block; width: 190px; height: 155px; padding-top:50px; text-align:center; background: url(../images/bg_tier_circle_glow.png) no-repeat -570px 0;}
+.tab_myrecord ul li .clan_mark .mark img {}
+.tab_myrecord ul li .gold .mark {background-position: 0 0;}
+.tab_myrecord ul li .silver .mark {background-position: -190px 0;}
+.tab_myrecord ul li .bronze .mark {background-position: -380px 0;}
+
+.tab_myrecord ul li.on {opacity: 1;  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100);}
+.tab_myrecord ul li.on a {background-position: 100% 71px;}
+.tab_myrecord ul li.on a .tl {color: #fff;}
+
+.myclan_season_record {width:1110px; padding-left: 30px; height: 491px; background: url(../images/bg_myclan_record.png) no-repeat 0 0;}
+.myclan_allrecord {height: 172px;}
+
+.myclan_season_record h4, .myperson_season_record h4 {padding: 35px 0 21px 3px; height: 20px;}
+.myclan_season_record h4 span, .myperson_season_record h4 span {padding-left: 10px; font-size: 12px; font-weight: normal; color: #fff; vertical-align: bottom;}
+.myclan_season_record h4 img, .myperson_season_record h4 img {vertical-align: bottom;}
+
+.myrecord_sum_list {height: 60px; padding-left: 3px;}
+.myrecord_sum_list li {float: left; height: 60px; background: url(../images/line_myclan_allrecord_verti.gif) no-repeat 0 0;}
+.myclan_allrecord .myrecord_sum_list li {padding: 0 30px;}
+.myrecord_sum_list li.list_01 {/*width: 196px;*/ padding-left:0; background: none;}
+/*.myclan_allrecord .myrecord_sum_list li.list_02 {width: 191px;}
+.myclan_allrecord .myrecord_sum_list li.list_03 {width: 279px;}
+.myclan_allrecord .myrecord_sum_list li.list_04 {width: 315px;}*/
+
+.myrecord_sum_list li p {height: 16px; line-height: 15px; padding: 8px 0 7px;}
+.myrecord_sum_list li * {vertical-align: middle;}
+.myrecord_sum_list li .clan_name {font-size: 14px; color: #fff; font-weight: bold; letter-spacing: -1px;}
+.myrecord_sum_list li .rank {font-size: 18px; color: #fff; letter-spacing: -1px;}
+.myrecord_sum_list li .rank strong {font-size: 48px; padding-right: 4px; font-family: Arial;}
+.myrecord_sum_list li .pos_ch {padding-left: 8px; letter-spacing: 0;}
+.myrecord_sum_list li .pos_ch img {position: relative; top: -2px;}
+.myrecord_sum_list li p .num {color: #fff; font-size: 14px; padding-left: 3px;}
+
+.myclan_season_record .tbl_branch_record {position: absolute; left: 0; top: 77px;}
+.mybranch_record {position: relative;}
+.tbl_branch_record {width: 1080px;}
+.tbl_branch_record .branch {width: 142px;}
+.tbl_branch_record .playtime {width: 201px;}
+.tbl_branch_record .totalkill {width: 132px;}
+.tbl_branch_record .pri_wea {width: 122px;}
+.tbl_branch_record .sub_wea {width: 121px;}
+.tbl_branch_record .thr_wea {width: 121px;}
+.tbl_branch_record .mel_wea {width: 121px;}
+.tbl_branch_record .head_shot {width: 121px;}
+.tbl_branch_record th > span, .tbl_branch_record td > span {padding: 0 18px;}
+.tbl_branch_record img {vertical-align: middle; margin-right: 11px;}
+.tbl_branch_record th, .tbl_branch_record td {vertical-align: middle;}
+.tbl_branch_record th {height: 32px; padding-top: 10px;}
+.tbl_branch_record td {height: 51px; text-align: center;}
+.tbl_branch_record th.al {font-weight: bold;}
+.tbl_branch_record td.al {font-size: 14px;}
+.tbl_branch_record td .ico_branch {font-size: 12px;}
+.tbl_branch_record .point td {color: #c08c4f;}
+.tbl_branch_record .rifle td {color: #589cd1;}
+.tbl_branch_record .sniper td {color: #5fab9d;}
+
+.tab_mypersonrecord_link {padding:10px 0 35px;}
+.myperson_season_record {width:1110px; padding-left: 30px; height: 491px; background: url(../images/bg_myperson_record.png) no-repeat 0 0;}
+.myperson_season_record .round_record, .myperson_season_record .escort_record {float:left; width: 540px; height: 169px;}
+.myperson_season_record .escort_record {padding-left: 30px;}
+.myperson_season_record .myrecord_sum_list li {padding:0 25px;}
+.myperson_season_record .myrecord_sum_list li.list_01 {padding-left: 0;}
+/*.myperson_season_record .myrecord_sum_list li.list_01 {width: 213px;}
+.myperson_season_record .myrecord_sum_list li.list_02 {width: 170px;}
+.myperson_season_record .myrecord_sum_list li.list_03 {width: 100px;}*/
+.myperson_season_record .mybranch_record {clear: both;}
+.myperson_season_record .mybranch_record .tbl_branch_record {position: absolute; left: 0; top: 78px;}
+
+.norecord_box {width: 1140px; height: 99px; padding-top: 57px; background: url(../images/bg_norecord.png) no-repeat 0 0; text-align: center;}
+.norecord_box .msg_01 {font-size: 14px; padding:5px 0;}
+.norecord_box .msg_02 {padding:5px 0; color: #ac8e51;}
+
+.tl_seasoninfo {text-align: left; background: url(../images/bg_tl_seasoninfo.png) no-repeat 50% 100%;}
+.tl_seasoninfo img , .tl_seasoninfo .desc {vertical-align: middle;} 
+.tl_seasoninfo .desc {position: relative; top: 3px;padding-left: 40px; font-size: 18px; background: url(../images/line_tl_seasoninfo_desc.gif) no-repeat 20px 0;}
+
+.tab_seasoninfo_link {padding-bottom: 20px;}
+.tab_seasoninfo_link ul {height: 63px; background: url(../images/line_goldseason_rx.gif) repeat-x 0 100%;}
+.tab_seasoninfo_link ul li {float: left; width: 200px; opacity: 0.3; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"; filter: alpha(opacity=30);}
+.tab_seasoninfo_link ul li a {display: block; padding-top: 25px; height: 38px; background: url(../images/line_tab_goldseason.gif) no-repeat 0 100%; text-align: center; font-size: 16px; color: #fff; font-weight: bold; text-decoration: none; }
+
+.tab_seasoninfo_link ul li.on {opacity: 1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100);}
+.tab_seasoninfo_link ul li.on a {background-position: right 100%;}
+
+.match_info {padding: 14px 26px; height: 20px;position: relative;}
+.match_info .txt_mathch_noti {display:inline-block; zoom:1; _display: inline; padding-left: 35px; line-height: 20px; color: #ab8d51; background: url(../images/ico_warning.png) no-repeat left 50%; font-size: 14px;}
+
+.match_info .match_board_move {position: absolute; right: 0; top: 14px;padding: 0 27px;}
+.match_board_move a {display: block; width: 15px; height: 15px; position: absolute; top: 2px; text-indent: -9999px;}
+.match_board_move a.left {left: 0; background: url(../images/arw_season_select_left.gif) no-repeat left top;}
+.match_board_move a.right {right: 0; background: url(../images/arw_season_select_right.gif) no-repeat right top;}
+.match_board_move .txt {display:inline-block; zoom:1; _display: inline; white-space: nowrap; font-size: 16px; color: #ab8d51;}
+.wrap_gold_score_board {width: 1145px;}
+.gold_score_board {width: 1145px; height:568px; background: url(../images/bg_gs_scoreboard.png) no-repeat 0 0;}
+.gold_score_board ul {padding: 5px 0 0 5px; overflow: hidden;}
+.gold_score_board ul li {float:left; width: 280px; height: 278px; margin-right: 5px; vertical-align: top; text-align: center;}
+.gold_score_board ul li .match_clan {height: 166px; position: relative;}
+.gold_score_board ul li .match_clan .left, .gold_score_board ul li .match_clan .right {float: left; width: 140px; height: 166px; }
+.gold_score_board ul li .match_clan .mark {display: block; padding-top: 21px;}
+.gold_score_board ul li .match_clan .score {padding-top: 8px;font-size: 24px; font-weight: bold; color: #ab8d51;}
+.gold_score_board ul li .match_clan .vs {position: absolute; left: 121px; top: 128px; display: none; width: 33px; height: 27px; background: url(../images/img_goldseason_vs.png) no-repeat 0 0; text-indent: -9999px;}
+.gold_score_board ul li .clan_name {padding: 15px 0; line-height: 20px; color: #fff;}
+.gold_score_board ul li .clan_name a {color: #fff;}
+.gold_score_board ul li .clan_name .vs {color: #999999;}
+.gold_score_board ul li .more_link a {color: #444444;}
+.gold_score_board ul li .more_link a {padding-right: 19px; color: #ab8d51; background: url(../images/arw_season_select_down.gif) no-repeat right 3px; text-decoration: none;}
+.gold_score_board ul li.off .match_clan .vs {display: block;}
+.gold_score_board ul li.off .match_clan .score {font-weight: normal; color: #444444;}
+
+.camp_notice {padding-top: 25px;}
+.dot_list01 {padding-left: 5px;}
+.dot_list01 li {padding:9px 0 9px 7px; background: url(../images/bul_ex_list.gif) no-repeat 0 14px; color: #999999;}
+.camp_move {padding-top: 35px; text-align: right;}
+.camp_move, .camp_move a {font-size: 14px; font-weight: bold; color: #ab8d51;}
+.camp_move .line {padding: 0 10px;} 
+
+.all_rank_gold {position: relative; width: 1140px; min-height:1187px; padding-left: 5px; background: url(../images/bg_tbl_goldrank.png) no-repeat 0 0;}
+.all_rank_gold.norp {background-image: url(../images/bg_tbl_goldrank_norp.png) ;}
+
+.tbl_goldrank th.rank {width: 121px;}
+.tbl_goldrank th.clan {width: 450px;}
+.tbl_goldrank th.rp {width: 154px;}
+.tbl_goldrank th.win {width: 102px;}
+.tbl_goldrank th.lose {width: 102px;}
+.tbl_goldrank th.round {width: 102px;}
+.tbl_goldrank th.gain {width: 104px;}
+
+.tbl_goldrank th, .tbl_goldrank td {vertical-align: middle; height: 50px; text-align: center;}
+.tbl_goldrank td {font-size: 14px;}
+.tbl_goldrank .high td {height: 130px;}
+.tbl_goldrank .row_04 td {height: 135px;}
+
+.tbl_goldrank .high .rank_num{ display: block; color: #fff; font-size: 48px; font-weight: bold; font-family: arial;}
+.tbl_goldrank .clan_data {height: 17px; padding:0 18px 0 52px; padding-top: 3px;position: relative; text-align: left;}
+.tbl_goldrank .clan_data .mark {position: absolute; left: 22px; top: 0; vertical-align: middle;}
+.tbl_goldrank .clan_data .name, .tbl_goldrank .clan_data .name a {color: #fff; font-weight: bold;}
+.tbl_goldrank .clan_data .member {padding-left: 19px; background: url(../images/line_clandata_mem.gif) no-repeat 8px 2px; font-size: 12px;}
+.tbl_goldrank .clan_data .member .num {color: #fff; font-size: 14px;}
+.tbl_goldrank .high .clan_data { height: 100px; padding-left: 136px; padding-top: 0px;}
+.tbl_goldrank .high .clan_data .mark {position: absolute; left: 18px; top: 0;}
+.tbl_goldrank .high .clan_data .name {display: block; padding: 27px 0 10px; font-size: 24px;}
+.tbl_goldrank .high .clan_data .member {padding-left:0; background: 0;}
+.tbl_goldrank .high .rp {font-size: 18px; color: #fff; font-weight: bold;}
+
+.last_update_box {padding-top: 25px; text-align: right; clear: both;}
+.selectset_box {height: 86px; background: url(../images/bg_selectset_box.png) repeat-x 0 100%;}
+.selectset_box .tl { float: left; width: 114px; padding: 26px 0 0 21px; text-align: center; font-size: 14px;}
+.selectset_box .set_time {margin-left: 135px; height: 86px; background: url(../images/line_set_time_verti.gif) no-repeat 0 10px;}
+.selectset_box .set_time li {float: left; width: 62px; height: 86px; background: url(../images/line_set_time_verti.gif) no-repeat right 10px;}
+.selectset_box .set_time li a, .selectset_box .set_time li span {display: block; width: 60px; height: 45px; font-size: 24px; padding-top: 20px; text-align: center;}
+.selectset_box .set_time li a {color: #ab8d51;}
+.selectset_box .set_time li span {cursor: default;}
+.selectset_box .set_time li.on span {background: url(../images/bul_set_state.gif) no-repeat 50% 100%; font-weight: bold; color: #fff;}
+.tl_set_time {font-size: 24px; height: 26px; padding: 34px 0 33px; text-align: center; color: #fff;}
+
+.tab_match_result_link {padding-bottom: 16px;}
+.tab_match_result_link ul {overflow: hidden;}
+.tab_match_result_link ul li {float: left;}
+.tab_match_result_link ul li a {display: block; width: 286px; height: 84px; padding-top: 1px; background: url(../images/bg_tab_resultlist.png) no-repeat 0 0; text-decoration: none;}
+.tab_match_result_link ul li a:hover {background-position: 0 -85px; color: #fff;}
+.tab_match_result_link ul li.on a {background-position: 0 -170px; color: #fff;}
+
+.tab_match_result_link ul li a .clan_box {position: relative; display: block; height: 35px; padding:5px 24px 0 24px;}
+.tab_match_result_link ul li a .clan_box .name img {position: relative; top: 5px; margin-right: 10px;}
+.tab_match_result_link ul li a .clan_box em {position: absolute; right: 24px; top: 14px; display: block; font-size: 14px; color: #ab8d51;}
+
+.match_noti_box {width: 1145px; height: 166px;background: url(../images/bg_noresult_01.png) no-repeat 0 0;}
+.match_noti_box .msg {display: block; padding-top: 72px; text-align: center; font-size: 14px; color: #ab8d51;}
+
+.match_datil_result_box {width: 1145px; min-height: 699px; background: url(../images/bg_detailscore_01.png) no-repeat 0 0;}
+.match_datil_result_box.no_detail {min-height: 242px; background-image:url(../images/bg_detailscore_none.png);}
+.match_datil_result_box .round_sc_box { height: 235px; position: relative;}
+.match_datil_result_box .round_sc_box .left, .match_datil_result_box .round_sc_box .right {float:left; position: relative; width: 570px; height: 235px;}
+.match_datil_result_box .round_sc_box .map, .match_datil_result_box .round_sc_box .round_score {position: absolute; width: 180px; text-align: center; left: 50%; margin-left: -90px;}
+.match_datil_result_box .round_sc_box .map {top: 76px;}
+.match_datil_result_box .round_sc_box .round_score {top: 96px; font-weight: bold; font-size: 48px; color: #ab8d51; font-family: arial;}
+.match_datil_result_box .round_sc_box .round_score .colon {padding:0 30px; margin-left: -5px;}
+.match_datil_result_box .round_sc_box .clan_mark {position: absolute; top: 15px; display: block; width: 190px; height: 205px;}
+.match_datil_result_box .round_sc_box .clan_mark .mark {display: block; width: 190px; height: 155px; padding-top:50px; text-align:center; background: url(../images/bg_tier_circle_glow.png) no-repeat -570px 0;}
+.match_datil_result_box .round_sc_box .clan_mark .mark img {}
+.match_datil_result_box .round_sc_box .gold .mark {background-position: 0 0;}
+.match_datil_result_box .round_sc_box .silver .mark {background-position: -190px 0;}
+.match_datil_result_box .round_sc_box .bronze .mark {background-position: -380px 0;}
+.match_datil_result_box .round_sc_box .clan_name {position: absolute; top: 103px;display: block; font-size: 18px; color: #fff; white-space: nowrap; font-weight: bold;}
+.match_datil_result_box .round_sc_box .clan_name a {color: #fff;}
+
+.match_datil_result_box .round_sc_box .left .clan_mark {right: 108px;}
+.match_datil_result_box .round_sc_box .right .clan_mark {left: 108px;}
+.match_datil_result_box .round_sc_box .left .clan_name {right: 294px;}
+.match_datil_result_box .round_sc_box .right .clan_name {left: 294px;}
+
+.tab_round_detail_link {text-align: center; padding: 20px 0; }
+.tab_round_detail_link .holder {display: inline-block; zoom:1; _display: inline; overflow: hidden; background: url(../images/line_detailscore_01.gif) no-repeat 0 0; text-align: center;}
+.tab_round_detail_link .holder span {display: block; float: left; background: url(../images/line_detailscore_01.gif) no-repeat 100% 0; font-size: 14px;}
+.tab_round_detail_link .holder span a {display: block;  height: 21px; padding: 9px 12px 0; font-weight: bold; color: #636565; letter-spacing:-1px;}
+.tab_round_detail_link .holder .on a {color: #fff;}
+
+.round_detail_score {height: 385px;}
+.round_detail_score .left, .round_detail_score .right {float: left; width: 570px; height: 385px; position: relative;}
+
+
+.tbl_round_detail_score col.name {width: 243px;}
+.tbl_round_detail_score col.branch {width: 50px;}
+.tbl_round_detail_score col.score {width: 50px;}
+.tbl_round_detail_score col.death {width: 50px;}
+
+.tbl_round_detail_score .name {padding-left: 40px; text-align: left;}
+.tbl_round_detail_score th.death, .tbl_round_detail_score td.death {width: 50px; padding-right: 30px;}
+.tbl_round_detail_score th {height: 39px; vertical-align: middle; font-weight: bold;}
+.tbl_round_detail_score td {height: 60px; vertical-align: middle; text-align: center;}
+.tbl_round_detail_score td img {vertical-align: middle; margin-right: 5px;}
+.tbl_round_detail_score td.score {color: #ab8d51; font-size: 14px;}
+.tbl_round_detail_score td.death {font-size: 14px;}
+.left .tbl_round_detail_score td { background: url(../images/line_tbl_detail_sc_left.gif) repeat-x 0 0;}
+.right .tbl_round_detail_score td { background: url(../images/line_tbl_detail_sc_right.gif) repeat-x 0 0;}
+
+.round_detail_score .tbl_round_detail_score {position: absolute; top: 10px;}
+.round_detail_score .left .tbl_round_detail_score {right: 30px;}
+.round_detail_score .right .tbl_round_detail_score {left: 30px;}
+
+.tl_seasoninfo .combobox_01 {position: absolute; right: 15px; bottom: 20px;}
+.combobox_01 { position: relative;  height: 30px; z-index: 9999;}
+.combobox_01 .tl_combobox {height: 30px; padding-right: 20px; background: url(../images/arw_season_select_down.gif) no-repeat right 12px; font-size: 14px; color: #ab8d51; line-height: 30px; cursor: pointer;}
+.combobox_01 ul {display: none; position: absolute; right: -15px; top: 42px;  width: 302px; padding:7px 0 6px; background: url(../images/bg_combobox_list_top.png) no-repeat 0 0;}
+.combobox_01 ul:after {content: ""; display: block; position: absolute; left:0; bottom:0; width: 100%; height: 6px; background: url(../images/bg_combobox_list_bot.png) no-repeat 0 0 ; }
+.combobox_01 ul li a {display: block; padding: 0 20px; height: 40px; font-size: 12px; font-weight: normal; color: #ab8d53; line-height: 15px; background: url(../images/bg_combobox_list.png) no-repeat 0 0; text-decoration: none;}
+.combobox_01 ul li a:hover, .combobox_01 ul li a.on {background-position: 0 -40px; color: #fff;}
+.combobox_01 ul li a span {display: block;overflow: hidden; text-overflow: ellipsis; padding-top: 13px;}
+
+
+.camp_promote_noti {padding: 30px 43px 26px; font-size: 14px; font-weight: bold; color: #ab8d51; background: url(../images/ico_warning.png) no-repeat 8px 30px; line-height: 20px;}
+.camp_ranksummary_box {position: relative; width: 1130px; height: 406px; padding: 5px; background: url(../images/bg_top_camp_summary.png) no-repeat 0 0; overflow: hidden;}
+
+.wrap_promote_box {float: left; width: 750px; height: 399px; position: relative;}
+.wrap_mostrank_box {position: relative; margin-left: 755px; width: 375px; height: 399px; background: url(../images/bg_tbl_most_rank.png) no-repeat 0 0;}
+
+.tab_promote_link {position: absolute; left: 0; top: 19px; z-index: 10;}
+.tab_promote_link ul {height: 30px;}
+.tab_promote_link ul li {float: left;}
+.tab_promote_link ul li a {display: block; width: 214px; height: 20px; padding-top: 9px;color: #fff; font-size: 14px; font-weight: bold; text-align: center; opacity: 0.3; filter: alpha(opacity=30); text-decoration: none;}
+.tab_promote_link ul li.on a {opacity: 1; filter: alpha(opacity=100);}
+.bronze .tab_promote_link ul li a {width: auto; padding-left: 28px;}
+.arrangement .tab_promote_link ul li:first-child {background: url(../images/line_campdiv_03.gif) no-repeat right 3px;}
+.arrangement .tab_promote_link ul li a {width: auto; padding: 9px 27px 0;}
+
+.promote_content {width: 750px; height: 399px; position: relative;}
+.wrap_promote_contents .promote {background: url(../images/bg_tbl_promote.png) no-repeat 0 0;}
+.bronze .wrap_promote_contents .promote {background: url(../images/bg_tbl_promote_01.png) no-repeat 0 0;}
+.wrap_promote_contents .demote {background: url(../images/bg_tbl_demote.png) no-repeat 0 0;}
+.promote_content .tbl_ranksummary {position: absolute; left: 30px; top: 84px;}
+
+.arrangement .wrap_promote_contents {background: url(../images/bg_tbl_preseason.png) no-repeat 0 0;}
+
+.tbl_ranksummary {table-layout: fixed;}
+.tbl_ranksummary col.col_rank {width: 121px;}
+.tbl_ranksummary col.col_camp {width: 189px;}
+.tbl_ranksummary col.col_name {width: 226px;}
+.tbl_ranksummary col.col_rp {width: 103px;}
+.tbl_ranksummary col.col_win {width: 80px;}
+.tbl_ranksummary col.col_lose {width: 80px;}
+.tbl_ranksummary col.col_rate {width: 80px;}
+
+.tbl_ranksummary th, .tbl_ranksummary td {vertical-align: middle; text-align: center;} 
+.tbl_ranksummary .rank, .tbl_ranksummary .name, .tbl_ranksummary .rp {text-align: left;}
+.tbl_ranksummary p {padding: 0 10px;}
+.tbl_ranksummary th {height: 39px;}
+.tbl_ranksummary td {height: 50px;}
+.tbl_ranksummary td.rank em {font-size: 18px; color: #fff; padding-right: 8px;}
+.tbl_ranksummary td.name img {margin-right: 8px; vertical-align: middle; position: relative; top: -2px;}
+.tbl_ranksummary td.name a {color: #fff;}
+.tbl_ranksummary td.rp {font-size: 14px; color: #ab8d51; font-weight: bold;}
+.tbl_ranksummary td.win, .tbl_ranksummary td.lose, .tbl_ranksummary td.rate {text-align: center; font-size: 14px;}
+.tbl_ranksummary td.camp_cut div {width: 689px; margin-top: -2px; height:32px; padding-top: 20px; background: url(../images/bg_camp_cut.png) no-repeat 50% 50%; font-size: 14px; font-weight: bold; color: #ab8d51;}
+
+.tab_mostrank_link {position: absolute; left: 7px; top: 20px; z-index: 10;}
+.tab_mostrank_link ul {height: 30px;}
+.tab_mostrank_link ul li {float: left;}
+.tab_mostrank_link ul li:first-child {background: url(../images/line_campdiv_03.gif) no-repeat right 3px;}
+.tab_mostrank_link ul li a {display: block; height: 21px; padding: 9px 20px 0;color: #fff; font-size: 14px; font-weight: bold; text-align: center; opacity: 0.3; filter: alpha(opacity=30); text-decoration: none;}
+.tab_mostrank_link ul li.on a {opacity: 1; filter: alpha(opacity=100);}
+
+.mostrank_content {width: 375px; height: 399px; position: relative;}
+.mostrank_content .tbl_mostrank {position: absolute; left: 30px; top: 84px;}
+
+.tbl_mostrank col.name {width: 229px;}
+.tbl_mostrank col.match {width: 66px;}
+.tbl_mostrank th, .tbl_mostrank td {vertical-align: middle;}
+.tbl_mostrank th {height: 39px;}
+.tbl_mostrank td {height: 50px;}
+.tbl_mostrank .name {text-align: left;}
+.tbl_mostrank td.name img {margin-right: 8px; vertical-align: middle; position: relative; top: -2px;}
+.tbl_mostrank td.name a {color: #fff;}
+.tbl_mostrank p {padding: 0 10px;}
+.tbl_mostrank td.match {font-size: 14px; text-align: center;}
+
+.total_leaderboard {width: 1140px;}
+.total_leaderboard .leaderboard_head {position: relative; height: 80px;background: url(../images/bg_clanrank_tbl_top.png) no-repeat 0 0;}
+.total_leaderboard .leaderboard_body {padding:0 25px 45px; background: url(../images/bg_clanrank_tbl_mid.png) repeat-y 0 0;}
+.total_leaderboard .leaderboard_foot {height: 17px;background: url(../images/bg_clanrank_tbl_bot.png) no-repeat 0 0;}
+
+.leaderboard_head h4 {font-size: 18px;padding: 34px 0 0 34px;}
+
+.clan_search {position: absolute; right: 0; top: 24px; width: 292px; height: 43px; background: url(../images/bg_clansearch.png) no-repeat 0 0;}
+.clan_search input { width: 173px;  padding:12px 15px 10px; height: 15px; line-height: 15px; margin-left: 3px;background: transparent;}
+.btn_clansearch {display: block; width: 55px; height: 39px; background: url(../images/btn_clansearch.png) no-repeat 0 0; text-indent: -9999px;}
+.clan_search .btn_clansearch {position: absolute; top: 0; left: 214px;}
+
+.search_box {width: 330px; height: 43px; background: url(../images/bg_noti_search.png) no-repeat 0 0; position: relative;}
+.search_box input { position: absolute; left: 105px; top: 0px;width: 150px;  padding:12px 5px 10px; height: 15px; line-height: 15px; margin-left: 3px;background: transparent;}
+.search_box .select_box {position: absolute; left: 8px; top: 4px;}
+.search_box .btn_clansearch {position: absolute; top: 0; right: 0;}
+.select_box {width: 89px; font-weight: normal; font-size: 12px; background: #202223; border: 1px solid #111212; cursor: pointer;}
+.select_box .select_tl {height: 20px; padding: 7px 18px 0 10px; background: url(../images/arw_slnoti_down.gif) no-repeat 70px 11px;}
+.select_box .list {display: none;}
+.select_box .list li a {display: block; height: 20px; padding: 7px 18px 0 10px; border-top: 1px solid #111212; text-decoration: none;}
+.select_box .list li a:hover {color: #ab8d51;}
+.tbl_total_leaderboard .col_rank {width: 130px;}
+.tbl_total_leaderboard .col_camp {width: 191px;}
+.tbl_total_leaderboard .col_name {width: 247px;}
+.tbl_total_leaderboard .col_lv_name {width: 299px;}
+.tbl_total_leaderboard .col_p_clan {width: 288px;}
+.tbl_total_leaderboard .col_rp {width: 108px;}
+.tbl_total_leaderboard .col_win {width: 105px;}
+.tbl_total_leaderboard .col_lose {width: 105px;}
+.tbl_total_leaderboard .col_per {width: 85px;}
+.tbl_total_leaderboard .col_mem {width: 115px;}
+.tbl_total_leaderboard .col_null {width: auto;}
+
+.tbl_total_leaderboard .col_pr_rank {width: 117px;}
+.tbl_total_leaderboard .col_pr_name {width: 434px;}
+.tbl_total_leaderboard .col_pr_sd {width: 154px;}
+.tbl_total_leaderboard .col_pr_clan {width: 270px;}
+
+.tbl_total_leaderboard {width: 100%; padding-top: 6px; table-layout: fixed;}
+.tbl_total_leaderboard th, .tbl_total_leaderboard td{border-bottom: 1px solid #121212; vertical-align: middle; text-align: center;}
+.tbl_total_leaderboard th {height: 42px;}
+.tbl_total_leaderboard td {height: 39px;}
+.tbl_total_leaderboard .cut_line td {height: 37px; border-bottom: 0 none; padding-bottom: 2px; background: url(../images/line_campcut_rx.gif) repeat-x 0 100%;}
+.tbl_total_leaderboard .even td {background: url(../images/bg_tbl_total_leaderboard_td.png) repeat-x 0 0;}
+.tbl_total_leaderboard .even.cut_line td {background: url(../images/bg_tbl_total_leaderboard_td.png) repeat-x 0 100%;}
+
+.tbl_total_leaderboard .rank, .tbl_total_leaderboard .name, .tbl_total_leaderboard .rp, .tbl_total_leaderboard .lv_name, .tbl_total_leaderboard .p_clan {text-align: left;}
+.tbl_total_leaderboard .rank p {padding:0 10px 0 19px;}
+.tbl_total_leaderboard .name p, .tbl_total_leaderboard .p_clan p {padding:0 10px 0;}
+.tbl_total_leaderboard .lv_name p {padding:0 10px 0 50px;}
+.tbl_total_leaderboard td.rank em {font-size: 18px; color: #fff; padding-right: 8px;}
+.tbl_total_leaderboard td.name img, .tbl_total_leaderboard td.lv_name img, .tbl_total_leaderboard td.p_clan img {margin-right: 8px; vertical-align: middle; position: relative; top: -2px;}
+.tbl_total_leaderboard td.name a, .tbl_total_leaderboard td.lv_name a {color: #fff;}
+.tbl_total_leaderboard td.rp {color: #ab8d51;}
+.tbl_total_leaderboard td.sd {color: #fff; font-size: 14px; letter-spacing: -1px;}
+
+.sl_paging {text-align: center; padding-top: 30px;}
+.sl_paging a {display: inline-block; zoom: 1; _display: inline; vertical-align: top;}
+.sl_paging .num a { height: 15px; line-height:15px;padding: 4px 10px 6px; background: #202223; border: 1px solid #3b4043;  font-family: verdana; font-size: 14px; cursor: pointer;}
+.sl_paging .num a.on { background: #931003; color: #fff; border-color: #c12313; cursor: default; text-decoration: none;}
+.sl_paging .btn_page_left, .sl_paging .btn_page_right { width: 29px; height: 27px;}
+.sl_paging .btn_page_left {background: url(../images/btn_paging_left.gif) no-repeat 0 0;}
+.sl_paging .btn_page_right {background: url(../images/btn_paging_right.gif) no-repeat 0 0;}
+
+.search_result_box {height: 70px; padding-top: 20px; }
+.search_result_box p{height: 47px; padding: 23px 25px 0; background: url(../images/bg_tbl_total_leaderboard_even.png) repeat 0 0; font-size: 24px; font-weight: bold;}
+.search_result_box p em {color: #ab8d51;}
+.search_result_box .btn_clearsult {display: inline-block; zoom: 1; _display: inline; width: 120px; height: 39px; vertical-align: top; background: url(../images/btn_search_clear.png) no-repeat 0 0; margin-top: -5px; margin-left: 19px;}
+
+.search_no_result {height: 119px; border-bottom: 1px solid #121212 ;}
+.search_no_result p {color: #444444; text-align: center; padding-top: 54px;}
+
+/* popup */
+
+.wrap_pop {width: 800px; height:870px; background: url(../images/bg_pop_wrap.jpg) no-repeat 0 0;}
+
+.tl_pop {position: relative; height: 48px; font-size: 14px; color: #ab8d51;}
+.tl_pop .line {padding: 0 10px;}
+.tl_pop p {padding: 19px 0 0 27px;}
+.tl_pop .btn_pop_close {display: block; position: absolute; height: 11px; right: 30px; top: 18px; padding:3px 21px 3px 0; background: url(../images/ico_popclose.gif) no-repeat right 50%; font-weight: normal; font-size: 12px; text-decoration: none;}
+.claninfo_head {position: relative; height: 252px;}
+.claninfo_head .clan_mark {position: absolute; left: 30px; top: 32px; display: block; width: 190px; height: 205px;}
+.claninfo_head .clan_mark .mark {display: block; width: 190px; height: 155px; padding-top:50px; text-align:center; background: url(../images/bg_tier_circle_glow.png) no-repeat -570px 0;}
+.claninfo_head .clan_mark .mark img {}
+.claninfo_head .gold .mark {background-position: 0 0;}
+.claninfo_head .silver .mark {background-position: -190px 0;}
+.claninfo_head .bronze .mark {background-position: -380px 0;}
+
+.claninfo_head .claninfo_detail {position: absolute; left: 237px; top: 60px;}
+.claninfo_detail {width: 540px; height: 160px; }
+.claninfo_detail .tl_clanname {padding-bottom: 17px; font-size: 24px; font-weight: bold; color: #fff;}
+.claninfo_detail .tl_clanname .btn_clanhome {display: inline-block; zoom: 1; _display: inline; width: 79px; height: 37px; margin-left: 15px; background: url(../images/btn_pop_clanhome.png) no-repeat 0 0; vertical-align: middle;}
+.claninfo_detail .clan_tier {width: 204px; float: left;}
+.claninfo_detail .clan_tier p {padding-bottom: 10px;}
+.claninfo_detail .clan_tier p * {vertical-align: top;}
+.claninfo_detail .clan_tier p strong {font-size: 48px; font-family: arial; color: #fff; }
+.claninfo_detail .clan_tier p strong span {font-size: 18px; font-weight: normal; padding-left: 8px; position: relative; top: 17px;}
+.claninfo_detail .clan_tier p .pos_ch {padding-left: 8px; position: relative; top: 22px;}
+.claninfo_detail .clan_tier p .pos_ch img {top: 0;}
+.claninfo_detail .clan_record_list {margin-left: 204px; padding-top: 9px;}
+.claninfo_detail .clan_record_list li {background: url(../images/bul_ex_list.gif) no-repeat 0 7px; height: 15px; line-height: 15px; padding-left: 7px; padding-bottom: 15px;}
+.claninfo_detail .clan_record_list li span {font-size: 14px; color: #fff; vertical-align: middle;}
+
+.claninfo_body {padding:0 20px; position: relative; height: 482px;}
+.claninfo_body h3 {height: 54px;}
+.claninfo_body h3 p {padding:20px 0 0 29px; font-size: 14px;}
+.claninfo_body .clanmem_info {padding:7px 0 0 30px;}
+.tbl_pop_clanmem {table-layout: fixed; width: 700px;}
+.tbl_pop_clanmem .col_rank {width: 133px;}
+.tbl_pop_clanmem .col_name {width: 226px;}
+.tbl_pop_clanmem .col_rp {width: 119px;}
+.tbl_pop_clanmem .col_games {width: 109px;}
+.tbl_pop_clanmem .col_null {width: auto;}
+
+.tbl_pop_clanmem th, .tbl_pop_clanmem td {background: url(../images/bg_tbl_cell_underline.gif) repeat-x 0 100%; text-align: left; padding-bottom: 2px; vertical-align: middle;}
+.tbl_pop_clanmem th p, .tbl_pop_clanmem td p {padding: 0 10px;}
+.tbl_pop_clanmem .rank p {padding-left: 21px;}
+.tbl_pop_clanmem th {height: 39px;}
+.tbl_pop_clanmem td {height: 48px;}
+
+.tbl_pop_clanmem td.rank em {font-size: 18px; color: #fff;}
+.tbl_pop_clanmem td.rank .pos_ch {vertical-align: middle; margin-left: 10px;}
+.tbl_pop_clanmem td.name img {vertical-align: middle; margin-right: 8px;}
+.tbl_pop_clanmem td.rp {font-size: 14px; font-weight: bold; color: #ab8d51;}
+.tbl_pop_clanmem td.games {font-size: 14px;}
+
+.wrap_pop .dot_list01 {padding-left: 50px;}
+
+.tab_leaderboard_link {padding: 26px 0 0 5px; }
+.tab_leaderboard_link ul {height: 30px;}
+.tab_leaderboard_link ul li {float: left; background: url(../images/line_campdiv_03.gif) no-repeat left 0;}
+.tab_leaderboard_link ul li:first-child {background: none;}
+.tab_leaderboard_link ul li a {display: block; height: 23px; padding: 7px 30px 0; color: #fff; font-size: 16px; font-weight: bold; text-align: center; opacity: 0.3; filter: alpha(opacity=30); text-decoration: none; font-weight: bold;}
+.tab_leaderboard_link ul li.on a {opacity: 1; filter: alpha(opacity=100);}
+
+.clanmark_list_box { width: 990px; margin: 0 auto;}
+.clanmark_list_box ul {overflow: hidden; margin-left: -10px;}
+.clanmark_list_box ul li {float:left; width: 190px; height: 250px; padding-left: 10px;}
+.clanmark_list_box ul li .clan_mark {display: block; width: 190px; height: 205px;}
+.clanmark_list_box ul li .clan_mark .mark {display: block; width: 190px; height: 155px; padding-top:50px; text-align:center; background: url(../images/bg_tier_circle_glow_01.png) no-repeat -570px 0;}
+.clanmark_list_box ul li .clan_mark .mark img {}
+.clanmark_list_box ul li .gold .mark {background-position: 0 0;}
+.clanmark_list_box ul li .silver .mark {background-position: -190px 0;}
+.clanmark_list_box ul li .bronze .mark {background-position: -370px 0;}
+
+.clanmark_list_box ul li .mark_desc {text-align:center; margin-top: -7px;}
+.clanmark_list_box ul li .mark_desc .btn_sel_mark {width: 91px; height: 37px; display: inline-block; zoom: 1; _display: inline; background: url(../images/btn_select_mark.png) no-repeat 0 0;}
+.clanmark_list_box ul li .mark_desc .clan_name {color: #fff; padding-bottom: 10px;}
+.clanmark_list_box ul li .mark_desc .achievements {color: #ab8d51;}
+
+.selectable ul li:hover .mark {background-position: -760px 0;}
+.selectable ul li:hover .btn_sel_mark  {background-position: 0 -37px;}
+.total_leaderboard .tl_mark_sel {padding:35px 0 20px;}
+.total_leaderboard .tl_mark_sel .bul_desc {padding-left: 26px; background: url(../images/bul_ex_list.gif) no-repeat 19px 5px; font-size: 12px; font-weight: normal; position: relative; top: -5px; }
+.total_leaderboard .tl_mark_sel .bul_desc em {color: #ab8d51;}
+
+.personal_top_ranker_box {width: 815px; padding:50px 0 0 325px; height: 335px; margin: 0 auto; background: url(../images/bg_personal_top3rank.png) no-repeat 50% 50px;}
+.personal_top_ranker_box h2 {height: 70px; position: relative;}
+.personal_top_ranker_box h2 .txt {padding: 30px 40px 0;font-size: 18px; color: #ab8d51; font-weight: bold;}
+.personal_top_ranker_box h2 .personal_ss_move {position: absolute; right: 23px; top: 21px; width: 182px; height:37px;}
+.personal_top_ranker_box h2 .personal_ss_move a {display: block; width: 91px; height:37px; position: absolute; top: 0; background: url(../images/btn_personal_ss_move.png) no-repeat 0 0; text-indent: -9999px;}
+.personal_top_ranker_box h2 .personal_ss_move a.left {left: 0;}
+.personal_top_ranker_box h2 .personal_ss_move a.right {right: 0; background-position: right 0;}
+
+.tab_toprank_link {position: relative; height: 46px; padding: 23px 0 0 5px; }
+.tab_toprank_link ul {height: 30px;}
+.tab_toprank_link ul li {float: left; background: url(../images/line_personal_divier.gif) no-repeat left 0;}
+.tab_toprank_link ul li:first-child {background: none;}
+.tab_toprank_link ul li a {display: block; height: 19px; padding: 6px 35px 0; color: #fff; font-size: 14px; font-weight: bold; text-align: center; opacity: 0.3; filter: alpha(opacity=30); text-decoration: none; font-weight: bold;}
+.tab_toprank_link ul li.on a {opacity: 1; filter: alpha(opacity=100);}
+.tab_toprank_link .desc {position: absolute; right: 31px; top: 32px;}
+
+.toprank_content {}
+.toprank_content .top3_list {height: 180px;}
+.toprank_content .top3_list li { float: left; width:270px; height: 180px; text-align: center;}
+.toprank_content .top3_list li .name {padding-top: 61px;}
+.toprank_content .top3_list li .name .lv_holder {display: inline-block; width: 42px; height: 36px; padding-top:5px; background: url(../images/bg_personal_lv.png) no-repeat 0 0;}
+.toprank_content .top3_list li .name a {font-size: 16px; color: #fff; font-weight: bold; margin-left: 5px; position: relative; top: -8px; }
+.toprank_content .top3_list li .rp {font-size: 36px; font-family: arial; font-weight: bold; padding-top: 10px; color: #fff;}
+
+.wrap_sl_noti {padding-left: 20px; width: 840px;}
+.tl_slnoti { padding: 77px 0 38px; height: 33px; background: url(../images/bg_slnoti_tl.png) no-repeat 50% 100%; position: relative; z-index: 40;}
+.tl_slnoti .search_box {position: absolute; right: 5px; top: 77px; }
+.tl_slnoti .btn_noti_print {position: absolute; right: 0; bottom: 30px; display: block; width: 71px; height: 37px; background: url(../images/btn_print.png) no-repeat 0 0;text-indent: -9999px}
+
+.notice_board {width: 840px;margin: 0 auto; padding-top: 25px;}
+.notice_board_head {height: 50px; background: url(../images/bg_slnoti_list_tl.png) no-repeat 50% 0;}
+.notice_board_list li {height: 88px; margin-bottom: 1px; background: url(../images/bg_slnoti_list.png) no-repeat 50% 0;}
+
+.notice_board .b_cate, .notice_board .b_post, .notice_board .b_view {float: left;}
+.notice_board .b_cate {width: 134px;}
+.notice_board .b_cate p, .notice_board .b_post p, .notice_board .b_view p {padding-left: 30px; line-height: 15px;}
+.notice_board .b_post {width: 590px;}
+.notice_board .b_view {width: 115px;}
+
+.notice_board_head .b_cate p, .notice_board_head .b_post p, .notice_board_head .b_view p {padding-top: 16px;}
+.notice_board_list .b_cate p, .notice_board_list .b_view p {font-size: 14px; padding-top: 34px;}
+.notice_board_list .b_post p {font-size: 14px; padding-top: 23px;}
+.notice_board_list .b_post a {color: #fff;}
+.notice_board_list .b_post a img {position: relative; top: 3px; margin-left: 10px;}
+.notice_board_list .new .b_post a {color: #ab8d51; font-weight: bold;}
+.notice_board_list .b_post .date {display: block; color: #666666; font-size: 12px; padding-top: 7px;}
+
+.notice_board .sl_paging {padding-bottom: 30px;}
+.bottom_search {border-top: 1px solid #121212; height: 70px; position: relative;}
+.bottom_search .search_box {position: absolute; top: 25px; right: 5px;}
+
+.notice_board .search_result_box {width: 830px; margin: 0 auto 10px; padding-top: 0;}
+
+.sl_noti_view h3 {padding-top: 35px; font-size: 24px; color: #ab8d51;}
+.sl_noti_view p.info {padding-top: 12px; color: #666666;}
+.sl_noti_view p.info span {padding-left: 10px;}
+.sl_noti_view p.info .view {padding-left: 23px; background: url(../images/line_notiview_div.gif) no-repeat 11px 50%;}
+.sl_noti_view p.link {padding-top: 14px;text-align: right; vertical-align: top; color: #666666;}
+.sl_noti_view p.link .btn_notiurl_copy {display: inline-block; width: 71px; height: 37px; background: url(../images/btn_urlcopy.png) no-repeat 0 0; margin: -10px 0 0 12px; vertical-align: top;}
+
+.sl_noti_view .sl_noti_content {padding:30px 0; line-height: 28px; font-size: 14px;}
+.sl_noti_view .sl_noti_content strong {color: #ab8d51;}
+.sl_noti_view .sl_noti_content a {color: #fff; font-weight: bold;}
+.noti_sns {text-align: right; color: #666; padding-bottom: 35px;}
+.noti_sns .sns_link {display: inline-block; overflow: hidden; position: relative; top: 2px; margin-left: 10px;}
+.noti_sns .sns_link a {float: left; display: block; width: 16px; height: 16px; margin-right: 3px; text-indent: 9999px;}
+.noti_sns .sns_link .btn_twitter {background: url(../images/ico_twitter.gif) no-repeat 0 0;}
+.noti_sns .sns_link .btn_facebook {background: url(../images/ico_facebook.gif) no-repeat 0 0;}
+.noti_sns .sns_link .btn_me2day {background: url(../images/ico_me2day.gif) no-repeat 0 0;}
+.noti_sns .sns_link .btn_cyworld {background: url(../images/ico_cyworld.gif) no-repeat 0 0;}
+.noti_nav {border-top: 1px solid #121212; padding-top: 30px; height: 39px; position: relative;}
+.noti_nav a {display: block; text-indent: -9999px; position: absolute; top: 30px;}
+.noti_nav .btn_noti_prev, .noti_nav .btn_noti_next {width: 70px; height: 37px;}
+.noti_nav .btn_noti_prev {left: 5px; background: url(../images/btn_prev_post.gif) no-repeat 0 0;}
+.noti_nav .btn_noti_next {left: 80px; background: url(../images/btn_next_post.gif) no-repeat 0 0;}
+.noti_nav .btn_noti_list{right: 0; width: 79px; height: 39px; background: url(../images/btn_post_list.png) no-repeat 0 0;}
+
+.tab_per_rec_link {padding: 0 10px 20px;}
+.tab_per_rec_link ul {height: 30px;}
+.tab_per_rec_link ul li {float: left; background: url(../images/line_campdiv_03.gif) no-repeat left 0;}
+.tab_per_rec_link ul li:first-child {background: none;}
+.tab_per_rec_link ul li a {display: block; height: 23px; padding: 7px 30px 0; color: #fff; font-size: 16px; font-weight: bold; text-align: center; opacity: 0.3; filter: alpha(opacity=30); text-decoration: none; font-weight: bold;}
+.tab_per_rec_link ul li.on a {opacity: 1; filter: alpha(opacity=100);}
+
+.wrap_shbox {position: relative; padding-bottom:5px;}
+.wrap_shbox .shbox_top {background: url(../images/bg_personal_record_top.png) no-repeat 0 0; height: 7px;}
+.wrap_shbox .shbox_body {background: url(../images/bg_personal_record_mid.png) repeat-y 0 0; position: relative; z-index: 100;}
+.wrap_shbox .shbox_bot {position: absolute; width: 100%; left: 0; bottom: -1px; background: url(../images/bg_personal_record_bot.png) repeat-y 0 0; height: 8px;}
+
+.perrec_top3_box {padding: 0 5px; margin-top: -3px; height: 288px; background: url(../images/bg_per_toprank_01.png) no-repeat 0 0;}
+.perrec_top3_box .col_rank, .perrec_top3_box .col_name, .perrec_top3_box .col_sd, .perrec_top3_box .col_clan {float: left;}
+
+.perrec_top3_box .col_rank {width: 121px;}
+.perrec_top3_box .col_name {width: 450px;}
+.perrec_top3_box .col_sd {width: 154px;}
+.perrec_top3_box .col_clan {width: 400px;}
+
+.perrec_top3_box .perrec_top3_item {padding-top: 3px; height: 40px;}
+.perrec_top3_box .perrec_top3_item div p {padding-top: 14px;text-align: center;}
+.perrec_top3_box .perrec_top3_item .col_clan p {padding-left: 21px; text-align: left;}
+
+.perrec_top3_box .perrec_top3_list {padding-top:5px;}
+.perrec_top3_box .perrec_top3_list li {height: 80px; vertical-align: top;}
+.perrec_top3_box .perrec_top3_list li .col_rank, .perrec_top3_box .perrec_top3_list li .col_sd {text-align: center;}
+.perrec_top3_box .perrec_top3_list li .col_rank p {padding-top: 29px; line-height: 25px;}
+.perrec_top3_box .perrec_top3_list li .col_rank em {font-size: 24px; font-weight: bold; color: #fff;}
+.perrec_top3_box .perrec_top3_list li .col_rank .pos_ch {padding-left: 6px; position: relative; top: -3px;}
+.perrec_top3_box .perrec_top3_list li .col_name p {padding-left: 25px; padding-top: 25px;}
+.perrec_top3_box .perrec_top3_list li .col_name p a {color: #fff; font-size: 24px; font-weight: bold; letter-spacing: -1px; vertical-align: middle;}
+.perrec_top3_box .perrec_top3_list li .col_name p .none {color: #fff; font-size: 24px; font-weight: bold; padding-left: 50px;}
+.perrec_top3_box .perrec_top3_list li .col_name p img {margin-right: 15px; vertical-align: middle;}
+.perrec_top3_box .perrec_top3_list li .col_sd p {padding-top: 15px; font-weight: bold; font-size: 36px; color: #fff; font-family: arial;}
+.perrec_top3_box .perrec_top3_list li .col_clan p {padding-left: 20px; padding-top: 26px;}
+.perrec_top3_box .perrec_top3_list li .col_clan p a {color: #fff; font-size: 14px; letter-spacing: -1px;}
+.perrec_top3_box .perrec_top3_list li .col_clan p img {margin-right: 8px; position: relative; top: 4px;}
+.perrec_top3_box .perrec_top3_list li .col_clan p .none {display:block; color: #fff; padding: 6px 0 0 30px;}
+
+.perrec_lowrank_box {padding-top:5px;}
+.lowrank_box_top {height: 5px; background: url(../images/bg_per_lowrank_top.png) no-repeat 0 0}
+.lowrank_box_body {padding: 15px 0; background: url(../images/bg_per_lowrank_mid.png) repeat-y 0 0;}
+.lowrank_box_bot {height: 7px; background: url(../images/bg_per_lowrank_bot.png) no-repeat 0 0}
+
+.lowrank_box_body .tbl_total_leaderboard {width: 1090px; margin: 0 auto; border-top: 1px solid #121212;}
+.lowrank_box_body .tbl_total_leaderboard .lv_name p {padding-left: 10px;}
+
+/* 인식표 보기 레이어 */
+.userMenu {position:absolute;z-index:33 !important;border:solid 2px #4D4534;background:#F7EFDE;}
+.userMenu table {background:#DFD7C5;border-collapse:collapse;}
+.userMenu td {padding:5px 10px 3px 5px;background:#DFD7C5;cursor:pointer;_cursor:hand;vertical-align:middle;color:#4D4534;letter-spacing:-1px;}
+.userMenu .over {background:#DFD7C5;}
+.userMenu .udActivate {background:#DFD7C5;color:#DA2B02;}
+.userMenu .udDeactivate {background:#DED7C5;}

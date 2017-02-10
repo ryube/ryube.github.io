@@ -1,0 +1,53 @@
+		<div class="content">
+			<h3>기본규약</h3>
+			<ul>
+				<li>W3C의 표준 문법을 준수한다.(Validation검사는 필수적으로 한다.)</li>
+				<li>html의 기본을 준수한다.(각 태그는 의미가 있어야 하며, 문서로서 손색이 없어야 한다.)</li>
+				<li>기본적인 접근성 규약(<a href="http://www.w3.org/WAI/">http://www.w3.org/WAI/</a>)을 지키며, 클라이언트의 요청에 따라 추가 규칙이 발생할 수 있다.</li>
+				<li>DOCTYPE, encoding은 클라이언트의 요청을 최우선으로 하며 기본은 html5/utf-8로 한다.</li>
+				<li>Tab 크기값 4를 기본으로 문맥당 들여쓰기, 문장의 공백은 1, 행 뒤의 공백은 제거한다.</li>
+				<li>주석의 시작과 끝을 //로 구분하여 표기, 개발후의 수정사항 부분과 기능의 분류 외에는 사용하지 않는다.</li>
+				<li>script의 경우 특별한 일이 없다면 성능을 위해 &lt;/body&gt;전에 호출한다.</li>
+				<li>상식선의 Cross Browsing을 원칙으로 하되 IE6, Konqueror, Mac, UNIC등의 비주류 브라우저(OS)는 협의 사항을 우선으로한다.</li>
+				<li>태그내의 모든 특수문자는 Entity코드로 변환하여 작업한다.(<a href="http://entitycode.com/">http://entitycode.com/</a>)</li>
+			</ul>
+			
+			<h3><?php echo TITLE ?> : 환경</h3>
+			<ul>
+				<li>개발언어 : jsp</li>
+				<li>DOCTYPE, encoding : HTML5, utf-8</li>
+				<li>Html : HTML5</li>
+				<li>javascript Framework : jQuery latest</li>
+				<li>브라우저 : IE8 이상, 외 표준 브라우저</li>
+				<li>모바일 기기 추가지원 : 없음</li>
+			</ul>
+			<div class="codeViewer">
+				<div class="cntWrap">
+					<pre style="display:block">
+&lt;!DOCTYPE HTML&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8"&gt;
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+&lt;title&gt;&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+	&lt;section id="wrapper"&gt;
+		&lt;header id="header" &gt;
+			&lt;div class="header_width"&gt;
+				
+			&lt;/div&gt;
+		&lt;/header&gt;
+		&lt;section id="contents_wrap"&gt;
+			&lt;div class="contents_width"&gt;
+			&lt;/div&gt;
+		&lt;/section&gt;
+		&lt;footer id="footer"&gt;
+			&lt;div class="footer_width"&gt;&lt;/div&gt;
+		&lt;/footer&gt;	
+	&lt;/section&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+					</pre>
+				</div>
+			</div>
+		</div>

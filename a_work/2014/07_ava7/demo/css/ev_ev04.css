@@ -1,0 +1,43 @@
+body {background: #010101;}
+
+.container {position:relative; width:990px; margin:0 auto;  z-index:10; }
+.bg_left {position:absolute; top:0; left:-495px; width:50%; height: 100%; background:url(../img/ev_7_4/bg_left.jpg) no-repeat right 170px; }
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 100%; *margin-left:-1px; _margin-left:0px; background: url(../img/ev_7_4/bg_right.jpg) no-repeat 495px 170px; }
+.wrap {overflow: hidden;}
+
+
+.event_01 {position:relative; height: 2155px; background:url(../img/ev_7_4/bg_ev_01.jpg) no-repeat; z-index:40;}
+.event_01 .btn_noti01 {width: 105px; height: 28px; left: 725px; top: 370px;}
+.event_01 .code {position: absolute; left: 419px; top: 833px; width: 490px; font: normal bold 26px Tahoma; color: #d3d3d3;}
+.event_01 .code span {padding: 0 20px;}
+.event_01 .mi_map {position: absolute; left: 72px; top: 1170px; width: 847px; height: 318px;}
+.event_01 .mi_map li {float: left; position: relative; height: 318px;}
+.event_01 .mi_map li.l1 {width: 223px;}
+.event_01 .mi_map li.l2 {width: 221px;}
+.event_01 .mi_map li.l3 {width: 220px;}
+.event_01 .mi_map li.l4 {width: 183px;}
+.event_01 .mi_map li .bg {position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: none;}
+.event_01 .mi_map li.l1.on .bg {display: block; background: url(../img/ev_7_4/bg_period_on.jpg) no-repeat 0 0;}
+.event_01 .mi_map li.l2.on .bg {display: block; background: url(../img/ev_7_4/bg_period_on.jpg) no-repeat -223px 0;}
+.event_01 .mi_map li.l3.on .bg {display: block; background: url(../img/ev_7_4/bg_period_on.jpg) no-repeat -444px 0;}
+.event_01 .mi_map li.l4.on .bg {display: block; background: url(../img/ev_7_4/bg_period_on.jpg) no-repeat -664px 0;}
+
+.footer {position:relative; height: 140px; text-align: center; background:url(../img/ev_7_4/bg_footer.jpg) no-repeat; z-index:40;}
+.footer p {padding-top: 4px;}
+.footer .footer_fix {position: relative; width: 663px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url(../img/ev_7_4/txt_foot.png) no-repeat 0 50%;}
+.footer .btn {height: 28px; top:0px;}
+.footer .redduck {left: 0px; width: 100px;}
+.footer .eventqna {right: 110px; width: 80px;}
+.footer .pmangevent {right: 0; width: 92px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.footer .neowizgames_ci {width: 94px; height: 26px; background:url(../img/ev_7_4/ci_neowiz.png) no-repeat 50% 50%;}
+.footer .daum_ci {width: 94px; height: 26px; background:url(../img/ev_7_4/ci_daum.png) no-repeat 50% 50%;}
+.footer .naver_ci {width: 94px; height: 26px; background:url(../img/ev_7_4/ci_naver.png) no-repeat 50% 50%;}
+
+
+.layer_pop {position: absolute; z-index: 100; display:none;}
+.layer_pop .pop_body {position: absolute; width: 100%; height: 100%; left: 0; bottom: 0;}
+.layer_pop .layer_close {position: absolute; display: block; right: 20px; top: 20px; width: 37px; height: 34px; text-indent: -9999px; z-index: 101}
+
+.pop_notice01  {width: 698px; height: 285px; top: 572px  !important; background: url(../img/ev_7_4/pop_noti1.png) no-repeat 0 100%;}
+.pop_notice01 .layer_close {position: absolute; display: block; right: 20px; top: 18px; width: 25px; height: 25px; text-indent: -9999px; z-index: 101}

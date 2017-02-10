@@ -1,0 +1,85 @@
+
+body {background-color: #070212;}
+.container {position:relative; width: 1200px; margin:0 auto;  z-index:10;}
+.bg_left {position:absolute; top:0; left:-600px; width:50%; height: 100%; background:url(../img/gate/bg_left.jpg) no-repeat right 0;  z-index: 2;}
+.bg_right {position:absolute; top:0; left:50%; width:50%; height: 100%; *margin-left:-1px; _margin-left:0px; background: url(../img/gate/bg_right.jpg) no-repeat 600px 0; z-index: 2;}
+.wrap { padding-top: 0; min-width: 1024px;}
+
+.ev_01 {position:relative; height: 1280px; background:url(../img/gate/bg_ev01.jpg) no-repeat 0 0; z-index:40;}
+
+.ev_01 .btn_logo {width: 139px; height: 47px; left: -3px; top: 37px;}
+.ev_01 .btn_notweek {width: 114px; height: 19px; right: 399px; top: 55px;}
+.ev_01 .btn_nottoday {width: 114px; height: 19px; right: 249px; top: 55px;}
+.ev_01 .btn_gamestart {width: 110px; height: 38px; right: 0; top: 42px;}
+.ev_01 .btn_login {width: 95px; height: 38px; right: 117px; top: 42px;}
+.ev_01 .btn_login.on {background: url(../img/gate/btn_logout.jpg) no-repeat 0 0;;}
+.ev_01 .btn_noti {width: 159px; height: 47px; left: 141px; top: 367px;}
+
+.ev_links {position: absolute; left: 0; top: 487px; width: 463px;}
+.ev_links li {position: relative;}
+.ev_links i {display: none; position: absolute; left: 11px; top: -29px; width: 484px; height: 105px; background: url(../img/gate/links_over.png) no-repeat 0 0;}
+.ev_links a {width: 100%; height: 100%; left: 0; top: 0; }
+.ev_links .li1 {height: 92px;}
+.ev_links .li2 {height: 91px;}
+.ev_links .li3 {height: 91px;}
+.ev_links .li4 {height: 90px;}
+.ev_links .li5 {height: 90px;}
+.ev_links a:hover i {display: block;}
+.ev_links li.on a {background-image: url(../img/gate/btn_link_on.jpg); background-repeat: no-repeat;}
+.ev_links .li1.on a {background-position: 0 0;}
+.ev_links .li2.on a {background-position: 0 -92px;}
+.ev_links .li3.on a {background-position: 0 -183px;}
+.ev_links .li4.on a {background-position: 0 -274px;}
+.ev_links .li5.on a {background-position: 0 -364px;}
+.ev_01 .rz, .ev_01 .char {display: block; position: absolute; width: 0; height: 0;}
+.ev_01 .char {left: 959px; top: 271px; width: 283px; height: 808px; z-index: 3; background: url(../img/gate/img_char.png) no-repeat 0 0;}
+.ev_01 .r1 {animation-delay:.2s;left: 1058px; bottom: 865px; /*width: 370px; height: 396px;*/ z-index: 1; background: url(../img/gate/r_1.png) no-repeat 100% 0;}
+.ev_01 .r2 {animation-delay:.5s;left: 1026px; bottom: 723px; /*width: 845px; height: 582px;*/ z-index: 1; background: url(../img/gate/r_2.png) no-repeat 100% 0;}
+.ev_01 .r3 {animation-delay:.3s;left: 1019px; bottom: 641px; /*width: 691px; height: 326px;*/ z-index: 1; background: url(../img/gate/r_3.png) no-repeat 100% 0;}
+.ev_01 .r4 {animation-delay:.6s;left: 1050px; bottom: 610px; /*width: 796px; height: 180px;*/ z-index: 1; background: url(../img/gate/r_4.png) no-repeat 100% 0;}
+.ev_01 .r5 {animation-delay:.1s;left: 1034px; top: 736px; /*width: 798px; height: 72px;*/ z-index: 1; background: url(../img/gate/r_5.png) no-repeat 100% 100%;}
+
+.footer {position:relative; width: 1200px; margin:-50px auto 0; height: 50px; text-align: center; z-index:40;}
+.footer p {padding: 0px 0 0 0;}
+.footer .footer_fix {position: relative; width: 589px; height: 28px; display: inline-block; _display: inline;zoom: 1; background:url(../img/gate/txt_foot.png) no-repeat 0 50%;}
+.footer .btn {height: 28px; top: 0px;}
+.footer .redduck {top: 0; left: 0px; width: 100px;}
+.footer .eventqna {right: 104px; width: 65px;}
+.footer .pmangevent {right: 0; width: 86px;}
+.footer .btn_ci {margin-right: 28px;display: inline-block; _display: inline;zoom: 1; vertical-align: top;}
+.footer .neowizgames_ci {width: 94px; height: 26px; background:url(../img/gate/ci_neowiz.png) no-repeat 50% 50%;}
+.footer .daum_ci {width: 94px; height: 26px; background:url(../img/gate/ci_daum.png) no-repeat 50% 50%;}
+.footer .naver_ci {width: 94px; height: 26px; background:url(../img/gate/ci_naver.png) no-repeat 50% 50%;}
+
+/*.ev_01 .rz {
+	-webkit-animation-name: flash;
+	animation-name: flash;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: .9;
+  }
+}
+
+@keyframes flash {
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  25%, 75% {
+    opacity: .9;
+  }
+}
+
+*/

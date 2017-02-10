@@ -1,0 +1,57 @@
+		<div class="content">
+			<h3>기본규약</h3>
+			<ul>
+				<li>style.css 파일을 기본으로 하며, 한 파일에 CSS 내용을 담는다</li>
+				<li>요소는 주석으로 분리해 가독성을 높이고 의미를 부여한다.</li>
+				<li>개발후의 기본적인 수정은 /* '130101 list type1 modify */ 형식을 타이틀로 삼으며, 한글은 사용하지 않는다.</li>
+				<li>핵의 사용은 지양하지만, cross browsing을 우선적으로 생각한다.</li>
+				<li>셀렉터 {속성: 수치; 속성: 수치;} 형식으로 표기한다.</li>
+			</ul>
+			<div class="codeViewer">
+				<div class="cntWrap">
+					<pre style="display:block">
+@charset "utf-8";
+
+/* reset */
+html, body, body div, span, object, iframe, h1, h2, h3,...{margin:0;padding:0;border:0;outline:0;}
+body {color:black;background:white;}
+ol, ul {list-style:none;}
+table {border-collapse:s ...
+
+/* Layout */
+#wrapper {position: relative; min-height: 100%; background: url(../images/bg.png) repeat-x 0 0;}
+#wrapper:after {content: ""; display: block; clear: both;} ...
+
+/* Common Type*/
+input[type="text"], input[type="password"], .editable_ ...
+.editable_elem {display: inline-block; width: 240px; border-co ...
+.editable_elem[contenteditable="true"] { background-color: #fefef ...
+					</pre>
+				</div>
+			</div>
+			<h3>공통 클래스</h3>
+			<p class="desc">style.css 파일내의 /* Common Class*/ 참고</p>
+			<div class="codeViewer">
+				<div class="cntWrap">
+					<pre style="display:block">
+/* Common Class*/
+
+.vt {vertical-align: top !important;}
+.vm {vertical-align: middle !important;}
+.vb {vertical-align: bottom !important;}w
+.ellipsis, .editable_elem {display:block;width:100%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;-moz-binding: url('ellipsis.xml#ellipsis'); word-wrap: normal;}
+.disable {opacity: .5;filter: alpha(opacity=50);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; cursor: default !important;}
+.disable input[type="file"] {display:none !important;}
+.txt_warning {padding-left: 18px; background: url(../images/icon_warning.png) no-repeat 0 50%;}
+.txt_not {color: #aaaaaa;}
+.ico_req { padding-left: 12px; background: url(../images/icon_blue_star.png) no-repeat 0 50%;}
+.ac {text-align: center !important;}
+.ar {text-align: right !important;}
+.al {text-align: left !important;}
+.underline {text-decoration: underline; color: #414042;}
+.font_color_01 {color:#414042;}
+.search_result_matched {color: #f41f0f !important;}
+...
+					</pre>
+				</div>
+			</div>		
