@@ -366,9 +366,9 @@ $(function(){
 			.withMaximumSpeed(20)
 			.build();
 
-	var msg1 = '»çÀü°ø°³ ¼­ºñ½º',
+	var msg1 = 'ì‚¬ì „ê³µê°œ ì„œë¹„ìŠ¤',
 		msg2 = '2016.11.29 PM 5:00',
-		msg3 = '¼¼°è°ü ¿µ»ó';
+		msg3 = 'ì„¸ê³„ê´€ ì˜ìƒ';
 
 	msg1 = Hangul.disassemble(msg1); 
 	msg1 = Hangul.typewrite(msg1);

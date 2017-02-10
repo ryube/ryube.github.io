@@ -1,69 +1,69 @@
 /**
- * https://github.com/e-/Hangul.js À» Âü°íÇÏ¿© typewrite ÇÔ¼ö¸¦ Ãß°¡ÇÔ
+ * https://github.com/e-/Hangul.js ì„ ì°¸ê³ í•˜ì—¬ typewrite í•¨ìˆ˜ë¥¼ ì¶”ê°€í•¨
  */
  
 var Hangul = (function() {
   var CHO = [ 
-              '¤¡', '¤¢', '¤¤', '¤§', '¤¨',
-              '¤©', '¤±', '¤²', '¤³', '¤µ', '¤¶',
-              '¤·', '¤¸', '¤¹', '¤º', '¤»', '¤¼',
-              '¤½', '¤¾' 
+              'ã„±', 'ã„²', 'ã„´', 'ã„·', 'ã„¸',
+              'ã„¹', 'ã…', 'ã…‚', 'ã…ƒ', 'ã……', 'ã…†',
+              'ã…‡', 'ã…ˆ', 'ã…‰', 'ã…Š', 'ã…‹', 'ã…Œ',
+              'ã…', 'ã…Ž' 
       ],
       JUNG = [ 
-              '¤¿', '¤À', '¤Á', '¤Â', '¤Ã',
-              '¤Ä', '¤Å', '¤Æ', '¤Ç', ['¤Ç', '¤¿'], ['¤Ç', '¤À'],
-              ['¤Ç', '¤Ó'], '¤Ë', '¤Ì', ['¤Ì','¤Ã'], ['¤Ì','¤Ä'], ['¤Ì','¤Ó'],
-              '¤Ð', '¤Ñ', ['¤Ñ', '¤Ó'], '¤Ó'
+              'ã…', 'ã…', 'ã…‘', 'ã…’', 'ã…“',
+              'ã…”', 'ã…•', 'ã…–', 'ã…—', ['ã…—', 'ã…'], ['ã…—', 'ã…'],
+              ['ã…—', 'ã…£'], 'ã…›', 'ã…œ', ['ã…œ','ã…“'], ['ã…œ','ã…”'], ['ã…œ','ã…£'],
+              'ã… ', 'ã…¡', ['ã…¡', 'ã…£'], 'ã…£'
       ],
       JONG = [
-              '', '¤¡', '¤¢', ['¤¡','¤µ'], '¤¤', ['¤¤','¤¸'], ['¤¤', '¤¾'], '¤§', '¤©',
-              ['¤©', '¤¡'], ['¤©','¤±'], ['¤©','¤²'], ['¤©','¤µ'], ['¤©','¤¼'], ['¤©','¤½'], ['¤©','¤¾'], '¤±',
-              '¤²', ['¤²','¤µ'], '¤µ', '¤¶', '¤·', '¤¸', '¤º', '¤»', '¤¼', '¤½', '¤¾' 
+              '', 'ã„±', 'ã„²', ['ã„±','ã……'], 'ã„´', ['ã„´','ã…ˆ'], ['ã„´', 'ã…Ž'], 'ã„·', 'ã„¹',
+              ['ã„¹', 'ã„±'], ['ã„¹','ã…'], ['ã„¹','ã…‚'], ['ã„¹','ã……'], ['ã„¹','ã…Œ'], ['ã„¹','ã…'], ['ã„¹','ã…Ž'], 'ã…',
+              'ã…‚', ['ã…‚','ã……'], 'ã……', 'ã…†', 'ã…‡', 'ã…ˆ', 'ã…Š', 'ã…‹', 'ã…Œ', 'ã…', 'ã…Ž' 
       ],
       HANGUL_OFFSET = 0xAC00,
       CONSONANTS = [  
-              '¤¡', '¤¢', '¤£', '¤¤', '¤¥', '¤¦', '¤§', '¤¨',
-              '¤©', '¤ª', '¤«', '¤¬', '¤­', '¤®', '¤¯', '¤°', 
-              '¤±', '¤²', '¤³', '¤´', '¤µ', '¤¶', '¤·', '¤¸', 
-              '¤¹', '¤º', '¤»', '¤¼', '¤½', '¤¾' 
+              'ã„±', 'ã„²', 'ã„³', 'ã„´', 'ã„µ', 'ã„¶', 'ã„·', 'ã„¸',
+              'ã„¹', 'ã„º', 'ã„»', 'ã„¼', 'ã„½', 'ã„¾', 'ã„¿', 'ã…€', 
+              'ã…', 'ã…‚', 'ã…ƒ', 'ã…„', 'ã……', 'ã…†', 'ã…‡', 'ã…ˆ', 
+              'ã…‰', 'ã…Š', 'ã…‹', 'ã…Œ', 'ã…', 'ã…Ž' 
       ],
       COMPLETE_CHO = [ 
-              '¤¡', '¤¢', '¤¤', '¤§', '¤¨',
-              '¤©', '¤±', '¤²', '¤³', '¤µ', '¤¶',
-              '¤·', '¤¸', '¤¹', '¤º', '¤»', '¤¼', '¤½', '¤¾'                
+              'ã„±', 'ã„²', 'ã„´', 'ã„·', 'ã„¸',
+              'ã„¹', 'ã…', 'ã…‚', 'ã…ƒ', 'ã……', 'ã…†',
+              'ã…‡', 'ã…ˆ', 'ã…‰', 'ã…Š', 'ã…‹', 'ã…Œ', 'ã…', 'ã…Ž'                
       ],
       COMPLETE_JUNG = [
-              '¤¿', '¤À', '¤Á', '¤Â', '¤Ã',
-              '¤Ä', '¤Å', '¤Æ', '¤Ç', '¤È', '¤É',
-              '¤Ê', '¤Ë', '¤Ì', '¤Í', '¤Î', '¤Ï',
-              '¤Ð', '¤Ñ', '¤Ò', '¤Ó'
+              'ã…', 'ã…', 'ã…‘', 'ã…’', 'ã…“',
+              'ã…”', 'ã…•', 'ã…–', 'ã…—', 'ã…˜', 'ã…™',
+              'ã…š', 'ã…›', 'ã…œ', 'ã…', 'ã…ž', 'ã…Ÿ',
+              'ã… ', 'ã…¡', 'ã…¢', 'ã…£'
       ],
       COMPLETE_JONG = [
-              '', '¤¡', '¤¢', '¤£', '¤¤', '¤¥', '¤¦', '¤§', '¤©',
-              '¤ª', '¤«', '¤¬', '¤­', '¤®', '¤¯', '¤°', '¤±',
-              '¤²', '¤´', '¤µ', '¤¶', '¤·', '¤¸', '¤º', '¤»', '¤¼', '¤½', '¤¾' 
+              '', 'ã„±', 'ã„²', 'ã„³', 'ã„´', 'ã„µ', 'ã„¶', 'ã„·', 'ã„¹',
+              'ã„º', 'ã„»', 'ã„¼', 'ã„½', 'ã„¾', 'ã„¿', 'ã…€', 'ã…',
+              'ã…‚', 'ã…„', 'ã……', 'ã…†', 'ã…‡', 'ã…ˆ', 'ã…Š', 'ã…‹', 'ã…Œ', 'ã…', 'ã…Ž' 
       ],
       COMPLEX_CONSONANTS = [
-              ['¤¡','¤µ','¤£'],
-              ['¤¤','¤¸','¤¥'],
-              ['¤¤','¤¾','¤¦'],
-              ['¤©','¤¡','¤ª'], 
-              ['¤©','¤±','¤«'], 
-              ['¤©','¤²','¤¬'],
-              ['¤©','¤µ','¤­'], 
-              ['¤©','¤¼','¤®'], 
-              ['¤©','¤½','¤¯'], 
-              ['¤©','¤¾','¤°'], 
-              ['¤²','¤µ','¤´']
+              ['ã„±','ã……','ã„³'],
+              ['ã„´','ã…ˆ','ã„µ'],
+              ['ã„´','ã…Ž','ã„¶'],
+              ['ã„¹','ã„±','ã„º'], 
+              ['ã„¹','ã…','ã„»'], 
+              ['ã„¹','ã…‚','ã„¼'],
+              ['ã„¹','ã……','ã„½'], 
+              ['ã„¹','ã…Œ','ã„¾'], 
+              ['ã„¹','ã…','ã„¿'], 
+              ['ã„¹','ã…Ž','ã…€'], 
+              ['ã…‚','ã……','ã…„']
       ],        
       COMPLEX_VOWELS = [
-              ['¤Ç','¤¿','¤È'], 
-              ['¤Ç','¤À','¤É'],
-              ['¤Ç','¤Ó','¤Ê'], 
-              ['¤Ì','¤Ã','¤Í'], 
-              ['¤Ì','¤Ä','¤Î'], 
-              ['¤Ì','¤Ó','¤Ï'],
-              ['¤Ñ','¤Ó','¤Ò']
+              ['ã…—','ã…','ã…˜'], 
+              ['ã…—','ã…','ã…™'],
+              ['ã…—','ã…£','ã…š'], 
+              ['ã…œ','ã…“','ã…'], 
+              ['ã…œ','ã…”','ã…ž'], 
+              ['ã…œ','ã…£','ã…Ÿ'],
+              ['ã…¡','ã…£','ã…¢']
       ],
       CONSONANTS_HASH,
       CHO_HASH,
@@ -103,7 +103,7 @@ var Hangul = (function() {
   COMPLEX_CONSONANTS_HASH = _makeComplexHash(COMPLEX_CONSONANTS);
   COMPLEX_VOWELS_HASH = _makeComplexHash(COMPLEX_VOWELS);
 
-  // ÇÑ±Û »ý¼º Å×½ºÆ® ÇÔ¼ö 
+  // í•œê¸€ ìƒì„± í…ŒìŠ¤íŠ¸ í•¨ìˆ˜ 
   var makeHangulTest = function(jamo) {
     var cho = jamo[0].charCodeAt(0), 
         jung = jamo[1].charCodeAt(0), 
@@ -140,10 +140,10 @@ var Hangul = (function() {
   }
 
    /**
-   * ¹®ÀÚ¿­À» ÀÔ·Â¹Þ¾Æ¼­ ÀÚÀ½°ú ¸ðÀ½À» ºÐ¸®ÇÑ ¹è¿­À» ¹ÝÈ¯ÇÑ´Ù.
+   * ë¬¸ìžì—´ì„ ìž…ë ¥ë°›ì•„ì„œ ìžìŒê³¼ ëª¨ìŒì„ ë¶„ë¦¬í•œ ë°°ì—´ì„ ë°˜í™˜í•œë‹¤.
    *
-   * @param {(string|Object)} string - ¹®ÀÚ¿­ 
-   * @returns {array} ÀÚÀ½°ú ¸ðÀ½À» ºÐ¸®ÇÑ ¹è¿­ 
+   * @param {(string|Object)} string - ë¬¸ìžì—´ 
+   * @returns {array} ìžìŒê³¼ ëª¨ìŒì„ ë¶„ë¦¬í•œ ë°°ì—´ 
    */
   var disassemble = function(string){
     if (typeof string === 'object') { 
@@ -155,7 +155,7 @@ var Hangul = (function() {
 
     for (var i = 0 ; i < length ; i++) {
       code = string.charCodeAt(i);
-      if (_isHangul(code)) { // ¿Ï¼ºµÈ ÇÑ±ÛÀÌ¸é
+      if (_isHangul(code)) { // ì™„ì„±ëœ í•œê¸€ì´ë©´
         code -= HANGUL_OFFSET;
         jong = code % 28;
         jung = (code - jong) / 28 % 21;
@@ -173,7 +173,7 @@ var Hangul = (function() {
             result.push(JONG[jong]);
           }
         }
-      } else if (_isConsonant(code)) { //ÀÚÀ½ÀÌ¸é
+      } else if (_isConsonant(code)) { //ìžìŒì´ë©´
         var r;
         if (_isCho(code)) {
           r = CHO[CHO_HASH[code]];
@@ -200,11 +200,11 @@ var Hangul = (function() {
   };
 
   /**
-   * ÀÚ¸ð·Î ºÐ¸®µÈ ¹è¿­ ¶Ç´Â ¹®ÀÚ¿­À» ÀÔ·Â¹Þ¾Æ¼­ typewrite¿¡ ¾µ¼ö ÀÖ´Â
-   * ¹®ÀÚ¿­À» ¹ÝÇÑÇÑ´Ù.
+   * ìžëª¨ë¡œ ë¶„ë¦¬ëœ ë°°ì—´ ë˜ëŠ” ë¬¸ìžì—´ì„ ìž…ë ¥ë°›ì•„ì„œ typewriteì— ì“¸ìˆ˜ ìžˆëŠ”
+   * ë¬¸ìžì—´ì„ ë°˜í•œí•œë‹¤.
    *
-   * @param {(array|string)} jamos - ÀÚ¸ð ºÐ¸®µÈ ¹è¿­ ¶Ç´Â ¹®ÀÚ¿­ 
-   * @returns {string} typewrite¿ë ¹®ÀÚ¿­ 
+   * @param {(array|string)} jamos - ìžëª¨ ë¶„ë¦¬ëœ ë°°ì—´ ë˜ëŠ” ë¬¸ìžì—´ 
+   * @returns {string} typewriteìš© ë¬¸ìžì—´ 
    */
   var typewrite  = function(jamos){
     if (typeof jamos === 'string') {
@@ -212,17 +212,17 @@ var Hangul = (function() {
     }
 
     var result = [], length = jamos.length, code, stage = 0,
-        complete_index = -1, //¿Ï¼ºµÈ °÷ÀÇ ÀÎµ¦½º
+        complete_index = -1, //ì™„ì„±ëœ ê³³ì˜ ì¸ë±ìŠ¤
         previous_code;
 
     /**
-     * jamos ¹è¿­ complete_index(start) + 1ºÎÅÍ index±îÁö¸¦ ÇÑ±Û·Î ¹Ù²Þ
-     * complete_index°¡ jamos ¹è¿­¿¡¼­ ÇöÀçÀÇ À§Ä¡¸¦ ³ªÅ¸³½´Ù.
+     * jamos ë°°ì—´ complete_index(start) + 1ë¶€í„° indexê¹Œì§€ë¥¼ í•œê¸€ë¡œ ë°”ê¿ˆ
+     * complete_indexê°€ jamos ë°°ì—´ì—ì„œ í˜„ìž¬ì˜ ìœ„ì¹˜ë¥¼ ë‚˜íƒ€ë‚¸ë‹¤.
      *
-     * @param {number} index - ¸¶Áö¸· index 
-     * @param {boolean} [update_index=true] - complete_index °»½Å ¿©ºÎ. 
-     * @param {number} [start=complete_index] - ½ÃÀÛ index. ÁöÁ¤ÇÏÁö ¾ÊÀ¸¸é 
-     * complete_index°¡ ½ÃÀÛÁ¡ÀÌ µÈ´Ù.
+     * @param {number} index - ë§ˆì§€ë§‰ index 
+     * @param {boolean} [update_index=true] - complete_index ê°±ì‹  ì—¬ë¶€. 
+     * @param {number} [start=complete_index] - ì‹œìž‘ index. ì§€ì •í•˜ì§€ ì•Šìœ¼ë©´ 
+     * complete_indexê°€ ì‹œìž‘ì ì´ ëœë‹¤.
      */
     function _makeHangul(index, update_index, start){
       var code, cho, jung1, jung2, jong1 = 0, jong2, hangul = '';
@@ -249,7 +249,7 @@ var Hangul = (function() {
           hangul = jamos[start + step];
         } else if (step === 2) {
           jung1 = jamos[start + step].charCodeAt(0);
-          if (_isCho(jung1)) { //µÎ¹øÂ° ¶Ç ÀÚÀ½ÀÌ ¿À¸é ¤£ ¿¡¼­ ¤µ°°Àº °æ¿ìÀÌ´Ù
+          if (_isCho(jung1)) { //ë‘ë²ˆì§¸ ë˜ ìžìŒì´ ì˜¤ë©´ ã„³ ì—ì„œ ã……ê°™ì€ ê²½ìš°ì´ë‹¤
             cho = _isJongJoinable(cho, jung1);
             hangul = String.fromCharCode(cho);
             result.push(hangul);
@@ -299,7 +299,7 @@ var Hangul = (function() {
 
       char = jamos[i];
       code = char.charCodeAt(0);
-      if (!_isCho(code) && !_isJung(code) && !_isJong(code)){ //ÃÊ, Áß, Á¾¼º ´Ù ¾Æ´Ï¸é
+      if (!_isCho(code) && !_isJung(code) && !_isJong(code)){ //ì´ˆ, ì¤‘, ì¢…ì„± ë‹¤ ì•„ë‹ˆë©´
         has_hangul_to_flush ? _makeHangul(i-1) : complete_index = i - 1;
         _makeHangul(i);
         stage = 0;
@@ -308,83 +308,83 @@ var Hangul = (function() {
 
       has_hangul_to_flush = true;
 
-      if (stage == 0) { // ÃÊ¼ºÀÌ ¿Ã Â÷·Ê
-        if (_isCho(code)) { // ÃÊ¼ºÀÌ ¿À¸é ¾Æ¹« ¹®Á¦ ¾ø´Ù.
+      if (stage == 0) { // ì´ˆì„±ì´ ì˜¬ ì°¨ë¡€
+        if (_isCho(code)) { // ì´ˆì„±ì´ ì˜¤ë©´ ì•„ë¬´ ë¬¸ì œ ì—†ë‹¤.
           //result.push(char);
           _makeHangul(i, false);
           stage = 1; 
         } 
-      } else if (stage == 1) { //Áß¼ºÀÌ ¿Ã Â÷·Ê
-        if (_isJung(code)) { //Áß¼ºÀÌ ¿À¸é ¹®Á¦¾øÀ½ ÁøÇà.
+      } else if (stage == 1) { //ì¤‘ì„±ì´ ì˜¬ ì°¨ë¡€
+        if (_isJung(code)) { //ì¤‘ì„±ì´ ì˜¤ë©´ ë¬¸ì œì—†ìŒ ì§„í–‰.
           _addBS();
           _makeHangul(i, false);
           stage = 2;
-        } else { //¾Æ´Ï°í ÀÚÀ½ÀÌ¿À¸é ¤«°°Àº °æ¿ì°¡ ÀÖ°í ¤©¤»°°Àº °æ¿ì°¡ ÀÖ´Ù.
+        } else { //ì•„ë‹ˆê³  ìžìŒì´ì˜¤ë©´ ã„»ê°™ì€ ê²½ìš°ê°€ ìžˆê³  ã„¹ã…‹ê°™ì€ ê²½ìš°ê°€ ìžˆë‹¤.
           if (_isJongJoinable(previous_code, code)) { 
-            // ÇÕÃÄÁú ¼ö ÀÖ´Ù¸é ¤« °°Àº °æ¿ìÀÎµ¥ ÀÌ µÚ¿¡ ¸ðÀ½ÀÌ ¿Í¼­ 
-            // ¤©¸¶ °¡ µÉ¼öµµ ÀÖ°í ÃÊ¼ºÀÌ ¿Ã ¼öµµ ÀÖ´Ù. µû¶ó¼­ ¼²ºÒ¸® 
-            // ¿Ï¼ºÇÒ ¼ö ¾ø´Ù. ÀÌ¶© stage5·Î °£´Ù.
+            // í•©ì³ì§ˆ ìˆ˜ ìžˆë‹¤ë©´ ã„» ê°™ì€ ê²½ìš°ì¸ë° ì´ ë’¤ì— ëª¨ìŒì´ ì™€ì„œ 
+            // ã„¹ë§ˆ ê°€ ë ìˆ˜ë„ ìžˆê³  ì´ˆì„±ì´ ì˜¬ ìˆ˜ë„ ìžˆë‹¤. ë”°ë¼ì„œ ì„£ë¶ˆë¦¬ 
+            // ì™„ì„±í•  ìˆ˜ ì—†ë‹¤. ì´ë• stage5ë¡œ ê°„ë‹¤.
             //stage = 5;
-          } else { //ÇÕÃÄÁú ¼ö ¾ø´Ù¸é ¾Õ ±ÛÀÚ ¿Ï¼º ÈÄ ¿©ÀüÈ÷ Áß¼ºÀÌ ¿Ã Â÷·Ê 
+          } else { //í•©ì³ì§ˆ ìˆ˜ ì—†ë‹¤ë©´ ì•ž ê¸€ìž ì™„ì„± í›„ ì—¬ì „ížˆ ì¤‘ì„±ì´ ì˜¬ ì°¨ë¡€ 
             //_makeHangul(i-1); 
           }
         }
-      } else if (stage == 2) { //Á¾¼ºÀÌ ¿Ã Â÷·Ê 
-        if (_isJong(code)) { //Á¾¼ºÀÌ ¿À¸é ´ÙÀ½¿£ ÀÚÀ½ ¶Ç´Â ¸ðÀ½ÀÌ ¿Â´Ù. 
+      } else if (stage == 2) { //ì¢…ì„±ì´ ì˜¬ ì°¨ë¡€ 
+        if (_isJong(code)) { //ì¢…ì„±ì´ ì˜¤ë©´ ë‹¤ìŒì—” ìžìŒ ë˜ëŠ” ëª¨ìŒì´ ì˜¨ë‹¤. 
           _addBS();
           _makeHangul(i, false);
           stage = 3;
-        } else if (_isJung(code)) { //±×·±µ¥ Áß¼ºÀÌ ¿À¸é ¾ÕÀÇ ¸ðÀ½°ú ÇÕÄ¥ ¼ö ÀÖ´ÂÁö º»´Ù.
-          if (_isJungJoinable(previous_code, code)) { //ÇÕÄ¥ ¼ö ÀÖÀ¸¸é ¿©ÀüÈ÷ Á¾¼ºÀÌ ¿Ã Â÷·Ê°í ±×´ë·Î ÁøÇà
+        } else if (_isJung(code)) { //ê·¸ëŸ°ë° ì¤‘ì„±ì´ ì˜¤ë©´ ì•žì˜ ëª¨ìŒê³¼ í•©ì¹  ìˆ˜ ìžˆëŠ”ì§€ ë³¸ë‹¤.
+          if (_isJungJoinable(previous_code, code)) { //í•©ì¹  ìˆ˜ ìžˆìœ¼ë©´ ì—¬ì „ížˆ ì¢…ì„±ì´ ì˜¬ ì°¨ë¡€ê³  ê·¸ëŒ€ë¡œ ì§„í–‰
             _addBS();
             _makeHangul(i, false);
-          } else { // ÇÕÄ¥ ¼ö ¾ø´Ù¸é ¿ÀÅ¸°¡ »ý±ä °æ¿ì 
+          } else { // í•©ì¹  ìˆ˜ ì—†ë‹¤ë©´ ì˜¤íƒ€ê°€ ìƒê¸´ ê²½ìš° 
             //_makeHangul(i-1);
             //stage = 4;
           }
-        } else { // ¹ÞÄ§ÀÌ ¾ÈµÇ´Â ÀÚÀ½ÀÌ ¿À¸é ¤¨ °°Àº ÀÌÀü±îÁö ¿Ï¼ºÇÏ°í ´Ù½Ã½ÃÀÛ
+        } else { // ë°›ì¹¨ì´ ì•ˆë˜ëŠ” ìžìŒì´ ì˜¤ë©´ ã„¸ ê°™ì€ ì´ì „ê¹Œì§€ ì™„ì„±í•˜ê³  ë‹¤ì‹œì‹œìž‘
            
           //_makeHangul(i-1);
           //stage = 1;
         }
-      } else if (stage == 3) { // Á¾¼ºÀÌ ÇÏ³ª ¿Â »óÅÂ.
-        if (_isJong(code)) { // ¶Ç Á¾¼ºÀÌ¸é ÇÕÄ¥¼ö ÀÖ´ÂÁö º»´Ù.
-          if (_isJongJoinable(previous_code, code)) { //ÇÕÄ¥ ¼ö ÀÖÀ¸¸é °è¼Ó ÁøÇà. ¿Ö³ÄÇÏ¸é ÀÌ¹ø¿¡ ¿Â ÀÚÀ½ÀÌ ´ÙÀ½ ±ÛÀÚÀÇ ÃÊ¼ºÀÌ µÉ ¼öµµ ÀÖ±â ¶§¹®
+      } else if (stage == 3) { // ì¢…ì„±ì´ í•˜ë‚˜ ì˜¨ ìƒíƒœ.
+        if (_isJong(code)) { // ë˜ ì¢…ì„±ì´ë©´ í•©ì¹ ìˆ˜ ìžˆëŠ”ì§€ ë³¸ë‹¤.
+          if (_isJongJoinable(previous_code, code)) { //í•©ì¹  ìˆ˜ ìžˆìœ¼ë©´ ê³„ì† ì§„í–‰. ì™œëƒí•˜ë©´ ì´ë²ˆì— ì˜¨ ìžìŒì´ ë‹¤ìŒ ê¸€ìžì˜ ì´ˆì„±ì´ ë  ìˆ˜ë„ ìžˆê¸° ë•Œë¬¸
             _addBS();
             _makeHangul(i, false);
-          } else { //¾øÀ¸¸é ÇÑ±ÛÀÚ ¿Ï¼º
+          } else { //ì—†ìœ¼ë©´ í•œê¸€ìž ì™„ì„±
             //_makeHangul(i-1);
 
-            _makeHangul(i, false, i - 1); //ÃÊ¼º ÀÎ»õ 
-            complete_index = i - 1; //ÃÊ¼º À§Ä¡·Î index º¯°æ
+            _makeHangul(i, false, i - 1); //ì´ˆì„± ì¸ìƒˆ 
+            complete_index = i - 1; //ì´ˆì„± ìœ„ì¹˜ë¡œ index ë³€ê²½
 
-            stage = 1; // ÀÌ Á¾¼ºÀÌ ÃÊ¼ºÀÌ µÇ°í Áß¼ººÎÅÍ ½ÃÀÛ
+            stage = 1; // ì´ ì¢…ì„±ì´ ì´ˆì„±ì´ ë˜ê³  ì¤‘ì„±ë¶€í„° ì‹œìž‘
           }
-        } else if (_isCho(code)) { // ÃÊ¼ºÀÌ¸é ÇÑ±ÛÀÚ ¿Ï¼º.
+        } else if (_isCho(code)) { // ì´ˆì„±ì´ë©´ í•œê¸€ìž ì™„ì„±.
           _makeHangul(i-1);
           _makeHangul(i, false);
-          stage = 1; //ÀÌ ±ÛÀÚ°¡ ÃÊ¼ºÀÌµÇ¹Ç·Î Áß¼ººÎÅÍ ½ÃÀÛ
-        } else if (_isJung(code)) { // Áß¼ºÀÌ¸é ÀÌÀü Á¾¼ºÀº ÀÌ Áß¼º°ú ÇÕÃÄÁö°í ¾Õ ±ÛÀÚ´Â ¹ÞÄ§ÀÌ ¾ø´Ù.
+          stage = 1; //ì´ ê¸€ìžê°€ ì´ˆì„±ì´ë˜ë¯€ë¡œ ì¤‘ì„±ë¶€í„° ì‹œìž‘
+        } else if (_isJung(code)) { // ì¤‘ì„±ì´ë©´ ì´ì „ ì¢…ì„±ì€ ì´ ì¤‘ì„±ê³¼ í•©ì³ì§€ê³  ì•ž ê¸€ìžëŠ” ë°›ì¹¨ì´ ì—†ë‹¤.
           _addBS();
           _makeHangul(i-2);
           _makeHangul(i, false, i - 2);
           //has_hangul_to_flush = true;
           stage = 2;
         }
-      } else if (stage == 4) { // Áß¼ºÀÌ ÇÏ³ª ¿Â »óÅÂ
-        if (_isJung(code)) { //Áß¼ºÀÌ ¿Â °æ¿ì
-          if(_isJungJoinable(previous_code, code)) { //ÀÌÀü Áß¼º°ú ÇÕÃÄÁú ¼ö ÀÖ´Â °æ¿ì
+      } else if (stage == 4) { // ì¤‘ì„±ì´ í•˜ë‚˜ ì˜¨ ìƒíƒœ
+        if (_isJung(code)) { //ì¤‘ì„±ì´ ì˜¨ ê²½ìš°
+          if(_isJungJoinable(previous_code, code)) { //ì´ì „ ì¤‘ì„±ê³¼ í•©ì³ì§ˆ ìˆ˜ ìžˆëŠ” ê²½ìš°
             _makeHangul(i);
             stage = 0;
-          } else { //Áß¼ºÀÌ ¿ÔÁö¸¸ ¸øÇÕÄ¡´Â °æ¿ì. ¤Â¤Ç °°Àº
+          } else { //ì¤‘ì„±ì´ ì™”ì§€ë§Œ ëª»í•©ì¹˜ëŠ” ê²½ìš°. ã…’ã…— ê°™ì€
             _makeHangul(i-1);
           }
-        } else { // ¾Æ´Ï¸é ÀÚÀ½ÀÌ ¿Â °æ¿ì.
+        } else { // ì•„ë‹ˆë©´ ìžìŒì´ ì˜¨ ê²½ìš°.
           _makeHangul(i-1);
           stage = 1;
         }
-      } else if (stage == 5) { // ÃÊ¼ºÀÌ ¿¬¼ÓÇØ¼­ µÎ°³ ¿Â »óÅÂ ¤ª
-        if (_isJung(code)) { //ÀÌ¹ø¿¡ Áß¼ºÀÌ¸é ¤©°¡ 
+      } else if (stage == 5) { // ì´ˆì„±ì´ ì—°ì†í•´ì„œ ë‘ê°œ ì˜¨ ìƒíƒœ ã„º
+        if (_isJung(code)) { //ì´ë²ˆì— ì¤‘ì„±ì´ë©´ ã„¹ê°€ 
           _makeHangul(i-2);
           stage = 2;
         } else { 

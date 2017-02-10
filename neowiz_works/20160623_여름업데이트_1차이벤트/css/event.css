@@ -1,4 +1,4 @@
-/* css 초기화 ================================================================================== */
+/* css 초기화  ================================================================================== */
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend,
@@ -16,7 +16,7 @@ caption, th, td { font-weight:normal; }
 blockquote:before, blockquote:after,
 q:before, q:after { content: ""; }
 blockquote, q { quotes: "" ""; }
-/* css 초기화 ================================================================================== */
+/* css 초기화  ================================================================================== */
 
 .btn, .btn_layer, .btn_mov { display:block; position:absolute; background: url(../img/blank.gif); text-indent:-9999px; z-index:10; background-size: 100%;}
 .wrap { position:relative; width:100%; min-width: 1200px; overflow: hidden;}

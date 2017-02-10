@@ -109,7 +109,7 @@ function fixGnb() {
 			slideshow: false,
 			itemWidth: 190,
 			itemMargin: 0,
-			startAt: 0,// ½ÃÀÛ½Ã È°¼ºÈ­ µÉ ½½¶óÀÌ´õ ³Ñ¹ö ¾Æ·¡ ºÎºĞ°ú µ¿ÀÏÇÏ°Ô ¸ÂÃç ÁÖ¼¼¿ä
+			startAt: 0,// ì‹œì‘ì‹œ í™œì„±í™” ë  ìŠ¬ë¼ì´ë” ë„˜ë²„ ì•„ë˜ ë¶€ë¶„ê³¼ ë™ì¼í•˜ê²Œ ë§ì¶° ì£¼ì„¸ìš”
 			asNavFor: '.map_slider'
 
 
@@ -121,7 +121,7 @@ function fixGnb() {
 			controlNav: false,
 			animationLoop: false,
 			slideshow: false,
-			startAt: 0,// ½ÃÀÛ½Ã È°¼ºÈ­ µÉ ½½¶óÀÌ´õ ³Ñ¹ö
+			startAt: 0,// ì‹œì‘ì‹œ í™œì„±í™” ë  ìŠ¬ë¼ì´ë” ë„˜ë²„
 			sync: ".map_slider_thumb",
 			before: function(slider){
 				

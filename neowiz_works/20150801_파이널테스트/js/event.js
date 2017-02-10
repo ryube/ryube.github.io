@@ -80,7 +80,7 @@ function layerBtn() {
 	});
 };
 
-// Äü ¸µÅ©
+// í€µ ë§í¬
 function gotoTop() {
 	$('.qck_nav a').bind('click', function(){
 		var tar = $(this).attr('href');
@@ -234,7 +234,7 @@ function htmlPosition(elem) {
 }
 
 
-/* µÚ·Î°¡±â ´ëÀÀ */
+/* ë’¤ë¡œê°€ê¸° ëŒ€ì‘ */
 function checkHash(){
 	setTimeout(function(){reloadUi();}, 25);
 };
