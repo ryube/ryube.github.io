@@ -47,7 +47,7 @@ function thorModal(stats){
 		}
 };
 
-//¸ŞÀÎ ¸ğ´Ş·¹ÀÌ¾î
+//ë©”ì¸ ëª¨ë‹¬ë ˆì´ì–´
 var modalPlayStats = false;
 function modalVideo(stats,yt_code) {
 	if(yt_code){
