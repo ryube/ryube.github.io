@@ -69,7 +69,7 @@ body { font-family: 'Maven Pro', 'NanumBarunGothic','Malgun Gothic','Dotum', san
 .view .page>img { width:100%; margin-bottom:30px; display:block;  }
 .view .page strong { display:block; padding:35px 0 0 0; margin-bottom:18px;  line-height:32px; color:#444547; font-size:28px; }
 .view .page h2 { display:block; padding:35px 0 0 0; margin-bottom:18px;  line-height:32px; color:#444547; font-size:28px; }
-.view .page a { color:#358ae7;  }
+.view .page a { color:#358ae7;}
 .view .page p { margin-bottom:20px; line-height:20px; color:#666666;  font-weight:normal; } 
 .view .page_nav { position:relative; width:100%; height:137px; border-top:1px solid #e7e7e7;  }
 .view .page_nav a { position:absolute; top:30px; display:block; width:78px; height:78px; background:url(page_nav.gif) no-repeat;  }
@@ -127,6 +127,7 @@ body { font-family: 'Maven Pro', 'NanumBarunGothic','Malgun Gothic','Dotum', san
 }
 
 @media (max-width:500px) { 
+	.header {height: 55px;}
 	.header_inner { height:auto; padding-bottom:30px; }
 	.header h1 { float:none; padding:55px 0 0; text-align:center; line-height:30px; }
 	.header .nav { position:fixed; padding:15px 0 0 0; height:40px;  width:100%; left:0; top:0; display:block; text-align:center;background:#fff; }
@@ -136,9 +137,9 @@ body { font-family: 'Maven Pro', 'NanumBarunGothic','Malgun Gothic','Dotum', san
 	.work .content>h1 { margin-bottom:70px; line-height:20px; margin-bottom:20px;  }
 	.work .content>h1 strong { font-size:30px; line-height:40px;  }
 	.view { margin-top:0; }	
-	.view .page strong { margin-bottom:10px; padding-top:5px; line-height:20px; margin-bottom:0;  font-size:16px; }
-	.view .page h2 { margin-bottom:10px; padding-top:5px; line-height:20px; margin-bottom:0;  font-size:16px; }
-	.view .page p { font-size:14px; margin:0 0 10px; }
+	.view .page strong { margin-bottom:10px; padding-top:5px; line-height:20px; font-size:16px; }
+	.view .page h2 { margin-bottom:10px; padding-top:5px; line-height:20px; font-size:16px; }
+	.view .page p { font-size:12px; margin:0 0 10px; }
 	.view .page { padding-bottom:20px; }
 	.view .page_nav { height:100px;} 
 	.view .page_nav a { position:absolute; top:30px; width:47px; height:47px; background-size:120px 120px;  }
