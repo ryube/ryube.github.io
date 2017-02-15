@@ -65,18 +65,18 @@ var puzzelQueset = {
 		puzzelQueset.userAnswer = [],
 		puzzelQueset.endDay = puzzleData.length-1,
 		isPuzzleToday > puzzelQueset.endDay ? puzzelQueset.elem.today = puzzelQueset.endDay : puzzelQueset.elem.today = isPuzzleToday;
-		//ÀÌÀü ÀÔ·ÂÇß´ø ´ä¾È
+		//ì´ì „ ì…ë ¥í–ˆë˜ ë‹µì•ˆ
 		for (var i = 0, l = puzzelQueset.elem.today; i <= l; i++) {
 			if(!(puzzleUserData[i].answer === "")){
 				puzzelQueset.userAnswer.push(i);
 			}
 		}
-		// ÀÌÀü ÆÛÁñ ¼ÂÆÃ
+		// ì´ì „ í¼ì¦ ì…‹íŒ…
 		puzzelQueset.setup(puzzelQueset.userAnswer);
 
-		//¹®Á¦ ¼ÂÆÃ
+		//ë¬¸ì œ ì…‹íŒ…
 		puzzelQueset.questionInsert(puzzelQueset.elem.today);
-		//³¯Â¥ ÀÌµ¿
+		//ë‚ ì§œ ì´ë™
 		$('#btn_qprev').off().on('click', function(e){
 			e.preventDefault();
 			puzzelQueset.moveClcik(e);
@@ -99,7 +99,7 @@ var puzzelQueset = {
 			}
 			puzzelQueset.questionInsert(puzzelQueset.elem.today);
 		});
-		//¼öÁ¤
+		//ìˆ˜ì •
 		$('.btn_modi').off().on('click', function(e){
 			e.preventDefault();
 			puzzelQueset.modiClcik(e);
@@ -160,7 +160,7 @@ var puzzelQueset = {
 			d = puzzleData[t].today.d.toString().split(''),
 			month = puzzleData[t].today.m === 12 ?  '<em class="n1"></em><em class="n2"></em>':'<em class="n0"></em><em class="n1"></em>',
 			days = puzzleData[t].today.d < 10 ?  '<em class="n0"></em><em class="n'+puzzleData[t].today.d+'"></em>':'<em class="n'+d[0]+'"></em><em class="n'+d[1]+'"></em>',
-			aspect = puzzleData[t].aspect === "hori" ?  "°¡·Î": "¼¼·Î",
+			aspect = puzzleData[t].aspect === "hori" ?  "ê°€ë¡œ": "ì„¸ë¡œ",
 			pos = puzzelQueset.wordPosition(today);
 			
 		var qHtml = '<div class="day">'+
@@ -175,7 +175,7 @@ var puzzelQueset = {
 						'</span>'+
 					'</div>'+
 					'<div class="q">'+
-						'<span class="a">'+aspect+' '+puzzleData[t].anum+' ¹®Á¦</span>'+
+						'<span class="a">'+aspect+' '+puzzleData[t].anum+' ë¬¸ì œ</span>'+
 						'<p class="txt">'+puzzleData[t].q+'</p>'+
 						'<span class="hint">'+puzzleData[t].hint+'</span>'+
 					'</div>';
