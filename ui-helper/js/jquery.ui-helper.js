@@ -14,12 +14,13 @@ if ($.browser.msie || $.browser.version == 9) {
 }
 
 (function($) {
+	var rUrl = 'http://ryube.github.io'
 	if ($.u.theme == 'flat') {
-		$.u.css = '/ui-helper/css/ui-helper.css';/*  */
+		$.u.css = rUrl+'/ui-helper/css/ui-helper.css';/*  */
 	} else if ($.u.theme == 'mini') {
-		$.u.css = '/ui-helper/css/ui-helper-minimal.css';
+		$.u.css = rUrl+'/ui-helper/css/ui-helper-minimal.css';
 	} else {
-		$.u.css = '/ui-helper/css/ui-helper-legacy.css';
+		$.u.css = rUrl+'/ui-helper/css/ui-helper-legacy.css';
 	}
 	$('<link>').attr({
 		type: 'text/css',
@@ -29,7 +30,7 @@ if ($.browser.msie || $.browser.version == 9) {
 	$('<link>').attr({
 		type: 'text/css',
 		rel: 'stylesheet',
-		href: '/ui-helper/css/jquery-ui-1.10.4.custom.min.css'
+		href: rUrl+'/ui-helper/css/jquery-ui-1.10.4.custom.min.css'
 	}).appendTo('head');
 
 	if ($.u.draggable == false) {
