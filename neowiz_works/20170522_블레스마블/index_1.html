@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>피망 - 대한민국 No.1 게임포털 피망!</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" rel="stylesheet" href="/gamepub/font/nanumbarungothic.css">
+<link type="text/css" rel="stylesheet" href="css/event_1.css">
+<script src="http://www.pmang.com/global/javascript/jq/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/event_1.js"></script>
+<body>
+</head>
+<!--  개발 시 삭제 -->
+<style type="text/css">
+.scroll_value {padding: 10px;background: #1c5e92; border-radius: 6px; color: #fff; font: bold 15px dotum; position: fixed; left: 0%; bottom: 0%; text-align: center; z-index:9999; content: "scroll_value : "}
+</style>
+<div class="scroll_value" style=""></div>
+<!-- //개발 시 삭제 -->
+<div class="wrap">
+ 	<div class="container">
+		<div id="bl_ev01" class="section ev_01 orgel_lv10 "><div class="sec_body">
+			<a href="#" class="btn btn_logo">BLESS</a>
+			<a href="#" class="btn btn_nottoday"><span>오늘하루 그만 보기</span><u class="h"></u><u class="d"></u></a>
+			<div class="nav_left">
+		 		<a href="#" class="btn btn_login"><span>로그인</span><u class="h"></u><u class="d"></u></a>
+		 		<!-- <a href="#" class="btn btn_gamestart"><span>게임시작</span><u class="h"></u><u class="d"></u></a> --><!-- 로그인 후 -->
+		 		<a href="#" class="btn btn_singin"><span>회원가입</span><u class="h"></u><u class="d"></u></a> <!-- 로그인 전-->
+		 		<a href="#" class="btn btn_home"><span>블레스 홈</span><u class="h"></u><u class="d"></u></a> 
+			</div>
+			<div class="nav_right">
+				<a href="#pop_mission" class="btn_layer btn_mission"><span>미션확인</span><u class="h"></u><u class="d"></u></a>
+				<a href="#pop_history" class="btn_layer btn_history"><span>나의상세내역</span><u class="h"></u><u class="d"></u></a>
+				<a href="#pop_comp" class="btn_layer btn_reward"><span>완주보상 보기</span><u class="h"></u><u class="d"></u></a>
+				<a href="#pop_noti" class="btn_layer btn_notice"><span>이벤트 주의사항</span><u class="h"></u><u class="d"></u></a>
+				<a href="#pop_bfy" class="btn_layer btn_bfy"><span>BLESS FOR YOU</span><u class="h"></u><u class="d"></u></a>
+				<a href="#pop_puzzle" class="btn_layer btn_puzzle"><span>블럭퍼즐</span><u class="h"></u><u class="d"></u></a>
+			</div>
+			<h1 class="hide">블레스 마블</h1>
+
+			<div id="bl_marble">
+				<div class="dice_box">
+					<div class="box1"></div>
+					<a class="btn_roll">
+						<span class="out"><b></b></span>
+						<span class="in"><b></b></span>
+						<span class="n"></span>
+						<span class="txt"><b class="t1"></b><b class="t2"></b></b>
+					</a>
+				</div>
+				<span class="count">
+					<span class="n">0</span>
+				</span>
+				<div class="horse"><span class="cha"></span></div>
+			</div>
+		</div></div>
+
+		<div class="footer">
+			<p>
+				<a href="http://www.naver.com" class="btn_ci naver_ci" target="_blank" title="네이버"></a>
+				<!-- NEOWIZ CI -->
+				<a href="http://www.neowizgames.com/" class="btn_ci neowizgames_ci" target="_blank" title="네오위즈 게임즈"></a>
+				<!-- NEOWIZ BLESS STUDIOCI -->
+				<a href="http://blessstudio.co.kr" target="_blank" class="btn_ci neowizbless_ci" title="blessstudio"></a>
+				<span class="footer_fix">
+					<span class="copyright"></span>
+				</span>
+				<a href="http://bless.pmang.com/index.nwz?mKey=5&sKey=1&log=in&firstlogon=1#help_ask/P003045/2" class="btn eventqna" target="_blank" title="이벤트 문의"></a>
+				<a href="http://bless.pmang.com/index.nwz?mKey=7&sKey=2 " class="btn pmangevent" target="_blank" title="피망 전체 이벤트"></a>
+			</p>
+		</div>
+	</div>
+	<!-- <div class="bg_left"></div><div class="bg_right"></div> -->
+	<!-- 팝업 -->
+	<div class="pop_dim"></div>
+	<a href="#pop_camp" class="hidden btn_layer btn_select_camp">캠프선택</a>
+	<div id="pop_camp" class="layer_pop pop_camp">
+		<a href="#" class="layer_close">닫기</a>
+		<div class="pop_body">
+			<div class="tl">블레스마블 진영 선택</div>
+			<div class="camp_sel">
+				<span class="input_check hieron">
+					<input type="radio" id="check_hieron" name="camp_select"/>
+				</span>
+				<span class="input_check union">
+					<input type="radio" id="check_union" name="camp_select"/>
+				</span>
+			</div>
+			<a href="#" class="btn btn_gogo" onclick="$('#pop_camp .layer_close').click(); return false;"><span>시작하기</span><u class="h"></u><u class="d"></u></a>
+			<a href="#" class="btn btn_close" onclick="$('#pop_camp .layer_close').click(); return false;"><span>닫기</span><u class="h"></u><u class="d"></u></a>
+		</div>
+	</div>
+
+
+	<div id="pop_mission" class="layer_pop pop_mission">
+		<a href="#" class="layer_close">닫기<u class="h"></u><u class="d"></a>
+		<div class="pop_body">
+			<div class="tl">미션확인</div>
+			<div class="mitab_link">
+				<a href="#mi1" class="btn tab_m1"><span>베이직</span><u class="h"></u><u class="d"></u></a>
+				<a href="#mi2" class="btn tab_m2"><span>시즌1</span><u class="h"></u><u class="d"></u></a>
+				<a href="#mi3" class="btn tab_m3"><span>시즌2</span><u class="h"></u><u class="d"></u></a>
+			</div>
+			<div class="mitab_contents">
+				<div class="tab_content" id="mi1">
+					<ul class="mission_chk">
+						<li><span class="ok">달성</span></li>
+						<li><span class="ok">달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+					</ul>
+				</div>
+				<div class="tab_content" id="mi2">
+					<ul class="mission_chk">
+						<li><span class="ok">달성</span></li>
+						<li><span class="ok">달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+					</ul>
+				</div>
+				<div class="tab_content" id="mi3">
+					<ul class="mission_chk">
+						<li><span class="ok">달성</span></li>
+						<li><span class="ok">달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+						<li><span>미달성</span></li>
+					</ul>
+				</div>
+			</div>
+			<script>
+				tabContents('.mitab_link', '.mitab_contents', 0); // 주차 변하면 마지막 변수만 변경 하세요.
+			</script>
+		</div>
+
+	</div>
+	
+	<div id="pop_puzzle" class="layer_pop pop_puzzle">
+		<a href="#" class="layer_close">닫기<u class="h"></u><u class="d"></u></a>
+		<div class="bg"></div>
+		<div class="pop_body">
+			<div class="tl">완주퍼즐</div>
+			<div class="puzzle">
+				<span class="p1"></span>
+				<span class="p11"></span>
+				<span class="p24"></span>
+				<span class="p6"></span>
+				<span class="p23"></span>
+				<span class="p7"></span>
+				<span class="p8"></span>
+				<span class="p18"></span>
+				<span class="p9"></span>
+				<span class="p2"></span>
+				<span class="p10"></span>
+				<span class="p21"></span>
+				<span class="p12"></span>
+				<span class="p4"></span>
+				<span class="p3"></span>
+				<span class="p14"></span>
+				<span class="p15"></span>
+				<span class="p16"></span>
+				<span class="p13"></span>
+				<span class="p17"></span>
+				<span class="p19"></span>
+				<span class="p5"></span>
+				<span class="p20"></span>
+				<span class="p22"></span>
+				<span class="p0"></span>
+			</div>
+			<div class="pc"><span>16</span>/25</div>
+		</div>
+	</div>
+	
+
+	<div id="pop_comp" class="layer_pop pop_comp">
+		 <div class="pop_body">
+			<a href="#" class="layer_close">닫기<u class="h"></u><u class="d"></u></a>
+		 </div>
+	</div>
+	
+	<div id="pop_history" class="layer_pop pop_history">
+		<a href="#" class="layer_close">닫기<u class="h"></u><u class="d"></u></a>
+		<div class="pop_body">
+			<div class="tl">나의상세내역</div>
+			<div class="histab_link">
+				<a href="#his1" class="btn tab_m1"><span>주사위 획득처</span><u class="h"></u><u class="d"></u></a>
+				<a href="#his2" class="btn tab_m2"><span>보상 획득처</span><u class="h"></u><u class="d"></u></a>
+			</div>
+			<div class="histab_contents">
+				<div class="tab_content" id="his1">
+					<div class="date">
+						<input type="text" class="datepicker" value="2016-07-21"><span class="icon"></span>
+					</div>
+					<div class="tbl">
+						<table>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+						</table>
+					</div>
+					<div class="paging">
+						<span class="prev"><a href="#" class="img" title="이전"></a></span>
+						<span class="num">
+							<a><strong>11</strong></a>
+							<a href="#">12</a>
+							<a href="#">13</a>
+							<a href="#">14</a>
+							<a href="#">15</a>
+						</span>
+						<span class="next"><a href="#" class="img" title="다음"></a></span>
+					</div>
+					<div class="caution"></div>
+				</div>
+				<div class="tab_content" id="his2">
+					<div class="date">
+						<input type="text" class="datepicker" value="2016-07-21"><span class="icon"></span>
+					</div>
+					<div class="tbl">
+						<table>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+							<tr>
+								<td class="col_date"><p>2016-08-21</p></td>
+								<td class="col_r"><p>우니온 특별 기금</p></td>
+								<td class="col_item"><p>톡쏘는 집게 직화구이 5개</p></td>
+							</tr>
+						</table>
+					</div>
+					<div class="paging">
+						<span class="prev"><a href="#" class="img" title="이전"></a></span>
+						<span class="num">
+							<a><strong>11</strong></a>
+							<a href="#">12</a>
+							<a href="#">13</a>
+							<a href="#">14</a>
+							<a href="#">15</a>
+						</span>
+						<span class="next"><a href="#" class="img" title="다음"></a></span>
+					</div>
+					<div class="caution"></div>
+				</div>
+			</div>
+			<script>
+				tabContents('.histab_link', '.histab_contents', 0); 
+			</script>
+		</div>
+	</div>
+	<div id="pop_noti" class="layer_pop pop_noti">
+		<a href="#" class="layer_close">닫기<u class="h"></u><u class="d"></u></a>
+		<a href="#" class="btn btn_mypamng">마이피망</a>
+	</div>
+	<a href="#pop_reward" class="btn_layer hidden btn_popreward">아이템 오픈</a>
+	<div id="pop_reward" class="layer_pop pop_reward">
+		<a href="#" class="layer_close">닫기<u class="h"></u><u class="d"></u></a>
+		<div id="double"></div>
+		<div id="item_holder"></div>
+		<a href="#" class="btn btn_ok" onclick="$('#pop_reward .layer_close').click(); blMarble.reset(); return false;"><span>확인</span><u class="h"></u><u class="d"></u></a>
+	</div>
+	<div id="pop_bfy" class="layer_pop pop_bfy">
+		<a href="#" class="layer_close">닫기<u class="h"></u><u class="d"></u></a>
+	</div>
+</div>
+<script type="text/javascript">
+var marblePlayer = {
+	total : 350, // 총 이동 수
+	camp : 'hieron', // hieron || union
+	dicecount: 20, // 보유 주사위 
+
+	// 이건 제가 계산 해서 화면에 뿌려 줍니다. 위 변수만 서버에서 검증 해주세요.
+	currLoc : 0, // 현재 위치
+	completion: 0, // 완주 횟수
+};
+
+//초기화
+blMarble.init();
+//캠프선택 전 
+setTimeout(function(){
+	$('.btn_select_camp').click();
+}, 25);
+
+blMarble.update = function () {
+	// 현재 주사위 수 확인
+	if(marblePlayer.dicecount > 0){
+		marblePlayer.dicecount--;
+
+		//**********************************
+		// 주사위 수 // 총 이동수 
+		var num = randomRange(1, 6);
+		marblePlayer.total += num;
+		//**********************************
+
+		blMarble.textDisplay(); // 완주 / 현재 말 위치 / 주사위 남은 갯수 계산
+		blMarble.diceroll(num); // 주사위, 말이동 애니메이션
+		blMarble.itemOpen(marblePlayer.currLoc, false, 3000, false); // 보상 팝업 (말 위치 , 두배일 경우 true, delay, 아이탬팝업 띄우지 않음 true);
+	} else {
+		alert("주사위 없어요")
+	}
+};
+
+</script>
+</body>
+</html>
