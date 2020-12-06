@@ -20,7 +20,7 @@
         "nb_sides": 5
       },
       "image": {
-        "src": "/particles/line.png",
+        "src": "https://ryube.github.io/neowiz_works/nps_official/particles/line.png",
         "width": 100,
         "height": 100
       }
