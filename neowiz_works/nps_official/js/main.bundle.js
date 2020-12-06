@@ -141,7 +141,7 @@
   var pcPaticle = function() {
     var msie = document.documentMode || 10;
     if (!(msie < 10)) {
-      particlesJS.load("dot-particles", "/particles/dot.json", function() {
+      particlesJS.load("dot-particles", '../particles/dot.json", function() {
         $__default['default'](".particles,.sub__particles").addClass("loaded");
       });
       particlesJS.load("line-particles", "/particles/rain.json", function() {
@@ -155,7 +155,7 @@
   // var isPC = false;
   var mobilePaticle = function() {
     if (!$__default['default']("html").hasClass("ie-legacy")) {
-      particlesJS.load("dot-particles", "/particles/dot-m.json", function() {
+      particlesJS.load("dot-particles", "../particles/dot-m.json", function() {
         $__default['default'](".particles,.sub__particles").addClass("loaded");
       });
       particlesJS.load("line-particles", "/particles/rain-m.json", function() {});
