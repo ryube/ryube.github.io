@@ -518,8 +518,7 @@ else {
 // amd
 require.config({
   paths: {
-    ScrollTrigger:
-      "https://ryube.github.io/legacy/a_common/ScrollTrigger.min.js",
+    ScrollTrigger: "https://ryube.github.io/legacy/a_common/ScrollTrigger.min",
   },
 });
 requirejs(["ScrollTrigger"], function (ScrollTrigger) {
