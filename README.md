@@ -11,8 +11,8 @@ Next.js 15 + Tailwind CSS 4 기반으로 만든 정적 포트폴리오 사이트
 ## 개발
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인합니다.
@@ -20,11 +20,11 @@ npm run dev
 ## 정적 빌드 & 배포
 
 ```bash
-npm run build
-npx serve@latest out
+pnpm build
+pnpm dlx serve@latest out
 ```
 
-1. `npm run build`로 Next.js SSG를 실행하면 `out` 폴더가 생성됩니다.
+1. `pnpm build`로 Next.js SSG를 실행하면 `out` 폴더가 생성됩니다.
 2. `serve` 혹은 GitHub Pages로 `out` 디렉터리를 배포하면 됩니다.
 
 ## 콘텐츠 추가 방법
