@@ -519,7 +519,7 @@ else {
 require.config({
   paths: {
     ScrollTrigger:
-      "https://ryube.github.io/legacy/a_common/ScrollTrigger.min.js.",
+      "https://ryube.github.io/legacy/a_common/ScrollTrigger.min.js",
   },
 });
 requirejs(["ScrollTrigger"], function (ScrollTrigger) {
