@@ -2621,16 +2621,14 @@
         this._helper
           ? ((this.helper =
               this.helper || t("<div style='overflow:hidden;'></div>")),
-            this.helper
-              .addClass(this._helper)
-              .css({
-                width: this.element.outerWidth() - 1,
-                height: this.element.outerHeight() - 1,
-                position: "absolute",
-                left: this.elementOffset.left + "px",
-                top: this.elementOffset.top + "px",
-                zIndex: ++i.zIndex,
-              }),
+            this.helper.addClass(this._helper).css({
+              width: this.element.outerWidth() - 1,
+              height: this.element.outerHeight() - 1,
+              position: "absolute",
+              left: this.elementOffset.left + "px",
+              top: this.elementOffset.top + "px",
+              zIndex: ++i.zIndex,
+            }),
             this.helper.appendTo("body").disableSelection())
           : (this.helper = this.element);
     },
@@ -4609,14 +4607,11 @@
                   return 0 === e(this).attr("tabIndex");
                 })
                 .attr("tabIndex", -1),
-          i
-            .attr("aria-hidden", "false")
-            .prev()
-            .attr({
-              "aria-selected": "true",
-              tabIndex: 0,
-              "aria-expanded": "true",
-            });
+          i.attr("aria-hidden", "false").prev().attr({
+            "aria-selected": "true",
+            tabIndex: 0,
+            "aria-expanded": "true",
+          });
       },
       _animate: function (e, t, s) {
         var n,
@@ -10574,15 +10569,13 @@
               height: e.outerHeight(!0),
               float: e.css("float"),
             },
-            s = t("<div></div>")
-              .addClass("ui-effects-wrapper")
-              .css({
-                fontSize: "100%",
-                background: "transparent",
-                border: "none",
-                margin: 0,
-                padding: 0,
-              }),
+            s = t("<div></div>").addClass("ui-effects-wrapper").css({
+              fontSize: "100%",
+              background: "transparent",
+              border: "none",
+              margin: 0,
+              padding: 0,
+            }),
             n = { width: e.width(), height: e.height() },
             a = document.activeElement;
           try {
@@ -11396,7 +11389,7 @@ if ($.browser.msie || $.browser.version == 9) {
 }
 
 (function ($) {
-  var rUrl = "http://ryube.github.io/legacy";
+  var rUrl = "https://ryube.github.io/legacy";
   if ($.u.theme == "flat") {
     $.u.css = rUrl + "/ui-helper/css/ui-helper.css"; /*  */
   } else if ($.u.theme == "mini") {
