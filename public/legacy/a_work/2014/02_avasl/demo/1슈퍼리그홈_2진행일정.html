@@ -1,314 +1,478 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
-<head>
-<title>ÇÇ¸Á - ´ëÇÑ¹Î±¹ No.1 °ÔÀÓÆ÷ÅÐ ÇÇ¸Á!</title>
-<meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
-<meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
-<script type="text/javascript" src="http://www.pmang.com/global/javascript/jquery.js"></script>
-<link type="text/css" rel="stylesheet" href="http://file.pmang.kr/images/pmang/ava/superleague/css/layout.css">
-<script type="text/javascript" src="http://file.pmang.kr/images/pmang/ava/superleague/js/ui_avasuper.js"></script>
-</head>		
-<body class="sl_main">
-<!-- °³¹ß½Ã »èÁ¦ -->
-<!--  ÀÓ½Ã GNB -->
-<div style="height:40px; border-bottom:3px solid red; background:#fff;"></div>
-<div class="case_view" style="display: none;">
-	<a href="#" onclick="ev1(); return false;" >·Î±×ÀÎ ÈÄ</a>
-	<a href="#" onclick="ev2(); return false;" >·Î±×ÀÎ Àü</a>
-	<a href="#" onclick="recordView('0'); return false;">[°³ÀÎ ÀüÀû ¿µ¿ª] ·Î±×¾Æ¿ô »óÅÂ</a>
-	<a href="#" onclick="recordView('1'); return false;">[°³ÀÎ ÀüÀû ¿µ¿ª] Å¬·£Á¤º¸ ¾ø½¿</a>
-	<a href="#" onclick="recordView('2'); return false;">[°³ÀÎ ÀüÀû ¿µ¿ª] Å¬·£¸®±× Á¤º¸ ¾ø½¿</a>
-	<a href="#" onclick="recordView('3'); return false;">[°³ÀÎ ÀüÀû ¿µ¿ª] °³ÀÎ¸®±× Á¤º¸ ¾ø½¿</a>
-	<a href="#" onclick="recordView('4'); return false;">[°³ÀÎ ÀüÀû ¿µ¿ª] Ä³¸¯ÅÍ Á¤º¸ ¾ø½¿</a>
-</div>
-<script>
-	$(document).ready( function(){
+  <head>
+    <title>í”¼ë§ - ëŒ€í•œë¯¼êµ­ No.1 ê²Œìž„í¬í„¸ í”¼ë§!</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.8.3.min.js"
+    ></script>
+    <link type="text/css" rel="stylesheet" href="css/layout.css" />
+    <script type="text/javascript" src="js/ui_avasuper.js"></script>
+  </head>
+  <body class="sl_main">
+    <!-- ê°œë°œì‹œ ì‚­ì œ -->
+    <!--  ìž„ì‹œ GNB -->
+    <div
+      style="height: 40px; border-bottom: 3px solid red; background: #fff"
+    ></div>
+    <div class="case_view" style="display: none">
+      <a href="#" onclick="ev1(); return false;">ë¡œê·¸ì¸ í›„</a>
+      <a href="#" onclick="ev2(); return false;">ë¡œê·¸ì¸ ì „</a>
+      <a href="#" onclick="recordView('0'); return false;"
+        >[ê°œì¸ ì „ì  ì˜ì—­] ë¡œê·¸ì•„ì›ƒ ìƒíƒœ</a
+      >
+      <a href="#" onclick="recordView('1'); return false;"
+        >[ê°œì¸ ì „ì  ì˜ì—­] í´ëžœì •ë³´ ì—†ìŠ´</a
+      >
+      <a href="#" onclick="recordView('2'); return false;"
+        >[ê°œì¸ ì „ì  ì˜ì—­] í´ëžœë¦¬ê·¸ ì •ë³´ ì—†ìŠ´</a
+      >
+      <a href="#" onclick="recordView('3'); return false;"
+        >[ê°œì¸ ì „ì  ì˜ì—­] ê°œì¸ë¦¬ê·¸ ì •ë³´ ì—†ìŠ´</a
+      >
+      <a href="#" onclick="recordView('4'); return false;"
+        >[ê°œì¸ ì „ì  ì˜ì—­] ìºë¦­í„° ì •ë³´ ì—†ìŠ´</a
+      >
+    </div>
+    <script>
+      $(document).ready(function () {});
 
-	});
-
-	function elemMove(target) {
-		$('html, body').stop(true, false).animate({ scrollTop: $(target).offset().top}, 300);
-	}
-	function ev1() {
-		$('.loginbox').hide();
-		$('.loginbox_on').show();
-		elemMove('.loginbox');
-	}
-	function ev2() {
-		$('.loginbox_on').hide();
-		$('.loginbox').show();
-		elemMove('.loginbox'); 
-	}
-	function recordView(n) {
-		$('.aside_record').hide()
-		$('.aside_record').eq(n).show()
-		elemMove('.aside_record');
-	}
-</script>
-<!--// °³¹ß½Ã »èÁ¦ -->
-<div class="wrap">
-	<div class="section header">
-		<!-- bg --><div class="bg_left"></div><div class="bg_right"></div><!-- // bg -->
-		<div class="section contents">
-			<ul class="nav">
-				<li class="on"><a href="#" class="sl">Super league</a></li>
-				<li><a href="#" class="notice">¸®±×°øÁö</a></li>
-				<li><a href="#" class="clan">Å¬·£¸®±×</a></li>
-				<li><a href="#" class="personal">°³ÀÎ¸®±×</a></li>
-				<li><a href="#" class="reward">ÇýÅÃ°ú º¸»ó</a></li>
-				<li><a href="#" class="hall">¸í¿¹ÀÇ Àü´ç</a></li>
-			</ul>
-			<a href="#" class="btn_ava_home">A.V.A È¨ÆäÀÌÁö·Î ÀÌµ¿</a>
-			<span class="gamestart"><a href="#">°ÔÀÓ ½ÃÀÛ</a></span>
-		</div>
-	</div>
-	<div class="section top_visual">
-		<img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_main_sl.png" alt="A.V.A Super League">
-	</div>	
-	<div class="section wrap_container">	
-		<!-- bg --><div class="bg_left"></div><div class="bg_right"></div><!-- // bg -->
-		<div class="section container">
-			<div class="contents">
-				<div class="tab_main_noti">
-					<ul>
-						<li>
-							<a href="#ava_sl_info"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_01.png" alt="½´ÆÛ¸®±× ¾È³»"></a>
-							<span class="line"></span>
-						</li>
-						<li class="on">
-							<a href="#ava_sl_schedule"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_02.png" alt="ÁøÇàÀÏÁ¤"></a>
-							<span class="line"></span>
-						</li>
-						<li>
-							<a href="#ava_sl_rule"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_03.png" alt="Á¡¼ö»êÁ¤ ¹æ½Ä"></a>
-							<span class="line"></span>
-						</li>
-						<li>
-							<a href="#ava_sl_guide"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tab_maintxt_04.png " alt="Å¬·£¸®±× °¡ÀÌµå"></a>
-							<span class="line"></span>
-						</li>
-					</ul>
-				</div>
-				<div class="tab_main_contents">
-					<div id="ava_sl_schedule" class="tab_content">
-						<div class="main_sl_schedule">
-							<p class="sl_schedule_desc">
-								Å¬·£¸®±×´Â 6°³¿ù ´ÜÀ§, °³ÀÎ¸®±×´Â ¿ù ´ÜÀ§·Î ÁøÇàµÇ¸ç, <br />
-								Å¬·£¸®±×ÀÇ °æ¿ì Å¬·£¸®±× Victory (Àü¹Ý±â 6°³¿ù) °ú Å¬·£¸®±× Honor (ÈÄ¹Ý±â 6°³¿ù)·Î ³ª´©¾î ÁøÇàµË´Ï´Ù.
-							</p>
-							<div class="schedule_imgbox">
-								<h4>Å¬·£¸®±× ÁøÇà ÀÏÁ¤ (Àü¹Ý±â¿Í ÈÄ¹Ý±â µ¿ÀÏ)</h4>
-								<ol>
-									<li>Ä·ÇÁ ¹èÄ¡Àü - ¿Â¶óÀÎ ·¡´õ¸ÅÄ¡ ÁøÇà. ¹èÄ¡Ä·ÇÁÀü Á¾·á ÈÄ ¼øÀ§¿¡ µû¶ó °ñµå, ½Ç¹ö, ºê·ÐÁî Ä·ÇÁ¿¡ ¹èÁ¤</li>
-									<li> Season 1 ~ Season 4 - ½ÃÁð1ºÎÅÍ ½ÃÁð4±îÁö Ä·ÇÁ º° ¸ÅÄ¡ ÁøÇà. °ñµåÄ·ÇÁ : ¿Â¶óÀÎ Ç®¸®±× ¹æ½Ä / ½Ç¹ö ¹× ºê·ÐÁîÄ·ÇÁ : ¿Â¶óÀÎ ·¡´õ¸ÅÄ¡ ¹æ½Ä</li>
-									<li>Season Final - [¾Æ¹Ù ½´ÆÛ¸®±×] ¿ÀÇÁ¶óÀÎ ÄÅ ´ëÈ¸ ÁøÇà</li>
-								</ol>
-								<h4>°³ÀÎ¸®±× ÁøÇàÀÏÁ¤ (¿ù ´ÜÀ§ °³º° ½ÃÁðÀ¸·Î ÁøÇà. ¿¬ 12½ÃÁð)</h4>
-								<p>Àü.ÈÄ¹Ý±â °ü°è¾øÀÌ ÃÑ 12½ÃÁðÀ¸·Î ÁøÇàµÇ¸ç, °³º° ½ÃÁð º° ¼ºÀûÀ» ¹ÙÅÁÀ¸·Î ÇýÅÃ ¹× º¸»ó Áö±Þ</p>
-							</div>
-						</div>
-					</div>
-					<!-- <div id="ava_sl_info" class="tab_content"></div>
-					<div id="ava_sl_rule" class="tab_content">Á¡¼ö»êÁ¤ ¹æ½Ä</div>
-					<div id="ava_sl_guide" class="tab_content">Å¬·£¸®±× °¡ÀÌµå</div> -->
-				</div>
-				<!--<script>tabContents('.tab_main_noti', '.tab_main_contents', 0)//('ÅÇ ¸µÅ©', 'ÅÇ ´ë»ó', 'º¸¿©ÁÙ ÅÇ ´ë»ó ³Ñ¹ö')</script>-->
-			</div>
-			<div class="section aside">
-				<!-- ·Î±×ÀÎ Àü -->
-				<div class="loginbox">
-					<span class="loginbox_userid">¸ÕÀú ·Î±×ÀÎ ÇØÁÖ¼¼¿ä</span>
-					<a href="#" class="btn_login">·Î±×ÀÎ</a>
-					<!-- SNS ·Î±×ÀÎ -->
-					<span class="sns"><a href="#"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/ico_login_f.png" title="facebook" alt="facebook"></a><a href="#"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/ico_login_g.png" title="google+" alt="google+"></a></span>
-				</div> 
-				<!-- ·Î±×ÀÎ ÈÄ -->
-				<div class="loginbox_on">
-					<span class="loginbox_lv"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/level/28.gif" alt=""></span>
-					<span class="loginbox_userid">¿ù¿äÀÏ¾ÆÄ§°°ÀºÆ÷¸Ç</span>
-					<a href="#" class="btn_login">·Î±×¾Æ¿ô</a>
-				</div>
-				<!-- ÀüÀû ·Î±×ÀÎ Àü -->
-				<div class="aside_record" style="display:;">
-					<div class="clan_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="Å¬·£¸®±× ÀüÀû"></h3>
-						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
-						<p class="clan_name">-</p>
-						<!-- Å¬·£ Æ¼¾î ¼±ÅÃ gold / silver / bronze  -->
-						<div class="clan_frame">
-							<div class="clan_mark">
-								<span class="mark"><!-- <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""> --></span>
-							</div> 
-						</div>
-						<div class="rank_txt">
-							<span class="msg">·Î±×ÀÎ ÇØ ÁÖ¼¼¿ä.</span>
-						</div>
-					</div>
-					<div class="personal_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="°³ÀÎ¸®±×ÀüÀû"></h3>
-						<div class="map_score">
-							<div class="round">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="¶ó¿îµå ÀÛÀü"></p>
-								<span class="rank">-</span>
-								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span> -->
-							</div>
-							<div class="escort">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="È£À§ ÀÛÀü"></p>
-								<span class="rank">-</span>
-								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span> -->
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- ÀüÀû ½´ÆÛ¸®±× Á¤º¸ ¾ø½¿ -->
-				<div class="aside_record" style="display:none;">
-					<div class="clan_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="Å¬·£¸®±× ÀüÀû"></h3>
-						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
-						<p class="clan_name">-</p>
-						<!-- Å¬·£ Æ¼¾î ¼±ÅÃ gold / silver / bronze class = gold / silver / bronze -->
-						<div class="clan_frame">
-							<div class="clan_mark">
-								<span class="mark"><!-- <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""> --></span>
-							</div>
-						</div>
-						<div class="rank_txt">
-							<span class="msg">¼Ò¼ÓµÈ Å¬·£ÀÌ ¾ø½À´Ï´Ù.</span>
-						</div>
-					</div>
-					<div class="personal_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="°³ÀÎ¸®±×ÀüÀû"></h3>
-						<div class="map_score">
-							<div class="round">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="¶ó¿îµå ÀÛÀü"></p>
-								<span class="rank">640,326À§</span>
-								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
-							</div>
-							<div class="escort">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="È£À§ ÀÛÀü"></p>
-								<span class="rank">640,326À§</span>
-								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span>
-							</div>
-						</div>
-					</div>
-					<p class="aside_league_link">
-						<a href="#">³» ½´ÆÛ¸®±× Á¤º¸ ¸ðµÎ º¸±â</a>
-					</p>
-				</div>
-				<!-- ÀüÀû Å¬·£¸®±× Á¤º¸ ¾ø½¿ -->
-				<div class="aside_record" style="display:none;">
-					<div class="clan_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="Å¬·£¸®±× ÀüÀû"></h3>
-						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
-						<p class="clan_name">A.Reputation</p>
-						<!-- Å¬·£ Æ¼¾î ¼±ÅÃ gold / silver / bronze  -->
-						<div class="clan_frame">
-							<div class="clan_mark">
-								<span class="mark"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""></span>
-							</div>
-						</div>
-						<div class="rank_txt">
-							<span class="msg">Å¬·£¸®±×¿¡ µµÀüÇØ º¸¼¼¿ä!</span>
-						</div>
-					</div>
-					<div class="personal_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="°³ÀÎ¸®±×ÀüÀû"></h3>
-						<div class="map_score">
-							<div class="round">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="¶ó¿îµå ÀÛÀü"></p>
-								<span class="rank">640,326À§</span>
-								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span>
-							</div>
-							<div class="escort">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="È£À§ ÀÛÀü"></p>
-								<span class="rank">640,326À§</span>
-								<span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span>
-							</div>
-						</div>
-					</div>
-					<p class="aside_league_link">
-						<a href="#">³» ½´ÆÛ¸®±× Á¤º¸ ¸ðµÎ º¸±â</a>
-					</p>
-				</div>
-				<!-- ÀüÀû °³ÀÎ¸®±× Á¤º¸ ¾ø½¿ -->
-				<div class="aside_record" style="display:none;">
-					<div class="clan_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="Å¬·£¸®±× ÀüÀû"></h3>
-						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
-						<p class="clan_name">A.Reputation</p>
-						<!-- Å¬·£ Æ¼¾î ¼±ÅÃ gold / silver / bronze  -->
-						<div class="clan_frame gold">
-							<div class="clan_mark">
-								<span class="mark"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""></span>
-							</div>
-						</div>
-						<div class="rank_txt">
-							<strong class="rank">369À§</strong><span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/txt_goldcamp_01.png" alt="Gold Camp">
-						</div>
-					</div>
-					<div class="personal_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="°³ÀÎ¸®±×ÀüÀû"></h3>
-						<div class="map_score">
-							<div class="round">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="¶ó¿îµå ÀÛÀü"></p>
-								<span class="rank">-</span>
-								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span> -->
-							</div>
-							<div class="escort">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="È£À§ ÀÛÀü"></p>
-								<span class="rank">-</span>
-								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span> -->
-							</div>
-						</div>
-					</div>
-					<p class="aside_league_link">
-						<a href="#">³» ½´ÆÛ¸®±× Á¤º¸ ¸ðµÎ º¸±â</a>
-					</p>
-				</div>
-				<!-- ÀüÀû Ä³¸¯ÅÍ Á¤º¸ ¾ø½¿ -->
-				<div class="aside_record" style="display: none;">
-					<div class="clan_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_clanscore_01.png" alt="Å¬·£¸®±× ÀüÀû"></h3>
-						<p class="season"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_season03.png" alt="Victory Season3"></p>
-						<p class="clan_name">-</p>
-						<!-- Å¬·£ Æ¼¾î ¼±ÅÃ gold / silver / bronze  -->
-						<div class="clan_frame">
-							<div class="clan_mark">
-								<span class="mark"><!-- <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/clanmark/mark_01.png" alt=""> --></span>
-							</div>
-						</div>
-						<div class="rank_txt">
-							<span class="msg">Ä³¸¯ÅÍ »ý¼º ÈÄ Å¬·£¸®±×¿¡ µµÀüÇØ º¸¼¼¿ä!</span>
-						</div>
-					</div>
-					<div class="personal_record">
-						<h3><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_01.png" alt="°³ÀÎ¸®±×ÀüÀû"></h3>
-						<div class="map_score">
-							<div class="round">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_round.png" alt="¶ó¿îµå ÀÛÀü"></p>
-								<span class="rank">-</span>
-								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_up.png" alt=""> 380 )</span> -->
-							</div>
-							<div class="escort">
-								<p class="tl"><img src="http://file.pmang.kr/images/pmang/ava/superleague/images/tl_personscore_escort.png" alt="È£À§ ÀÛÀü"></p>
-								<span class="rank">-</span>
-								<!-- <span class="pos_ch">( <img src="http://file.pmang.kr/images/pmang/ava/superleague/images/arw_rank_down.png" alt=""> 380 )</span> -->
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<div class="section footer">
-				<div class="footer_content png">
-					<a href="#" class="btn_neowiz">Newowiz Games</a>
-					<a href="#" class="btn_redduck">Redduck</a>
-					<p class="hide">&copy; NEOWIZ GAMES. All rights reserved. &copy; RED DUCK Inc.</p>
-				</div>
-			</div>
-		</div>
-		
-	</div>
-</div>
-</body>
+      function elemMove(target) {
+        $("html, body")
+          .stop(true, false)
+          .animate({ scrollTop: $(target).offset().top }, 300);
+      }
+      function ev1() {
+        $(".loginbox").hide();
+        $(".loginbox_on").show();
+        elemMove(".loginbox");
+      }
+      function ev2() {
+        $(".loginbox_on").hide();
+        $(".loginbox").show();
+        elemMove(".loginbox");
+      }
+      function recordView(n) {
+        $(".aside_record").hide();
+        $(".aside_record").eq(n).show();
+        elemMove(".aside_record");
+      }
+    </script>
+    <!--// ê°œë°œì‹œ ì‚­ì œ -->
+    <div class="wrap">
+      <div class="section header">
+        <!-- bg -->
+        <div class="bg_left"></div>
+        <div class="bg_right"></div>
+        <!-- // bg -->
+        <div class="section contents">
+          <ul class="nav">
+            <li class="on"><a href="#" class="sl">Super league</a></li>
+            <li><a href="#" class="notice">ë¦¬ê·¸ê³µì§€</a></li>
+            <li><a href="#" class="clan">í´ëžœë¦¬ê·¸</a></li>
+            <li><a href="#" class="personal">ê°œì¸ë¦¬ê·¸</a></li>
+            <li><a href="#" class="reward">í˜œíƒê³¼ ë³´ìƒ</a></li>
+            <li><a href="#" class="hall">ëª…ì˜ˆì˜ ì „ë‹¹</a></li>
+          </ul>
+          <a href="#" class="btn_ava_home">A.V.A í™ˆíŽ˜ì´ì§€ë¡œ ì´ë™</a>
+          <span class="gamestart"><a href="#">ê²Œìž„ ì‹œìž‘</a></span>
+        </div>
+      </div>
+      <div class="section top_visual">
+        <img src="images/tl_main_sl.png" alt="A.V.A Super League" />
+      </div>
+      <div class="section wrap_container">
+        <!-- bg -->
+        <div class="bg_left"></div>
+        <div class="bg_right"></div>
+        <!-- // bg -->
+        <div class="section container">
+          <div class="contents">
+            <div class="tab_main_noti">
+              <ul>
+                <li>
+                  <a href="#ava_sl_info"
+                    ><img src="images/tab_maintxt_01.png" alt="ìŠˆí¼ë¦¬ê·¸ ì•ˆë‚´"
+                  /></a>
+                  <span class="line"></span>
+                </li>
+                <li class="on">
+                  <a href="#ava_sl_schedule"
+                    ><img src="images/tab_maintxt_02.png" alt="ì§„í–‰ì¼ì •"
+                  /></a>
+                  <span class="line"></span>
+                </li>
+                <li>
+                  <a href="#ava_sl_rule"
+                    ><img src="images/tab_maintxt_03.png" alt="ì ìˆ˜ì‚°ì • ë°©ì‹"
+                  /></a>
+                  <span class="line"></span>
+                </li>
+                <li>
+                  <a href="#ava_sl_guide"
+                    ><img
+                      src="images/tab_maintxt_04.png "
+                      alt="í´ëžœë¦¬ê·¸ ê°€ì´ë“œ"
+                  /></a>
+                  <span class="line"></span>
+                </li>
+              </ul>
+            </div>
+            <div class="tab_main_contents">
+              <div id="ava_sl_schedule" class="tab_content">
+                <div class="main_sl_schedule">
+                  <p class="sl_schedule_desc">
+                    í´ëžœë¦¬ê·¸ëŠ” 6ê°œì›” ë‹¨ìœ„, ê°œì¸ë¦¬ê·¸ëŠ” ì›” ë‹¨ìœ„ë¡œ ì§„í–‰ë˜ë©°, <br />
+                    í´ëžœë¦¬ê·¸ì˜ ê²½ìš° í´ëžœë¦¬ê·¸ Victory (ì „ë°˜ê¸° 6ê°œì›”) ê³¼ í´ëžœë¦¬ê·¸
+                    Honor (í›„ë°˜ê¸° 6ê°œì›”)ë¡œ ë‚˜ëˆ„ì–´ ì§„í–‰ë©ë‹ˆë‹¤.
+                  </p>
+                  <div class="schedule_imgbox">
+                    <h4>í´ëžœë¦¬ê·¸ ì§„í–‰ ì¼ì • (ì „ë°˜ê¸°ì™€ í›„ë°˜ê¸° ë™ì¼)</h4>
+                    <ol>
+                      <li>
+                        ìº í”„ ë°°ì¹˜ì „ - ì˜¨ë¼ì¸ ëž˜ë”ë§¤ì¹˜ ì§„í–‰. ë°°ì¹˜ìº í”„ì „ ì¢…ë£Œ í›„
+                        ìˆœìœ„ì— ë”°ë¼ ê³¨ë“œ, ì‹¤ë²„, ë¸Œë¡ ì¦ˆ ìº í”„ì— ë°°ì •
+                      </li>
+                      <li>
+                        Season 1 ~ Season 4 - ì‹œì¦Œ1ë¶€í„° ì‹œì¦Œ4ê¹Œì§€ ìº í”„ ë³„ ë§¤ì¹˜
+                        ì§„í–‰. ê³¨ë“œìº í”„ : ì˜¨ë¼ì¸ í’€ë¦¬ê·¸ ë°©ì‹ / ì‹¤ë²„ ë° ë¸Œë¡ ì¦ˆìº í”„
+                        : ì˜¨ë¼ì¸ ëž˜ë”ë§¤ì¹˜ ë°©ì‹
+                      </li>
+                      <li>
+                        Season Final - [ì•„ë°” ìŠˆí¼ë¦¬ê·¸] ì˜¤í”„ë¼ì¸ ì»µ ëŒ€íšŒ ì§„í–‰
+                      </li>
+                    </ol>
+                    <h4>
+                      ê°œì¸ë¦¬ê·¸ ì§„í–‰ì¼ì • (ì›” ë‹¨ìœ„ ê°œë³„ ì‹œì¦Œìœ¼ë¡œ ì§„í–‰. ì—° 12ì‹œì¦Œ)
+                    </h4>
+                    <p>
+                      ì „.í›„ë°˜ê¸° ê´€ê³„ì—†ì´ ì´ 12ì‹œì¦Œìœ¼ë¡œ ì§„í–‰ë˜ë©°, ê°œë³„ ì‹œì¦Œ ë³„
+                      ì„±ì ì„ ë°”íƒ•ìœ¼ë¡œ í˜œíƒ ë° ë³´ìƒ ì§€ê¸‰
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <!-- <div id="ava_sl_info" class="tab_content"></div>
+					<div id="ava_sl_rule" class="tab_content">ì ìˆ˜ì‚°ì • ë°©ì‹</div>
+					<div id="ava_sl_guide" class="tab_content">í´ëžœë¦¬ê·¸ ê°€ì´ë“œ</div> -->
+            </div>
+            <!--<script>tabContents('.tab_main_noti', '.tab_main_contents', 0)//('íƒ­ ë§í¬', 'íƒ­ ëŒ€ìƒ', 'ë³´ì—¬ì¤„ íƒ­ ëŒ€ìƒ ë„˜ë²„')</script>-->
+          </div>
+          <div class="section aside">
+            <!-- ë¡œê·¸ì¸ ì „ -->
+            <div class="loginbox">
+              <span class="loginbox_userid">ë¨¼ì € ë¡œê·¸ì¸ í•´ì£¼ì„¸ìš”</span>
+              <a href="#" class="btn_login">ë¡œê·¸ì¸</a>
+              <!-- SNS ë¡œê·¸ì¸ -->
+              <span class="sns"
+                ><a href="#"
+                  ><img
+                    src="images/ico_login_f.png"
+                    title="facebook"
+                    alt="facebook" /></a
+                ><a href="#"
+                  ><img
+                    src="images/ico_login_g.png"
+                    title="google+"
+                    alt="google+" /></a
+              ></span>
+            </div>
+            <!-- ë¡œê·¸ì¸ í›„ -->
+            <div class="loginbox_on">
+              <span class="loginbox_lv"
+                ><img src="images/level/28.gif" alt=""
+              /></span>
+              <span class="loginbox_userid">ì›”ìš”ì¼ì•„ì¹¨ê°™ì€í¬ë§¨</span>
+              <a href="#" class="btn_login">ë¡œê·¸ì•„ì›ƒ</a>
+            </div>
+            <!-- ì „ì  ë¡œê·¸ì¸ ì „ -->
+            <div class="aside_record" style="display: ">
+              <div class="clan_record">
+                <h3>
+                  <img src="images/tl_clanscore_01.png" alt="í´ëžœë¦¬ê·¸ ì „ì " />
+                </h3>
+                <p class="season">
+                  <img src="images/tl_season03.png" alt="Victory Season3" />
+                </p>
+                <p class="clan_name">-</p>
+                <!-- í´ëžœ í‹°ì–´ ì„ íƒ gold / silver / bronze  -->
+                <div class="clan_frame">
+                  <div class="clan_mark">
+                    <span class="mark"
+                      ><!-- <img src="images/clanmark/mark_01.png" alt=""> --></span
+                    >
+                  </div>
+                </div>
+                <div class="rank_txt">
+                  <span class="msg">ë¡œê·¸ì¸ í•´ ì£¼ì„¸ìš”.</span>
+                </div>
+              </div>
+              <div class="personal_record">
+                <h3>
+                  <img src="images/tl_personscore_01.png" alt="ê°œì¸ë¦¬ê·¸ì „ì " />
+                </h3>
+                <div class="map_score">
+                  <div class="round">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_round.png"
+                        alt="ë¼ìš´ë“œ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">-</span>
+                    <!-- <span class="pos_ch">( <img src="images/arw_rank_up.png" alt=""> 380 )</span> -->
+                  </div>
+                  <div class="escort">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_escort.png"
+                        alt="í˜¸ìœ„ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">-</span>
+                    <!-- <span class="pos_ch">( <img src="images/arw_rank_down.png" alt=""> 380 )</span> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ì „ì  ìŠˆí¼ë¦¬ê·¸ ì •ë³´ ì—†ìŠ´ -->
+            <div class="aside_record" style="display: none">
+              <div class="clan_record">
+                <h3>
+                  <img src="images/tl_clanscore_01.png" alt="í´ëžœë¦¬ê·¸ ì „ì " />
+                </h3>
+                <p class="season">
+                  <img src="images/tl_season03.png" alt="Victory Season3" />
+                </p>
+                <p class="clan_name">-</p>
+                <!-- í´ëžœ í‹°ì–´ ì„ íƒ gold / silver / bronze class = gold / silver / bronze -->
+                <div class="clan_frame">
+                  <div class="clan_mark">
+                    <span class="mark"
+                      ><!-- <img src="images/clanmark/mark_01.png" alt=""> --></span
+                    >
+                  </div>
+                </div>
+                <div class="rank_txt">
+                  <span class="msg">ì†Œì†ëœ í´ëžœì´ ì—†ìŠµë‹ˆë‹¤.</span>
+                </div>
+              </div>
+              <div class="personal_record">
+                <h3>
+                  <img src="images/tl_personscore_01.png" alt="ê°œì¸ë¦¬ê·¸ì „ì " />
+                </h3>
+                <div class="map_score">
+                  <div class="round">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_round.png"
+                        alt="ë¼ìš´ë“œ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">640,326ìœ„</span>
+                    <span class="pos_ch"
+                      >( <img src="images/arw_rank_up.png" alt="" /> 380 )</span
+                    >
+                  </div>
+                  <div class="escort">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_escort.png"
+                        alt="í˜¸ìœ„ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">640,326ìœ„</span>
+                    <span class="pos_ch"
+                      >( <img src="images/arw_rank_down.png" alt="" /> 380
+                      )</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <p class="aside_league_link">
+                <a href="#">ë‚´ ìŠˆí¼ë¦¬ê·¸ ì •ë³´ ëª¨ë‘ ë³´ê¸°</a>
+              </p>
+            </div>
+            <!-- ì „ì  í´ëžœë¦¬ê·¸ ì •ë³´ ì—†ìŠ´ -->
+            <div class="aside_record" style="display: none">
+              <div class="clan_record">
+                <h3>
+                  <img src="images/tl_clanscore_01.png" alt="í´ëžœë¦¬ê·¸ ì „ì " />
+                </h3>
+                <p class="season">
+                  <img src="images/tl_season03.png" alt="Victory Season3" />
+                </p>
+                <p class="clan_name">A.Reputation</p>
+                <!-- í´ëžœ í‹°ì–´ ì„ íƒ gold / silver / bronze  -->
+                <div class="clan_frame">
+                  <div class="clan_mark">
+                    <span class="mark"
+                      ><img src="images/clanmark/mark_01.png" alt=""
+                    /></span>
+                  </div>
+                </div>
+                <div class="rank_txt">
+                  <span class="msg">í´ëžœë¦¬ê·¸ì— ë„ì „í•´ ë³´ì„¸ìš”!</span>
+                </div>
+              </div>
+              <div class="personal_record">
+                <h3>
+                  <img src="images/tl_personscore_01.png" alt="ê°œì¸ë¦¬ê·¸ì „ì " />
+                </h3>
+                <div class="map_score">
+                  <div class="round">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_round.png"
+                        alt="ë¼ìš´ë“œ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">640,326ìœ„</span>
+                    <span class="pos_ch"
+                      >( <img src="images/arw_rank_up.png" alt="" /> 380 )</span
+                    >
+                  </div>
+                  <div class="escort">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_escort.png"
+                        alt="í˜¸ìœ„ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">640,326ìœ„</span>
+                    <span class="pos_ch"
+                      >( <img src="images/arw_rank_down.png" alt="" /> 380
+                      )</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <p class="aside_league_link">
+                <a href="#">ë‚´ ìŠˆí¼ë¦¬ê·¸ ì •ë³´ ëª¨ë‘ ë³´ê¸°</a>
+              </p>
+            </div>
+            <!-- ì „ì  ê°œì¸ë¦¬ê·¸ ì •ë³´ ì—†ìŠ´ -->
+            <div class="aside_record" style="display: none">
+              <div class="clan_record">
+                <h3>
+                  <img src="images/tl_clanscore_01.png" alt="í´ëžœë¦¬ê·¸ ì „ì " />
+                </h3>
+                <p class="season">
+                  <img src="images/tl_season03.png" alt="Victory Season3" />
+                </p>
+                <p class="clan_name">A.Reputation</p>
+                <!-- í´ëžœ í‹°ì–´ ì„ íƒ gold / silver / bronze  -->
+                <div class="clan_frame gold">
+                  <div class="clan_mark">
+                    <span class="mark"
+                      ><img src="images/clanmark/mark_01.png" alt=""
+                    /></span>
+                  </div>
+                </div>
+                <div class="rank_txt">
+                  <strong class="rank">369ìœ„</strong
+                  ><span class="pos_ch"
+                    >( <img srue/images/arw_rank_up.png" alt=""> 380 )</span
+                  ><img srue/images/txt_goldcamp_01.png" alt="Gold Camp">
+                </div>
+              </div>
+              <div class="personal_record">
+                <h3>
+                  <img src="images/tl_personscore_01.png" alt="ê°œì¸ë¦¬ê·¸ì „ì " />
+                </h3>
+                <div class="map_score">
+                  <div class="round">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_round.png"
+                        alt="ë¼ìš´ë“œ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">-</span>
+                    <!-- <span class="pos_ch">( <img src="images/arw_rank_up.png" alt=""> 380 )</span> -->
+                  </div>
+                  <div class="escort">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_escort.png"
+                        alt="í˜¸ìœ„ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">-</span>
+                    <!-- <span class="pos_ch">( <img src="images/arw_rank_down.png" alt=""> 380 )</span> -->
+                  </div>
+                </div>
+              </div>
+              <p class="aside_league_link">
+                <a href="#">ë‚´ ìŠˆí¼ë¦¬ê·¸ ì •ë³´ ëª¨ë‘ ë³´ê¸°</a>
+              </p>
+            </div>
+            <!-- ì „ì  ìºë¦­í„° ì •ë³´ ì—†ìŠ´ -->
+            <div class="aside_record" style="display: none">
+              <div class="clan_record">
+                <h3>
+                  <img src="images/tl_clanscore_01.png" alt="í´ëžœë¦¬ê·¸ ì „ì " />
+                </h3>
+                <p class="season">
+                  <img src="images/tl_season03.png" alt="Victory Season3" />
+                </p>
+                <p class="clan_name">-</p>
+                <!-- í´ëžœ í‹°ì–´ ì„ íƒ gold / silver / bronze  -->
+                <div class="clan_frame">
+                  <div class="clan_mark">
+                    <span class="mark"
+                      ><!-- <img src="images/clanmark/mark_01.png" alt=""> --></span
+                    >
+                  </div>
+                </div>
+                <div class="rank_txt">
+                  <span class="msg"
+                    >ìºë¦­í„° ìƒì„± í›„ í´ëžœë¦¬ê·¸ì— ë„ì „í•´ ë³´ì„¸ìš”!</span
+                  >
+                </div>
+              </div>
+              <div class="personal_record">
+                <h3>
+                  <img src="images/tl_personscore_01.png" alt="ê°œì¸ë¦¬ê·¸ì „ì " />
+                </h3>
+                <div class="map_score">
+                  <div class="round">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_round.png"
+                        alt="ë¼ìš´ë“œ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">-</span>
+                    <!-- <span class="pos_ch">( <img src="images/arw_rank_up.png" alt=""> 380 )</span> -->
+                  </div>
+                  <div class="escort">
+                    <p class="tl">
+                      <img
+                        src="images/tl_personscore_escort.png"
+                        alt="í˜¸ìœ„ ìž‘ì „"
+                      />
+                    </p>
+                    <span class="rank">-</span>
+                    <!-- <span class="pos_ch">( <img src="images/arw_rank_down.png" alt=""> 380 )</span> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="section footer">
+            <div class="footer_content png">
+              <a href="#" class="btn_neowiz">Newowiz Games</a>
+              <a href="#" class="btn_redduck">Redduck</a>
+              <p class="hide">
+                &copy; NEOWIZ GAMES. All rights reserved. &copy; RED DUCK Inc.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

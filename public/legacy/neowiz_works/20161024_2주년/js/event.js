@@ -232,18 +232,13 @@ $.extend(jQuery.easing, {
 
 require.config({
   paths: {
-    TweenMax:
-      "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js",
+    TweenMax: "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min",
     TimelineMax:
-      "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min.js",
-    ScrollMagic:
-      "http://mm.pmang.com/pmang/ava/event/2016/0622/js/ScrollMagic.min",
-    ScrollToPlugin:
-      "http://mm.pmang.com/pmang/ava/event/2016/0622/js/plugins/ScrollToPlugin.min",
-    "animation.gsap":
-      "http://mm.pmang.com/pmang/ava/event/2016/0622/js/plugins/animation.gsap.min",
-    "ScrollMagic.debug":
-      "http://mm.pmang.com/pmang/ava/event/2016/0622/js/plugins/debug.addIndicators.min",
+      "https://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.1/TweenMax.min",
+    ScrollMagic: "js/ScrollMagic.min",
+    ScrollToPlugin: "js/plugins/ScrollToPlugin.min",
+    "animation.gsap": "js/plugins/animation.gsap.min",
+    "ScrollMagic.debug": "js/plugins/debug.addIndicators.min",
   },
 });
 
