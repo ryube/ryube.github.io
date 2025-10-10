@@ -8,6 +8,9 @@ export const metadata: Metadata = {
     template: "%s | Ryube Portfolio",
   },
   description: "Ryube의 프로덕트, 인터랙션 디자인 포트폴리오",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
     title: "Ryube Portfolio",
     description: "Ryube의 프로덕트, 인터랙션 디자인 포트폴리오",

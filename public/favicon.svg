@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6">
+        <animate attributeName="stop-color" values="#3b82f6;#ec4899;#10b981;#3b82f6" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#8b5cf6">
+        <animate attributeName="stop-color" values="#8b5cf6;#f59e0b;#6366f1;#8b5cf6" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#ec4899">
+        <animate attributeName="stop-color" values="#ec4899;#3b82f6;#ec4899;#ec4899" dur="6s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Extremely bold R using system serif fonts, perfectly centered -->
+  <g filter="url(#shadow)">
+    <text x="32" y="32"
+          text-anchor="middle"
+          dominant-baseline="central"
+          font-size="60"
+          font-weight="1000"
+          font-family="'New York', 'Georgia', 'Times New Roman', serif"
+          fill="url(#grad)"
+          stroke="#000000"
+          stroke-width="2"
+          paint-order="stroke fill">
+      R
+    </text>
+  </g>
+</svg>
