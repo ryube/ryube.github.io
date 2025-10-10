@@ -1,0 +1,3 @@
+[submodule "carrer-data"]
+	path = carrer-data
+	url = git@github.com:ryube/carrer-data.git
