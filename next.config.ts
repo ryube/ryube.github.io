@@ -6,6 +6,18 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  async rewrites() {
+    return [
+      {
+        source: "/legacy",
+        destination: "/legacy/index.html",
+      },
+      {
+        source: "/legacy/",
+        destination: "/legacy/index.html",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

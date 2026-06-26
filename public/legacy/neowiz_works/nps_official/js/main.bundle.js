@@ -145,7 +145,7 @@
     if (!(msie < 10)) {
       particlesJS.load(
         "dot-particles",
-        "https://ryube.github.io/neowiz_works/nps_official/particles/dot.json",
+        "../particles/dot.json",
         function () {
           $__default["default"](".particles,.sub__particles").addClass(
             "loaded"
@@ -154,7 +154,7 @@
       );
       particlesJS.load(
         "line-particles",
-        "https://ryube.github.io/neowiz_works/nps_official/particles/rain.json",
+        "../particles/rain.json",
         function () {
           // console.log('particle-pcPaticle');
         }
@@ -169,7 +169,7 @@
     if (!$__default["default"]("html").hasClass("ie-legacy")) {
       particlesJS.load(
         "dot-particles",
-        "https://ryube.github.io/neowiz_works/nps_official/particles/dot-m.json",
+        "../particles/dot-m.json",
         function () {
           $__default["default"](".particles,.sub__particles").addClass(
             "loaded"
@@ -178,7 +178,7 @@
       );
       particlesJS.load(
         "line-particles",
-        "https://ryube.github.io/neowiz_works/nps_official/particles/rain-m.json",
+        "../particles/rain-m.json",
         function () {}
       );
     } else {

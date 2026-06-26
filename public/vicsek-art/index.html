@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vicsek 2D</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #050510; overflow: hidden; cursor: crosshair; }
+canvas { display: block; }
+#hud {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  color: rgba(255,255,255,0.35);
+  font: 11px/1.5 'Courier New', monospace;
+  pointer-events: none;
+  z-index: 10;
+}
+#stats {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  color: rgba(255,255,255,0.25);
+  font: 10px/1.4 'Courier New', monospace;
+  pointer-events: none;
+  text-align: right;
+}
+/* ─── Control Panel ─── */
+#panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100vh;
+  background: rgba(8,8,20,0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 16px 14px;
+  font: 11px/1.4 'Courier New', monospace;
+  color: rgba(255,255,255,0.7);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+#panel.open { transform: translateX(0); }
+#panel::-webkit-scrollbar { width: 4px; }
+#panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+#toggle-btn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 101;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  font: 11px 'Courier New', monospace;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+#toggle-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
+#toggle-btn.shifted { right: 272px; }
+.ctrl-section {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ctrl-section:last-child { border-bottom: none; }
+.ctrl-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+  color: rgba(255,255,255,0.45);
+  font-size: 10px;
+}
+.ctrl-label .val { color: rgba(255,255,255,0.7); font-size: 11px; }
+.ctrl-section h3 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  outline: none;
+  margin-bottom: 8px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover { background: rgba(255,255,255,0.8); }
+.preset-btns {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+.preset-btns button {
+  flex: 1;
+  padding: 5px 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  font: 10px 'Courier New', monospace;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.15s;
+}
+.preset-btns button:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.preset-btns button.active {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+.boundary-toggle {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+.boundary-toggle button {
+  flex: 1;
+  padding: 4px 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font: 10px 'Courier New', monospace;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.boundary-toggle button.active {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border-color: rgba(255,255,255,0.25);
+}
+a.version-link {
+  position: fixed; bottom: 16px; right: 16px;
+  color: rgba(255,255,255,0.25);
+  font: 10px 'Courier New', monospace;
+  text-decoration: none; z-index: 10;
+}
+a.version-link:hover { color: rgba(255,255,255,0.5); }
+</style>
+</head>
+<body>
+<div id="hud">
+  drag: attract | click: scatter | [space] pause | [h] panel
+</div>
+<div id="stats"></div>
+<button id="toggle-btn" onclick="togglePanel()">ctrl</button>
+<div id="panel">
+  <div class="ctrl-section">
+    <h3>presets</h3>
+    <div class="preset-btns" id="preset-btns">
+      <button class="active" data-p="fish">fish</button>
+      <button data-p="birds">birds</button>
+      <button data-p="swarm">swarm</button>
+      <button data-p="chaos">chaos</button>
+    </div>
+  </div>
+  <div class="ctrl-section">
+    <h3>particles</h3>
+    <div class="ctrl-label"><span>count</span><span class="val" id="v-count">500</span></div>
+    <input type="range" id="s-count" min="50" max="1500" step="10" value="500">
+    <div class="ctrl-label"><span>speed (v)</span><span class="val" id="v-speed">3.0</span></div>
+    <input type="range" id="s-speed" min="0.5" max="8" step="0.1" value="3.0">
+    <div class="ctrl-label"><span>arrow size</span><span class="val" id="v-arrow">6</span></div>
+    <input type="range" id="s-arrow" min="2" max="14" step="0.5" value="6">
+    <div class="ctrl-label"><span>trail length</span><span class="val" id="v-trail">16</span></div>
+    <input type="range" id="s-trail" min="0" max="40" step="1" value="16">
+  </div>
+  <div class="ctrl-section">
+    <h3>vicsek model</h3>
+    <div class="ctrl-label"><span>noise (η)</span><span class="val" id="v-eta">0.35</span></div>
+    <input type="range" id="s-eta" min="0" max="3" step="0.01" value="0.35">
+    <div class="ctrl-label"><span>interaction radius (R)</span><span class="val" id="v-radius">60</span></div>
+    <input type="range" id="s-radius" min="10" max="200" step="1" value="60">
+    <div class="ctrl-label"><span>inertia</span><span class="val" id="v-inertia">0.12</span></div>
+    <input type="range" id="s-inertia" min="0" max="0.95" step="0.01" value="0.12">
+    <div class="ctrl-label"><span>max turn rate</span><span class="val" id="v-turn">0.12</span></div>
+    <input type="range" id="s-turn" min="0.01" max="0.5" step="0.01" value="0.12">
+  </div>
+  <div class="ctrl-section">
+    <h3>separation</h3>
+    <div class="ctrl-label"><span>separation radius</span><span class="val" id="v-sepR">15</span></div>
+    <input type="range" id="s-sepR" min="0" max="60" step="1" value="15">
+    <div class="ctrl-label"><span>separation weight</span><span class="val" id="v-sepW">0.6</span></div>
+    <input type="range" id="s-sepW" min="0" max="3" step="0.05" value="0.6">
+  </div>
+  <div class="ctrl-section">
+    <h3>flow field</h3>
+    <div class="ctrl-label"><span>flow scale</span><span class="val" id="v-fscale">0.0012</span></div>
+    <input type="range" id="s-fscale" min="0" max="0.01" step="0.0001" value="0.0012">
+    <div class="ctrl-label"><span>flow strength</span><span class="val" id="v-fstr">0.25</span></div>
+    <input type="range" id="s-fstr" min="0" max="1.5" step="0.01" value="0.25">
+  </div>
+  <div class="ctrl-section">
+    <h3>rendering</h3>
+    <div class="ctrl-label"><span>fade alpha</span><span class="val" id="v-fade">0.065</span></div>
+    <input type="range" id="s-fade" min="0.01" max="0.3" step="0.005" value="0.065">
+    <div class="ctrl-label"><span>boundary</span></div>
+    <div class="boundary-toggle" id="boundary-toggle">
+      <button class="active" data-b="wrap">wrap</button>
+      <button data-b="steer">steer</button>
+    </div>
+    <div class="ctrl-label"><span>steer margin</span><span class="val" id="v-margin">100</span></div>
+    <input type="range" id="s-margin" min="30" max="300" step="5" value="100">
+  </div>
+</div>
+<a class="version-link" href="3d.html">3D version →</a>
+<a class="version-link" style="right:auto;left:16px;bottom:40px" href="guide.md">guide</a>
+<canvas id="canvas"></canvas>
+<script>
+// ═══════════════════════════════════════════════════════════
+// Vicsek(빅섹) 모델 2D
+//
+// 물고기떼/새떼의 집단 움직임을 시뮬레이션합니다.
+// 각 입자(=물고기)는 단순한 규칙만 따릅니다:
+//   1. 주변 친구들의 평균 방향으로 가기 (정렬)
+//   2. 약간의 실수(노이즈) 더하기
+//
+// 참고: c-planelles/vicsek-model-3D (CUDA/OpenGL → Canvas 2D 변환)
+// ═══════════════════════════════════════════════════════════
+
+// ─── Perlin Noise (펄린 노이즈) ─────────────────────────
+// 일반 랜덤(Math.random)은 "지직거리는 TV"처럼 거칠지만,
+// 펄린 노이즈는 "구름"이나 "산맥"처럼 부드럽게 이어지는 랜덤입니다.
+// 여기서는 보이지 않는 "바람(흐름장)"을 만드는 데 사용합니다.
+const Noise = (() => {
+  const perm = new Uint8Array(512);
+  const grad3 = [
+    [1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],
+    [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],
+    [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]
+  ];
+  const p = new Uint8Array(256);
+  for (let i = 0; i < 256; i++) p[i] = i;
+  for (let i = 255; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [p[i], p[j]] = [p[j], p[i]];
+  }
+  for (let i = 0; i < 512; i++) perm[i] = p[i & 255];
+  function dot3(g, x, y, z) { return g[0]*x + g[1]*y + g[2]*z; }
+  function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function lerp(a, b, t) { return a + t * (b - a); }
+  return {
+    noise3D(x, y, z) {
+      const X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+      x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+      const u = fade(x), v = fade(y), w = fade(z);
+      const A = perm[X]+Y, AA = perm[A]+Z, AB = perm[A+1]+Z;
+      const B = perm[X+1]+Y, BA = perm[B]+Z, BB = perm[B+1]+Z;
+      return lerp(
+        lerp(lerp(dot3(grad3[perm[AA]%12],x,y,z), dot3(grad3[perm[BA]%12],x-1,y,z),u),
+             lerp(dot3(grad3[perm[AB]%12],x,y-1,z), dot3(grad3[perm[BB]%12],x-1,y-1,z),u),v),
+        lerp(lerp(dot3(grad3[perm[AA+1]%12],x,y,z-1), dot3(grad3[perm[BA+1]%12],x-1,y,z-1),u),
+             lerp(dot3(grad3[perm[AB+1]%12],x,y-1,z-1), dot3(grad3[perm[BB+1]%12],x-1,y-1,z-1),u),v),w);
+    }
+  };
+})();
+
+// ─── 가우시안(종 모양) 랜덤 ─────────────────────────────
+// 동전 100번 던지면 앞면 50번 근처가 가장 많은 것처럼,
+// 0 근처 숫자가 가장 많이 나오고, 큰 숫자는 드물게 나옵니다.
+// 물고기의 "실수"를 자연스럽게 만들어줍니다.
+// (Box-Muller 변환 - 레퍼런스의 CUDA curand_normal과 동일)
+function gaussRandom() {
+  let u = 0, v = 0;
+  while (u === 0) u = Math.random();
+  while (v === 0) v = Math.random();
+  return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+}
+
+// ─── Canvas ─────────────────────────────────────────────
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const statsEl = document.getElementById('stats');
+let W, H;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// ─── Presets ────────────────────────────────────────────
+// Inspired by reference: v=1.0, dt=0.0005, dR=0.01, noise=0.1*gaussian
+// Scaled to screen coordinates
+const PRESETS = {
+  fish: {
+    count: 600,
+    v: 3.0,              // constant speed (pixels/frame)
+    R: 60,               // interaction radius (pixels)
+    eta: 0.35,           // noise strength (Vicsek η)
+    separationR: 15,     // too-close repulsion radius
+    separationW: 0.6,    // separation steering weight
+    inertia: 0.12,       // angular inertia (0=instant snap, 1=no turn)
+    maxTurn: 0.12,       // max radians/frame turning
+    flowScale: 0.0012,   // Perlin flow spatial scale
+    flowStrength: 0.25,  // Perlin flow angular push
+    trailLen: 16,
+    arrowSize: 6,
+    palette: ['#00e5ff','#00b0ff','#2979ff','#448aff','#82b1ff','#b388ff'],
+    fadeAlpha: 0.065,
+    boundary: 'wrap',    // 'wrap' or 'steer'
+    steerMargin: 100,
+  },
+  birds: {
+    count: 350,
+    v: 4.5,
+    R: 90,
+    eta: 0.5,
+    separationR: 25,
+    separationW: 0.8,
+    inertia: 0.08,
+    maxTurn: 0.18,
+    flowScale: 0.0008,
+    flowStrength: 0.15,
+    trailLen: 10,
+    arrowSize: 8,
+    palette: ['#ff6e40','#ff9100','#ffab40','#ffd740','#fff176','#ffe0b2'],
+    fadeAlpha: 0.055,
+    boundary: 'steer',
+    steerMargin: 140,
+  },
+  swarm: {
+    count: 900,
+    v: 2.0,
+    R: 40,
+    eta: 0.2,
+    separationR: 10,
+    separationW: 0.4,
+    inertia: 0.15,
+    maxTurn: 0.08,
+    flowScale: 0.002,
+    flowStrength: 0.35,
+    trailLen: 22,
+    arrowSize: 4,
+    palette: ['#69f0ae','#00e676','#00c853','#b9f6ca','#1de9b6','#a7ffeb'],
+    fadeAlpha: 0.04,
+    boundary: 'wrap',
+    steerMargin: 80,
+  },
+  chaos: {
+    count: 500,
+    v: 3.8,
+    R: 55,
+    eta: 1.5,
+    separationR: 20,
+    separationW: 1.0,
+    inertia: 0.18,
+    maxTurn: 0.25,
+    flowScale: 0.003,
+    flowStrength: 0.4,
+    trailLen: 7,
+    arrowSize: 7,
+    palette: ['#f50057','#d500f9','#651fff','#3d5afe','#00b0ff','#ff1744'],
+    fadeAlpha: 0.08,
+    boundary: 'steer',
+    steerMargin: 100,
+  }
+};
+
+let cfg = { ...PRESETS.fish };
+let etaMultiplier = 1.0;
+let paused = false;
+
+// ─── 공간 격자 (Spatial Hash Grid) ──────────────────────
+// 물고기 600마리의 이웃을 매번 전부 비교하면 600×600 = 36만 번!
+// 대신 화면을 바둑판처럼 나누고, 같은 칸에 있는 물고기만 비교합니다.
+// 이렇게 하면 훨씬 빠릅니다 (O(N²) → O(N) 최적화).
+class Grid {
+  constructor(cellSize) { this.cs = cellSize; this.m = new Map(); }
+  clear() { this.m.clear(); }
+  _k(cx, cy) { return (cx * 73856093) ^ (cy * 19349663); }
+  insert(p) {
+    const cx = Math.floor(p.x / this.cs);
+    const cy = Math.floor(p.y / this.cs);
+    const k = this._k(cx, cy);
+    let c = this.m.get(k);
+    if (!c) { c = []; this.m.set(k, c); }
+    c.push(p);
+  }
+  query(x, y, r) {
+    const out = [];
+    const x0 = Math.floor((x - r) / this.cs);
+    const x1 = Math.floor((x + r) / this.cs);
+    const y0 = Math.floor((y - r) / this.cs);
+    const y1 = Math.floor((y + r) / this.cs);
+    for (let cx = x0; cx <= x1; cx++)
+      for (let cy = y0; cy <= y1; cy++) {
+        const c = this.m.get(this._k(cx, cy));
+        if (c) for (let i = 0; i < c.length; i++) out.push(c[i]);
+      }
+    return out;
+  }
+}
+
+// ─── 입자 (Particle) = 물고기 한 마리 ───────────────────
+class Particle {
+  constructor() {
+    this.x = Math.random() * W;          // 위치 x (화면 어디에 있는지)
+    this.y = Math.random() * H;          // 위치 y
+    this.theta = Math.random() * Math.PI * 2;  // 방향 각도 (0~360도를 라디안으로)
+    this.trail = [];                     // 지나간 자국 (궤적)
+    this.nOff = Math.random() * 500;     // 개체별 노이즈 오프셋 (각자 다른 실수 패턴)
+  }
+}
+
+// ─── Init ───────────────────────────────────────────────
+let particles = [];
+for (let i = 0; i < cfg.count; i++) particles.push(new Particle());
+const grid = new Grid(100);
+let time = 0;
+
+// ═══════════════════════════════════════════════════════════
+// Vicsek 물리 시뮬레이션 (매 프레임 실행)
+//
+// 순서:
+//   1. 각 물고기의 이웃 찾기
+//   2. 이웃들의 평균 방향 계산 (Vicsek 정렬 규칙)
+//   3. 너무 가까운 이웃은 밀어내기 (분리)
+//   4. 바람(흐름장) 더하기
+//   5. 실수(노이즈) 더하기
+//   6. 관성 적용 (서서히 방향 전환)
+//   7. 한 걸음 이동
+// ═══════════════════════════════════════════════════════════
+function vicsekStep() {
+  const R = cfg.R;           // 이웃을 찾는 반경 (이 거리 안의 친구만 본다)
+  const R2 = R * R;          // 거리 비교를 빠르게 하기 위해 제곱으로 비교
+  const sepR2 = cfg.separationR * cfg.separationR;  // 분리 반경의 제곱
+  const eta = cfg.eta * etaMultiplier;  // 최종 노이즈 강도
+  const N = particles.length;
+
+  // [1단계] 공간 격자 구축 — 이웃 찾기를 빠르게 하기 위해
+  grid.clear();
+  for (let i = 0; i < N; i++) grid.insert(particles[i]);
+
+  // 새 방향을 임시 배열에 저장 (모든 물고기가 "동시에" 판단하도록)
+  // 하나씩 바꾸면 먼저 바뀐 물고기가 아직 안 바뀐 물고기에 영향을 줘서 불공평!
+  const newTheta = new Float32Array(N);
+
+  for (let i = 0; i < N; i++) {
+    const p = particles[i];
+    const neighbors = grid.query(p.x, p.y, R);  // 반경 R 안의 이웃 목록
+
+    // ── [2단계] Vicsek 정렬: 이웃들의 평균 방향 구하기 ──
+    // sin/cos의 합으로 "원형 평균"을 구합니다.
+    // (각도를 직접 평균내면 0°와 359°의 평균이 180°가 되는 문제가 생김!)
+    let sinSum = Math.sin(p.theta);  // 자기 자신도 포함
+    let cosSum = Math.cos(p.theta);
+    let nCount = 1;
+
+    // ── [3단계] 분리 벡터: 너무 가까운 이웃을 밀어내는 힘 ──
+    let sepX = 0, sepY = 0;
+
+    for (let j = 0; j < neighbors.length; j++) {
+      const q = neighbors[j];
+      if (q === p) continue;  // 자기 자신은 건너뛰기
+      const dx = q.x - p.x;
+      const dy = q.y - p.y;
+      const d2 = dx * dx + dy * dy;  // 거리의 제곱 (sqrt 안 해도 비교 가능)
+      if (d2 > 0 && d2 < R2) {
+        // 이웃의 방향을 합산 (나중에 평균 낼 것)
+        sinSum += Math.sin(q.theta);
+        cosSum += Math.cos(q.theta);
+        nCount++;
+
+        // 너무 가까우면 밀어내기 (물고기끼리 부딪히면 안 되니까!)
+        if (d2 < sepR2) {
+          const dist = Math.sqrt(d2);
+          const repel = 1.0 - dist / cfg.separationR;  // 가까울수록 강하게
+          sepX -= (dx / dist) * repel;  // 반대 방향으로 밀기
+          sepY -= (dy / dist) * repel;
+        }
+      }
+    }
+
+    // 이웃들의 평균 방향 (Vicsek의 핵심 규칙!)
+    let desired = Math.atan2(sinSum / nCount, cosSum / nCount);
+
+    // 분리 힘을 원하는 방향에 반영
+    const sepLen = Math.sqrt(sepX * sepX + sepY * sepY);
+    if (sepLen > 0.001) {
+      const sepAngle = Math.atan2(sepY, sepX);
+      const sepWeight = cfg.separationW * Math.min(sepLen, 2.0);
+      desired = Math.atan2(
+        Math.sin(desired) + Math.sin(sepAngle) * sepWeight,
+        Math.cos(desired) + Math.cos(sepAngle) * sepWeight
+      );
+    }
+
+    // ── [5단계] 가우시안 노이즈 (실수 추가) ──
+    // 레퍼런스: thetaMedium + eta * curand_normal()
+    // eta가 크면 많이 삐뚤빼뚤, 작으면 거의 정확하게 따라감
+    desired += eta * gaussRandom();
+
+    // ── [4단계] 펄린 흐름장 (보이지 않는 바람) ──
+    // 위치와 시간에 따라 부드럽게 변하는 "바람"이 물고기를 밀어줍니다.
+    // 이게 없으면 모두 한 방향으로만 가서 지루해짐!
+    const flow = Noise.noise3D(
+      p.x * cfg.flowScale,      // 위치를 축소해서 넓은 패턴 생성
+      p.y * cfg.flowScale,
+      time * 0.12               // 시간이 지나면 바람 방향도 변함
+    );
+    desired += flow * Math.PI * cfg.flowStrength;
+
+    // ── 마우스 인터랙션: 드래그하면 물고기가 손으로 모임 ──
+    if (mouse.active) {
+      const dx = mouse.x - p.x;
+      const dy = mouse.y - p.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      if (d < 250 && d > 0) {
+        const attractAngle = Math.atan2(dy, dx);
+        const w = (1 - d / 250) * 0.5;  // 가까울수록 강하게 끌림
+        desired = Math.atan2(
+          Math.sin(desired) + Math.sin(attractAngle) * w,
+          Math.cos(desired) + Math.cos(attractAngle) * w
+        );
+      }
+    }
+
+    // ── 클릭 리플: 클릭하면 파동이 퍼지며 물고기를 흩뜨림 ──
+    for (let r = 0; r < ripples.length; r++) {
+      const rp = ripples[r];
+      const dx = p.x - rp.x;
+      const dy = p.y - rp.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+      const ringDist = Math.abs(d - rp.radius);  // 파동 고리와의 거리
+      if (ringDist < 50 && d > 0) {
+        const pushAngle = Math.atan2(dy, dx);  // 바깥으로 밀기
+        const w = (1 - ringDist / 50) * rp.strength;
+        desired = Math.atan2(
+          Math.sin(desired) + Math.sin(pushAngle) * w * 2,
+          Math.cos(desired) + Math.cos(pushAngle) * w * 2
+        );
+      }
+    }
+
+    // ── 경계 처리: steer 모드에서는 벽 근처에서 방향을 틂 ──
+    if (cfg.boundary === 'steer') {
+      const m = cfg.steerMargin;  // 벽에서 이 거리부터 회피 시작
+      let bx = 0, by = 0;
+      if (p.x < m) bx = (m - p.x) / m;           // 왼쪽 벽 → 오른쪽으로
+      else if (p.x > W - m) bx = -(p.x - (W - m)) / m;  // 오른쪽 벽 → 왼쪽으로
+      if (p.y < m) by = (m - p.y) / m;            // 위쪽 벽 → 아래로
+      else if (p.y > H - m) by = -(p.y - (H - m)) / m;  // 아래쪽 벽 → 위로
+      if (bx !== 0 || by !== 0) {
+        const bAngle = Math.atan2(by, bx);
+        const bStr = Math.sqrt(bx * bx + by * by) * 0.8;
+        desired = Math.atan2(
+          Math.sin(desired) + Math.sin(bAngle) * bStr,
+          Math.cos(desired) + Math.cos(bAngle) * bStr
+        );
+      }
+    }
+
+    // ── [6단계] 관성: 원하는 방향으로 서서히 꺾기 ──
+    // 자동차가 갑자기 180도 못 도는 것처럼,
+    // 물고기도 한 프레임에 maxTurn 이상 못 꺾습니다.
+    let diff = desired - p.theta;
+    // 각도 차이를 -180°~180° 범위로 정규화
+    while (diff > Math.PI) diff -= Math.PI * 2;
+    while (diff < -Math.PI) diff += Math.PI * 2;
+    const maxT = cfg.maxTurn;
+    const turn = Math.max(-maxT, Math.min(maxT, diff * (1 - cfg.inertia)));
+    newTheta[i] = p.theta + turn;
+  }
+
+  // ── [7단계] 이동: 새 방향으로 한 걸음 전진 ──
+  // 모든 물고기는 같은 속도(v)로 이동합니다 (Vicsek 모델의 특징).
+  for (let i = 0; i < N; i++) {
+    const p = particles[i];
+    p.theta = newTheta[i];  // 새 방향 적용
+
+    // 방향(각도)을 x, y 속도로 변환
+    const vx = Math.cos(p.theta) * cfg.v;
+    const vy = Math.sin(p.theta) * cfg.v;
+    p.x += vx;
+    p.y += vy;
+
+    // 경계 처리
+    if (cfg.boundary === 'wrap') {
+      // wrap: 오른쪽 끝에서 나가면 왼쪽에서 나타남 (지구가 둥근 것처럼)
+      if (p.x < 0) p.x += W;
+      if (p.x > W) p.x -= W;
+      if (p.y < 0) p.y += H;
+      if (p.y > H) p.y -= H;
+    } else {
+      // steer: 화면 안에 가두기 (벽 회피로 이미 방향을 틀었음)
+      p.x = Math.max(0, Math.min(W, p.x));
+      p.y = Math.max(0, Math.min(H, p.y));
+    }
+
+    // 궤적(trail) 기록: 새 위치를 앞에 추가하고, 오래된 것은 뒤에서 삭제
+    p.trail.unshift({ x: p.x, y: p.y });
+    if (p.trail.length > cfg.trailLen) p.trail.pop();
+  }
+}
+
+// ─── Mouse & Ripples ────────────────────────────────────
+const mouse = { x: 0, y: 0, active: false };
+const ripples = [];
+
+canvas.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+canvas.addEventListener('mousedown', () => { mouse.active = true; });
+canvas.addEventListener('mouseup', () => { mouse.active = false; });
+canvas.addEventListener('mouseleave', () => { mouse.active = false; });
+
+canvas.addEventListener('click', e => {
+  ripples.push({ x: e.clientX, y: e.clientY, radius: 0, strength: 1.2, maxR: 350 });
+});
+
+canvas.addEventListener('wheel', e => {
+  e.preventDefault();
+  etaMultiplier = Math.max(0.05, Math.min(5.0, etaMultiplier + e.deltaY * 0.003));
+}, { passive: false });
+
+// ─── Keyboard ───────────────────────────────────────────
+window.addEventListener('keydown', e => {
+  const map = { '1': 'fish', '2': 'birds', '3': 'swarm', '4': 'chaos' };
+  if (map[e.key]) switchPreset(map[e.key]);
+  if (e.key === ' ') { e.preventDefault(); paused = !paused; }
+});
+
+function switchPreset(name) {
+  const target = PRESETS[name];
+  // Smooth transition for numeric params
+  const start = { ...cfg };
+  const numKeys = ['v','R','eta','separationR','separationW','inertia','maxTurn',
+                   'flowScale','flowStrength','arrowSize','fadeAlpha','steerMargin'];
+  const t0 = performance.now();
+  const dur = 1200;
+
+  function step() {
+    const t = Math.min(1, (performance.now() - t0) / dur);
+    const e = t * t * (3 - 2 * t);
+    for (const k of numKeys) {
+      if (k in start && k in target) cfg[k] = start[k] + (target[k] - start[k]) * e;
+    }
+    if (t >= 0.5) {
+      cfg.palette = target.palette;
+      cfg.trailLen = target.trailLen;
+      cfg.boundary = target.boundary;
+    }
+    if (t < 1) requestAnimationFrame(step);
+    else Object.assign(cfg, target);
+  }
+  step();
+
+  while (particles.length < target.count) particles.push(new Particle());
+  while (particles.length > target.count) particles.pop();
+}
+
+// ─── Render ─────────────────────────────────────────────
+// Parse hex color to RGB
+function hexToRGB(hex) {
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return [r, g, b];
+}
+
+let frameCount = 0;
+let lastFpsTime = performance.now();
+let fps = 0;
+
+function draw() {
+  requestAnimationFrame(draw);
+
+  // FPS
+  frameCount++;
+  const now = performance.now();
+  if (now - lastFpsTime > 500) {
+    fps = Math.round(frameCount / ((now - lastFpsTime) / 1000));
+    frameCount = 0;
+    lastFpsTime = now;
+    statsEl.textContent = `${fps} fps | ${particles.length} particles | η=${(cfg.eta * etaMultiplier).toFixed(2)}`;
+  }
+
+  if (paused) return;
+
+  // 배경을 "살짝만" 어둡게 덮기 → 이전 프레임이 완전히 안 지워져서 잔상 효과!
+  // fadeAlpha가 크면 빨리 사라지고, 작으면 긴 꼬리처럼 남음
+  ctx.fillStyle = `rgba(5, 5, 16, ${cfg.fadeAlpha})`;
+  ctx.fillRect(0, 0, W, H);
+
+  // 물리 시뮬레이션 1스텝 실행
+  vicsekStep();
+
+  // ── 그리기 ──
+  const pLen = cfg.palette.length;
+  const aSize = cfg.arrowSize;
+
+  for (let i = 0; i < particles.length; i++) {
+    const p = particles[i];
+    const color = cfg.palette[i % pLen];
+    const [cr, cg, cb] = hexToRGB(color);
+
+    // 궤적 그리기 (wrap 순간이동 시 화면을 가로지르는 선 방지)
+    // 두 점 사이 거리가 속도×3보다 크면 = 순간이동한 것 → 선을 끊음
+    if (p.trail.length > 1) {
+      const maxGap = cfg.v * 3;
+      ctx.strokeStyle = `rgba(${cr},${cg},${cb},0.2)`;
+      ctx.lineWidth = aSize * 0.35;
+
+      // Build segments of consecutive non-wrapping points
+      const segs = [[ p.trail[0] ]];
+      for (let j = 1; j < p.trail.length; j++) {
+        const dx = p.trail[j].x - p.trail[j-1].x;
+        const dy = p.trail[j].y - p.trail[j-1].y;
+        if (dx * dx + dy * dy > maxGap * maxGap) {
+          segs.push([ p.trail[j] ]); // start new segment
+        } else {
+          segs[segs.length - 1].push(p.trail[j]);
+        }
+      }
+
+      // Draw each segment independently
+      for (let s = 0; s < segs.length; s++) {
+        const seg = segs[s];
+        if (seg.length < 2) continue;
+        ctx.beginPath();
+        ctx.moveTo(seg[0].x, seg[0].y);
+        for (let j = 1; j < seg.length; j++) {
+          ctx.lineTo(seg[j].x, seg[j].y);
+        }
+        ctx.stroke();
+      }
+    }
+
+    // 방향 화살표 삼각형 (레퍼런스의 지오메트리 셰이더 역할)
+    // 삼각형 꼭짓점 3개: 앞쪽(코), 왼쪽 뒤, 오른쪽 뒤
+    const cos = Math.cos(p.theta);
+    const sin = Math.sin(p.theta);
+    const tipX = p.x + cos * aSize;      // 코 (진행 방향)
+    const tipY = p.y + sin * aSize;
+    const lx = p.x + Math.cos(p.theta + 2.5) * aSize * 0.6;  // 왼쪽 꼬리
+    const ly = p.y + Math.sin(p.theta + 2.5) * aSize * 0.6;
+    const rx = p.x + Math.cos(p.theta - 2.5) * aSize * 0.6;  // 오른쪽 꼬리
+    const ry = p.y + Math.sin(p.theta - 2.5) * aSize * 0.6;
+
+    ctx.beginPath();
+    ctx.moveTo(tipX, tipY);
+    ctx.lineTo(lx, ly);
+    ctx.lineTo(rx, ry);
+    ctx.closePath();
+    ctx.fillStyle = `rgba(${cr},${cg},${cb},0.85)`;
+    ctx.fill();
+
+    // 글로우 효과: 투명한 큰 원으로 은은하게 빛나는 느낌
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, aSize * 1.5, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${cr},${cg},${cb},0.06)`;
+    ctx.fill();
+  }
+
+  // Ripples
+  for (let i = ripples.length - 1; i >= 0; i--) {
+    const r = ripples[i];
+    r.radius += 5;
+    r.strength *= 0.96;
+    if (r.radius > r.maxR) { ripples.splice(i, 1); continue; }
+    ctx.beginPath();
+    ctx.arc(r.x, r.y, r.radius, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(255,255,255,${r.strength * 0.08})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  }
+
+  time += 0.016;
+}
+
+// Initial clear
+ctx.fillStyle = '#050510';
+ctx.fillRect(0, 0, W, H);
+draw();
+
+// ═══════════════════════════════════════════════════════════
+// Control Panel
+// ═══════════════════════════════════════════════════════════
+const panel = document.getElementById('panel');
+const toggleBtn = document.getElementById('toggle-btn');
+let panelOpen = false;
+
+function togglePanel() {
+  panelOpen = !panelOpen;
+  panel.classList.toggle('open', panelOpen);
+  toggleBtn.classList.toggle('shifted', panelOpen);
+  toggleBtn.textContent = panelOpen ? '×' : 'ctrl';
+}
+
+// H key to toggle
+window.addEventListener('keydown', e => {
+  if (e.key === 'h' || e.key === 'H') togglePanel();
+});
+
+// Slider ↔ cfg binding
+const SLIDERS = [
+  { id: 'count',   key: 'count',       fmt: v => v },
+  { id: 'speed',   key: 'v',           fmt: v => v.toFixed(1) },
+  { id: 'arrow',   key: 'arrowSize',   fmt: v => v.toFixed(1) },
+  { id: 'trail',   key: 'trailLen',    fmt: v => v },
+  { id: 'eta',     key: 'eta',         fmt: v => v.toFixed(2) },
+  { id: 'radius',  key: 'R',           fmt: v => v },
+  { id: 'inertia', key: 'inertia',     fmt: v => v.toFixed(2) },
+  { id: 'turn',    key: 'maxTurn',     fmt: v => v.toFixed(2) },
+  { id: 'sepR',    key: 'separationR', fmt: v => v },
+  { id: 'sepW',    key: 'separationW', fmt: v => v.toFixed(2) },
+  { id: 'fscale',  key: 'flowScale',   fmt: v => v.toFixed(4) },
+  { id: 'fstr',    key: 'flowStrength',fmt: v => v.toFixed(2) },
+  { id: 'fade',    key: 'fadeAlpha',   fmt: v => v.toFixed(3) },
+  { id: 'margin',  key: 'steerMargin', fmt: v => v },
+];
+
+for (const s of SLIDERS) {
+  const slider = document.getElementById('s-' + s.id);
+  const valEl = document.getElementById('v-' + s.id);
+  slider.addEventListener('input', () => {
+    let v = parseFloat(slider.value);
+    if (s.key === 'count') {
+      v = Math.round(v);
+      while (particles.length < v) particles.push(new Particle());
+      while (particles.length > v) particles.pop();
+    }
+    if (s.key === 'trailLen') v = Math.round(v);
+    cfg[s.key] = v;
+    valEl.textContent = s.fmt(v);
+  });
+}
+
+// Sync sliders from cfg (when preset changes)
+function syncSliders() {
+  for (const s of SLIDERS) {
+    const slider = document.getElementById('s-' + s.id);
+    const valEl = document.getElementById('v-' + s.id);
+    const v = cfg[s.key];
+    slider.value = v;
+    valEl.textContent = s.fmt(v);
+  }
+  // Boundary toggle
+  document.querySelectorAll('#boundary-toggle button').forEach(b => {
+    b.classList.toggle('active', b.dataset.b === cfg.boundary);
+  });
+}
+
+// Preset buttons
+document.querySelectorAll('#preset-btns button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const name = btn.dataset.p;
+    switchPreset(name);
+    document.querySelectorAll('#preset-btns button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    // Sync sliders after transition
+    setTimeout(() => syncSliders(), 1300);
+  });
+});
+
+// Boundary toggle
+document.querySelectorAll('#boundary-toggle button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    cfg.boundary = btn.dataset.b;
+    document.querySelectorAll('#boundary-toggle button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Also update original keyboard preset handler to sync
+const origSwitchPreset = switchPreset;
+const patchedKeyHandler = (e) => {
+  const map = { '1': 'fish', '2': 'birds', '3': 'swarm', '4': 'chaos' };
+  if (map[e.key]) {
+    document.querySelectorAll('#preset-btns button').forEach(b => {
+      b.classList.toggle('active', b.dataset.p === map[e.key]);
+    });
+    setTimeout(() => syncSliders(), 1300);
+  }
+};
+window.addEventListener('keydown', patchedKeyHandler);
+
+// Init sync
+syncSliders();
+</script>
+</body>
+</html>

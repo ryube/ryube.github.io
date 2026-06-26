@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vicsek 3D</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #050510; overflow: hidden; }
+canvas { display: block; }
+#hud {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  color: rgba(255,255,255,0.35);
+  font: 11px/1.5 'Courier New', monospace;
+  pointer-events: none;
+  z-index: 10;
+}
+#stats {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  color: rgba(255,255,255,0.3);
+  font: 10px/1.4 'Courier New', monospace;
+  pointer-events: none;
+}
+/* ─── Control Panel ─── */
+#panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 260px;
+  height: 100vh;
+  background: rgba(8,8,20,0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  overflow-y: auto;
+  z-index: 100;
+  padding: 16px 14px;
+  font: 11px/1.4 'Courier New', monospace;
+  color: rgba(255,255,255,0.7);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+#panel.open { transform: translateX(0); }
+#panel::-webkit-scrollbar { width: 4px; }
+#panel::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 2px; }
+#toggle-btn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 101;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+  font: 11px 'Courier New', monospace;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+#toggle-btn:hover { background: rgba(255,255,255,0.15); color: #fff; }
+#toggle-btn.shifted { right: 272px; }
+.ctrl-section {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.ctrl-section:last-child { border-bottom: none; }
+.ctrl-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+  color: rgba(255,255,255,0.45);
+  font-size: 10px;
+}
+.ctrl-label .val { color: rgba(255,255,255,0.7); font-size: 11px; }
+.ctrl-section h3 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  outline: none;
+  margin-bottom: 8px;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb:hover { background: rgba(255,255,255,0.8); }
+.preset-btns { display: flex; gap: 4px; margin-bottom: 10px; }
+.preset-btns button {
+  flex: 1;
+  padding: 5px 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  font: 10px 'Courier New', monospace;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.preset-btns button:hover { background: rgba(255,255,255,0.12); color: #fff; }
+.preset-btns button.active {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+.boundary-toggle { display: flex; gap: 4px; margin-bottom: 8px; }
+.boundary-toggle button {
+  flex: 1; padding: 4px 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font: 10px 'Courier New', monospace;
+  cursor: pointer; border-radius: 3px;
+}
+.boundary-toggle button.active {
+  background: rgba(255,255,255,0.12);
+  color: #fff; border-color: rgba(255,255,255,0.25);
+}
+a.back-link {
+  position: fixed; bottom: 16px; right: 16px;
+  color: rgba(255,255,255,0.25);
+  font: 10px 'Courier New', monospace;
+  text-decoration: none; z-index: 10;
+}
+a.back-link:hover { color: rgba(255,255,255,0.5); }
+</style>
+</head>
+<body>
+<div id="hud">
+  orbit: drag | zoom: scroll | [h] panel | [space] pause
+</div>
+<div id="stats"></div>
+<button id="toggle-btn" onclick="togglePanel()">ctrl</button>
+<div id="panel">
+  <div class="ctrl-section">
+    <h3>presets</h3>
+    <div class="preset-btns" id="preset-btns">
+      <button class="active" data-p="fish">fish</button>
+      <button data-p="birds">birds</button>
+      <button data-p="swarm">swarm</button>
+      <button data-p="chaos">chaos</button>
+    </div>
+  </div>
+  <div class="ctrl-section">
+    <h3>particles</h3>
+    <div class="ctrl-label"><span>count</span><span class="val" id="v-count">2000</span></div>
+    <input type="range" id="s-count" min="100" max="8000" step="50" value="2000">
+    <div class="ctrl-label"><span>speed (v)</span><span class="val" id="v-speed">0.004</span></div>
+    <input type="range" id="s-speed" min="0.001" max="0.02" step="0.0005" value="0.004">
+    <div class="ctrl-label"><span>size</span><span class="val" id="v-size">0.008</span></div>
+    <input type="range" id="s-size" min="0.002" max="0.03" step="0.001" value="0.008">
+  </div>
+  <div class="ctrl-section">
+    <h3>vicsek model</h3>
+    <div class="ctrl-label"><span>noise (η)</span><span class="val" id="v-eta">0.12</span></div>
+    <input type="range" id="s-eta" min="0" max="1.5" step="0.01" value="0.12">
+    <div class="ctrl-label"><span>interaction radius</span><span class="val" id="v-radius">0.08</span></div>
+    <input type="range" id="s-radius" min="0.01" max="0.25" step="0.005" value="0.08">
+    <div class="ctrl-label"><span>inertia</span><span class="val" id="v-inertia">0.10</span></div>
+    <input type="range" id="s-inertia" min="0" max="0.95" step="0.01" value="0.10">
+    <div class="ctrl-label"><span>max turn rate</span><span class="val" id="v-turn">0.10</span></div>
+    <input type="range" id="s-turn" min="0.01" max="0.5" step="0.01" value="0.10">
+  </div>
+  <div class="ctrl-section">
+    <h3>separation</h3>
+    <div class="ctrl-label"><span>sep. radius</span><span class="val" id="v-sepR">0.02</span></div>
+    <input type="range" id="s-sepR" min="0" max="0.08" step="0.002" value="0.02">
+    <div class="ctrl-label"><span>sep. weight</span><span class="val" id="v-sepW">0.5</span></div>
+    <input type="range" id="s-sepW" min="0" max="3" step="0.05" value="0.5">
+  </div>
+  <div class="ctrl-section">
+    <h3>flow field</h3>
+    <div class="ctrl-label"><span>flow scale</span><span class="val" id="v-fscale">3.0</span></div>
+    <input type="range" id="s-fscale" min="0" max="10" step="0.1" value="3.0">
+    <div class="ctrl-label"><span>flow strength</span><span class="val" id="v-fstr">0.35</span></div>
+    <input type="range" id="s-fstr" min="0" max="1.5" step="0.01" value="0.35">
+    <div class="ctrl-label"><span>flow speed</span><span class="val" id="v-fspd">0.12</span></div>
+    <input type="range" id="s-fspd" min="0" max="0.5" step="0.01" value="0.12">
+  </div>
+  <div class="ctrl-section">
+    <h3>rendering</h3>
+    <div class="ctrl-label"><span>trail length</span><span class="val" id="v-trail">8</span></div>
+    <input type="range" id="s-trail" min="0" max="20" step="1" value="8">
+    <div class="ctrl-label"><span>boundary</span></div>
+    <div class="boundary-toggle" id="boundary-toggle">
+      <button class="active" data-b="wrap">wrap</button>
+      <button data-b="steer">steer</button>
+    </div>
+    <div class="ctrl-label"><span>box size</span><span class="val" id="v-box">1.0</span></div>
+    <input type="range" id="s-box" min="0.5" max="3.0" step="0.1" value="1.0">
+  </div>
+</div>
+<a class="back-link" href="index.html">← 2D version</a>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+// ─── Perlin Noise ───────────────────────────────────────
+const Noise = (() => {
+  const perm = new Uint8Array(512);
+  const grad3 = [
+    [1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],
+    [1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],
+    [0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]
+  ];
+  const p = new Uint8Array(256);
+  for (let i = 0; i < 256; i++) p[i] = i;
+  for (let i = 255; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [p[i], p[j]] = [p[j], p[i]];
+  }
+  for (let i = 0; i < 512; i++) perm[i] = p[i & 255];
+  function dot3(g, x, y, z) { return g[0]*x + g[1]*y + g[2]*z; }
+  function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+  function lerp(a, b, t) { return a + t * (b - a); }
+  return {
+    noise3D(x, y, z) {
+      const X = Math.floor(x) & 255, Y = Math.floor(y) & 255, Z = Math.floor(z) & 255;
+      x -= Math.floor(x); y -= Math.floor(y); z -= Math.floor(z);
+      const u = fade(x), v = fade(y), w = fade(z);
+      const A = perm[X]+Y, AA = perm[A]+Z, AB = perm[A+1]+Z;
+      const B = perm[X+1]+Y, BA = perm[B]+Z, BB = perm[B+1]+Z;
+      return lerp(
+        lerp(lerp(dot3(grad3[perm[AA]%12],x,y,z), dot3(grad3[perm[BA]%12],x-1,y,z),u),
+             lerp(dot3(grad3[perm[AB]%12],x,y-1,z), dot3(grad3[perm[BB]%12],x-1,y-1,z),u),v),
+        lerp(lerp(dot3(grad3[perm[AA+1]%12],x,y,z-1), dot3(grad3[perm[BA+1]%12],x-1,y,z-1),u),
+             lerp(dot3(grad3[perm[AB+1]%12],x,y-1,z-1), dot3(grad3[perm[BB+1]%12],x-1,y-1,z-1),u),v),w);
+    }
+  };
+})();
+
+let simTime = 0;
+
+// ─── Gaussian noise ─────────────────────────────────────
+function gaussRandom() {
+  let u = 0, v = 0;
+  while (u === 0) u = Math.random();
+  while (v === 0) v = Math.random();
+  return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+}
+
+// ─── Presets ────────────────────────────────────────────
+// Domain is [0, boxSize]^3 (like reference uses [0,1]^3)
+const PRESETS = {
+  fish: {
+    count: 2000,
+    v: 0.004,
+    R: 0.06,            // smaller R → sub-groups form
+    eta: 0.25,           // more noise → prevents single-direction lock
+    separationR: 0.018,
+    separationW: 0.7,
+    inertia: 0.10,
+    maxTurn: 0.10,
+    flowScale: 3.0,      // Perlin spatial frequency
+    flowStrength: 0.35,   // flow field push strength
+    flowSpeed: 0.12,      // how fast flow evolves
+    trailLen: 8,
+    size: 0.008,
+    boxSize: 1.0,
+    boundary: 'wrap',
+    color1: new THREE.Color(0x00e5ff),
+    color2: new THREE.Color(0x2979ff),
+    color3: new THREE.Color(0xb388ff),
+  },
+  birds: {
+    count: 1500,
+    v: 0.007,
+    R: 0.10,
+    eta: 0.22,
+    separationR: 0.03,
+    separationW: 0.9,
+    inertia: 0.06,
+    maxTurn: 0.15,
+    flowScale: 2.0,
+    flowStrength: 0.25,
+    flowSpeed: 0.08,
+    trailLen: 6,
+    size: 0.010,
+    boxSize: 1.2,
+    boundary: 'steer',
+    color1: new THREE.Color(0xff6e40),
+    color2: new THREE.Color(0xffab40),
+    color3: new THREE.Color(0xffe0b2),
+  },
+  swarm: {
+    count: 4000,
+    v: 0.003,
+    R: 0.045,
+    eta: 0.12,
+    separationR: 0.012,
+    separationW: 0.4,
+    inertia: 0.15,
+    maxTurn: 0.07,
+    flowScale: 4.0,
+    flowStrength: 0.45,
+    flowSpeed: 0.15,
+    trailLen: 12,
+    size: 0.005,
+    boxSize: 1.0,
+    boundary: 'wrap',
+    color1: new THREE.Color(0x69f0ae),
+    color2: new THREE.Color(0x00c853),
+    color3: new THREE.Color(0xa7ffeb),
+  },
+  chaos: {
+    count: 2000,
+    v: 0.006,
+    R: 0.07,
+    eta: 0.7,
+    separationR: 0.025,
+    separationW: 1.2,
+    inertia: 0.12,
+    maxTurn: 0.2,
+    flowScale: 5.0,
+    flowStrength: 0.5,
+    flowSpeed: 0.25,
+    trailLen: 4,
+    size: 0.009,
+    boxSize: 1.0,
+    boundary: 'steer',
+    color1: new THREE.Color(0xf50057),
+    color2: new THREE.Color(0x651fff),
+    color3: new THREE.Color(0x00b0ff),
+  },
+};
+
+let cfg = { ...PRESETS.fish };
+let paused = false;
+
+// ─── Three.js Setup ─────────────────────────────────────
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x050510);
+scene.fog = new THREE.FogExp2(0x050510, 0.8);
+
+const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.01, 100);
+camera.position.set(1.2, 1.0, 1.8);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+document.body.appendChild(renderer.domElement);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0.5, 0.5, 0.5);
+controls.enableDamping = true;
+controls.dampingFactor = 0.05;
+controls.update();
+
+window.addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+// ─── Bounding Box Helper ────────────────────────────────
+let boxHelper;
+function updateBox() {
+  if (boxHelper) scene.remove(boxHelper);
+  const geo = new THREE.BoxGeometry(cfg.boxSize, cfg.boxSize, cfg.boxSize);
+  const edges = new THREE.EdgesGeometry(geo);
+  boxHelper = new THREE.LineSegments(edges, new THREE.LineBasicMaterial({
+    color: 0xffffff, opacity: 0.08, transparent: true
+  }));
+  boxHelper.position.set(cfg.boxSize / 2, cfg.boxSize / 2, cfg.boxSize / 2);
+  scene.add(boxHelper);
+  controls.target.set(cfg.boxSize / 2, cfg.boxSize / 2, cfg.boxSize / 2);
+}
+updateBox();
+
+// ─── 3D Spatial Grid ────────────────────────────────────
+class Grid3D {
+  constructor(cs) { this.cs = cs; this.m = new Map(); }
+  clear() { this.m.clear(); }
+  _k(x, y, z) { return ((x * 73856093) ^ (y * 19349663) ^ (z * 83492791)) | 0; }
+  insert(p) {
+    const cx = Math.floor(p.x / this.cs);
+    const cy = Math.floor(p.y / this.cs);
+    const cz = Math.floor(p.z / this.cs);
+    const k = this._k(cx, cy, cz);
+    let c = this.m.get(k);
+    if (!c) { c = []; this.m.set(k, c); }
+    c.push(p);
+  }
+  query(x, y, z, r) {
+    const out = [];
+    const x0 = Math.floor((x - r) / this.cs);
+    const x1 = Math.floor((x + r) / this.cs);
+    const y0 = Math.floor((y - r) / this.cs);
+    const y1 = Math.floor((y + r) / this.cs);
+    const z0 = Math.floor((z - r) / this.cs);
+    const z1 = Math.floor((z + r) / this.cs);
+    for (let cx = x0; cx <= x1; cx++)
+      for (let cy = y0; cy <= y1; cy++)
+        for (let cz = z0; cz <= z1; cz++) {
+          const c = this.m.get(this._k(cx, cy, cz));
+          if (c) for (let i = 0; i < c.length; i++) out.push(c[i]);
+        }
+    return out;
+  }
+}
+const grid = new Grid3D(0.1);
+
+// ─── Particles ──────────────────────────────────────────
+// 3D Vicsek: theta (azimuthal), alpha (polar) → spherical velocity
+// Matching reference: vx = v*cos(theta)*sin(alpha), vy = v*sin(theta)*sin(alpha), vz = v*cos(alpha)
+class Particle3D {
+  constructor(bs) {
+    this.x = Math.random() * bs;
+    this.y = Math.random() * bs;
+    this.z = Math.random() * bs;
+    this.theta = Math.random() * Math.PI * 2;      // azimuthal [0, 2π]
+    this.alpha = Math.random() * Math.PI;           // polar [0, π]
+    this.trail = [];
+  }
+  get vx() { return Math.cos(this.theta) * Math.sin(this.alpha); }
+  get vy() { return Math.sin(this.theta) * Math.sin(this.alpha); }
+  get vz() { return Math.cos(this.alpha); }
+}
+
+let particles = [];
+function initParticles(count) {
+  particles = [];
+  for (let i = 0; i < count; i++) particles.push(new Particle3D(cfg.boxSize));
+}
+initParticles(cfg.count);
+
+// ─── Instanced Mesh ─────────────────────────────────────
+// Cone geometry pointing in +Z, we'll orient via quaternion
+const MAX_PARTICLES = 8000;
+const coneGeo = new THREE.ConeGeometry(1, 2.5, 4, 1);
+coneGeo.rotateX(Math.PI / 2); // point toward +Z
+
+const material = new THREE.MeshBasicMaterial({
+  vertexColors: false,
+  transparent: true,
+  opacity: 0.85,
+});
+
+// Use custom shader for per-instance color
+const instancedGeo = new THREE.InstancedBufferGeometry().copy(coneGeo);
+const colorAttr = new Float32Array(MAX_PARTICLES * 3);
+const instanceColorBuf = new THREE.InstancedBufferAttribute(colorAttr, 3);
+instancedGeo.setAttribute('instanceColor', instanceColorBuf);
+
+const mat = new THREE.ShaderMaterial({
+  vertexShader: `
+    attribute vec3 instanceColor;
+    varying vec3 vColor;
+    void main() {
+      vColor = instanceColor;
+      gl_Position = projectionMatrix * modelViewMatrix * instanceMatrix * vec4(position, 1.0);
+    }
+  `,
+  fragmentShader: `
+    varying vec3 vColor;
+    void main() {
+      gl_FragColor = vec4(vColor, 0.85);
+    }
+  `,
+  transparent: true,
+});
+
+const mesh = new THREE.InstancedMesh(instancedGeo, mat, MAX_PARTICLES);
+mesh.count = cfg.count;
+mesh.frustumCulled = false;
+scene.add(mesh);
+
+// Trail lines
+const trailMaterial = new THREE.LineBasicMaterial({
+  vertexColors: true,
+  transparent: true,
+  opacity: 0.25,
+});
+const MAX_TRAIL_VERTS = MAX_PARTICLES * 20;
+const trailPositions = new Float32Array(MAX_TRAIL_VERTS * 3);
+const trailColors = new Float32Array(MAX_TRAIL_VERTS * 3);
+const trailGeo = new THREE.BufferGeometry();
+trailGeo.setAttribute('position', new THREE.BufferAttribute(trailPositions, 3).setUsage(THREE.DynamicDrawUsage));
+trailGeo.setAttribute('color', new THREE.BufferAttribute(trailColors, 3).setUsage(THREE.DynamicDrawUsage));
+const trailLines = new THREE.LineSegments(trailGeo, trailMaterial);
+trailLines.frustumCulled = false;
+scene.add(trailLines);
+
+// Ambient glow points
+const glowMat = new THREE.PointsMaterial({
+  size: 0.015,
+  vertexColors: true,
+  transparent: true,
+  opacity: 0.15,
+  sizeAttenuation: true,
+  blending: THREE.AdditiveBlending,
+  depthWrite: false,
+});
+const glowPositions = new Float32Array(MAX_PARTICLES * 3);
+const glowColors = new Float32Array(MAX_PARTICLES * 3);
+const glowGeo = new THREE.BufferGeometry();
+glowGeo.setAttribute('position', new THREE.BufferAttribute(glowPositions, 3).setUsage(THREE.DynamicDrawUsage));
+glowGeo.setAttribute('color', new THREE.BufferAttribute(glowColors, 3).setUsage(THREE.DynamicDrawUsage));
+const glowPoints = new THREE.Points(glowGeo, glowMat);
+glowPoints.frustumCulled = false;
+scene.add(glowPoints);
+
+// ─── Vicsek 3D Step ─────────────────────────────────────
+const tmpObj = new THREE.Object3D();
+const tmpDir = new THREE.Vector3();
+const upVec = new THREE.Vector3(0, 1, 0);
+
+function vicsekStep3D() {
+  const R = cfg.R;
+  const R2 = R * R;
+  const sepR2 = cfg.separationR * cfg.separationR;
+  const eta = cfg.eta;
+  const N = particles.length;
+  const bs = cfg.boxSize;
+
+  grid.clear();
+  for (let i = 0; i < N; i++) grid.insert(particles[i]);
+
+  // Temp arrays for new angles
+  const newTheta = new Float32Array(N);
+  const newAlpha = new Float32Array(N);
+
+  for (let i = 0; i < N; i++) {
+    const p = particles[i];
+    const neighbors = grid.query(p.x, p.y, p.z, R);
+
+    // Vicsek: average direction vector of neighbors
+    let avgVx = p.vx, avgVy = p.vy, avgVz = p.vz;
+    let nCount = 1;
+
+    // Separation
+    let sepX = 0, sepY = 0, sepZ = 0;
+
+    for (let j = 0; j < neighbors.length; j++) {
+      const q = neighbors[j];
+      if (q === p) continue;
+      const dx = q.x - p.x;
+      const dy = q.y - p.y;
+      const dz = q.z - p.z;
+      const d2 = dx * dx + dy * dy + dz * dz;
+      if (d2 > 0 && d2 < R2) {
+        avgVx += q.vx;
+        avgVy += q.vy;
+        avgVz += q.vz;
+        nCount++;
+
+        if (d2 < sepR2) {
+          const dist = Math.sqrt(d2);
+          const repel = 1.0 - dist / cfg.separationR;
+          sepX -= (dx / dist) * repel;
+          sepY -= (dy / dist) * repel;
+          sepZ -= (dz / dist) * repel;
+        }
+      }
+    }
+
+    // Normalize average direction
+    avgVx /= nCount;
+    avgVy /= nCount;
+    avgVz /= nCount;
+
+    // Add separation
+    const sepLen = Math.sqrt(sepX * sepX + sepY * sepY + sepZ * sepZ);
+    if (sepLen > 0.0001) {
+      const sw = cfg.separationW * Math.min(sepLen, 2.0);
+      avgVx += (sepX / sepLen) * sw;
+      avgVy += (sepY / sepLen) * sw;
+      avgVz += (sepZ / sepLen) * sw;
+    }
+
+    // Convert to spherical angles
+    const len = Math.sqrt(avgVx * avgVx + avgVy * avgVy + avgVz * avgVz);
+    let desiredTheta, desiredAlpha;
+    if (len > 0.0001) {
+      desiredTheta = Math.atan2(avgVy, avgVx);
+      desiredAlpha = Math.acos(Math.max(-1, Math.min(1, avgVz / len)));
+    } else {
+      desiredTheta = p.theta;
+      desiredAlpha = p.alpha;
+    }
+
+    // 3D Curl noise flow field (breaks single-direction lock)
+    if (cfg.flowStrength > 0) {
+      const fs = cfg.flowScale;
+      const t = simTime * cfg.flowSpeed;
+      // Curl of Perlin noise → divergence-free flow
+      const eps = 0.05;
+      const nx = Noise.noise3D(p.x * fs, p.y * fs, p.z * fs + t);
+      const ny = Noise.noise3D(p.x * fs + 100, p.y * fs + 100, p.z * fs + t);
+      const nz = Noise.noise3D(p.x * fs + 200, p.y * fs + 200, p.z * fs + t);
+      // Approximate curl
+      const dny_dz = (Noise.noise3D(p.x*fs+100, p.y*fs+100, p.z*fs+eps+t) - ny) / eps;
+      const dnz_dy = (Noise.noise3D(p.x*fs+200, (p.y+eps)*fs+200, p.z*fs+t) - nz) / eps;
+      const dnz_dx = (Noise.noise3D((p.x+eps)*fs+200, p.y*fs+200, p.z*fs+t) - nz) / eps;
+      const dnx_dz = (Noise.noise3D(p.x*fs, p.y*fs, p.z*fs+eps+t) - nx) / eps;
+      const dnx_dy = (Noise.noise3D(p.x*fs, (p.y+eps)*fs, p.z*fs+t) - nx) / eps;
+      const dny_dx = (Noise.noise3D((p.x+eps)*fs+100, p.y*fs+100, p.z*fs+t) - ny) / eps;
+      const curlX = dny_dz - dnz_dy;
+      const curlY = dnz_dx - dnx_dz;
+      const curlZ = dnx_dy - dny_dx;
+      const fw = cfg.flowStrength;
+      avgVx += curlX * fw;
+      avgVy += curlY * fw;
+      avgVz += curlZ * fw;
+      // Recalculate desired angles with flow
+      const len2 = Math.sqrt(avgVx*avgVx + avgVy*avgVy + avgVz*avgVz);
+      if (len2 > 0.0001) {
+        desiredTheta = Math.atan2(avgVy, avgVx);
+        desiredAlpha = Math.acos(clamp(avgVz / len2, -1, 1));
+      }
+    }
+
+    // Gaussian noise (matching reference)
+    desiredTheta += eta * gaussRandom();
+    desiredAlpha += eta * gaussRandom() * 0.5;
+
+    // Boundary steering
+    if (cfg.boundary === 'steer') {
+      const margin = 0.15 * bs;
+      let bx = 0, by = 0, bz = 0;
+      if (p.x < margin) bx = (margin - p.x) / margin;
+      else if (p.x > bs - margin) bx = -(p.x - (bs - margin)) / margin;
+      if (p.y < margin) by = (margin - p.y) / margin;
+      else if (p.y > bs - margin) by = -(p.y - (bs - margin)) / margin;
+      if (p.z < margin) bz = (margin - p.z) / margin;
+      else if (p.z > bs - margin) bz = -(p.z - (bs - margin)) / margin;
+      const bLen = Math.sqrt(bx * bx + by * by + bz * bz);
+      if (bLen > 0.001) {
+        const bTheta = Math.atan2(by, bx);
+        const bAlpha = Math.acos(Math.max(-1, Math.min(1, bz / bLen)));
+        const bStr = bLen * 0.3;
+        desiredTheta += angleDiff(desiredTheta, bTheta) * bStr;
+        desiredAlpha += (bAlpha - desiredAlpha) * bStr * 0.5;
+      }
+    }
+
+    // Angular inertia
+    let dTheta = angleDiff(p.theta, desiredTheta);
+    let dAlpha = desiredAlpha - p.alpha;
+    const maxT = cfg.maxTurn;
+    const inertiaFactor = 1 - cfg.inertia;
+    dTheta = clamp(dTheta * inertiaFactor, -maxT, maxT);
+    dAlpha = clamp(dAlpha * inertiaFactor, -maxT * 0.5, maxT * 0.5);
+
+    newTheta[i] = p.theta + dTheta;
+    newAlpha[i] = clamp(p.alpha + dAlpha, 0.01, Math.PI - 0.01);
+  }
+
+  // Integrate
+  for (let i = 0; i < N; i++) {
+    const p = particles[i];
+    p.theta = newTheta[i];
+    p.alpha = newAlpha[i];
+
+    p.x += p.vx * cfg.v;
+    p.y += p.vy * cfg.v;
+    p.z += p.vz * cfg.v;
+
+    if (cfg.boundary === 'wrap') {
+      if (p.x < 0) p.x += bs; if (p.x > bs) p.x -= bs;
+      if (p.y < 0) p.y += bs; if (p.y > bs) p.y -= bs;
+      if (p.z < 0) p.z += bs; if (p.z > bs) p.z -= bs;
+    } else {
+      p.x = clamp(p.x, 0, bs);
+      p.y = clamp(p.y, 0, bs);
+      p.z = clamp(p.z, 0, bs);
+    }
+
+    // Trail
+    p.trail.unshift({ x: p.x, y: p.y, z: p.z });
+    if (p.trail.length > cfg.trailLen) p.trail.pop();
+  }
+
+  simTime += 0.016;
+}
+
+function angleDiff(a, b) {
+  let d = b - a;
+  while (d > Math.PI) d -= Math.PI * 2;
+  while (d < -Math.PI) d += Math.PI * 2;
+  return d;
+}
+function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+// ─── Update Visuals ─────────────────────────────────────
+const tmpColor = new THREE.Color();
+
+function updateVisuals() {
+  const N = particles.length;
+  mesh.count = N;
+  const s = cfg.size;
+  const maxGap = cfg.v * 4;
+  const maxGap2 = maxGap * maxGap;
+
+  let trailIdx = 0;
+
+  for (let i = 0; i < N; i++) {
+    const p = particles[i];
+
+    // Color based on direction (like reference velocity coloring)
+    const t = (p.theta / (Math.PI * 2) + 1) % 1;
+    if (t < 0.33) tmpColor.lerpColors(cfg.color1, cfg.color2, t / 0.33);
+    else if (t < 0.66) tmpColor.lerpColors(cfg.color2, cfg.color3, (t - 0.33) / 0.33);
+    else tmpColor.lerpColors(cfg.color3, cfg.color1, (t - 0.66) / 0.34);
+
+    // Instance transform
+    tmpObj.position.set(p.x, p.y, p.z);
+    tmpObj.scale.set(s, s, s);
+    tmpDir.set(p.vx, p.vy, p.vz).normalize();
+    tmpObj.quaternion.setFromUnitVectors(new THREE.Vector3(0, 0, 1), tmpDir);
+    tmpObj.updateMatrix();
+    mesh.setMatrixAt(i, tmpObj.matrix);
+
+    // Instance color
+    colorAttr[i * 3] = tmpColor.r;
+    colorAttr[i * 3 + 1] = tmpColor.g;
+    colorAttr[i * 3 + 2] = tmpColor.b;
+
+    // Glow
+    glowPositions[i * 3] = p.x;
+    glowPositions[i * 3 + 1] = p.y;
+    glowPositions[i * 3 + 2] = p.z;
+    glowColors[i * 3] = tmpColor.r;
+    glowColors[i * 3 + 1] = tmpColor.g;
+    glowColors[i * 3 + 2] = tmpColor.b;
+
+    // Trail line segments (pairs of points)
+    for (let j = 0; j < p.trail.length - 1 && trailIdx < MAX_TRAIL_VERTS - 2; j++) {
+      const a = p.trail[j], b = p.trail[j + 1];
+      const dx = a.x - b.x, dy = a.y - b.y, dz = a.z - b.z;
+      if (dx * dx + dy * dy + dz * dz > maxGap2) continue; // skip wrap
+      const alpha = 1 - j / p.trail.length;
+      trailPositions[trailIdx * 3] = a.x;
+      trailPositions[trailIdx * 3 + 1] = a.y;
+      trailPositions[trailIdx * 3 + 2] = a.z;
+      trailColors[trailIdx * 3] = tmpColor.r * alpha;
+      trailColors[trailIdx * 3 + 1] = tmpColor.g * alpha;
+      trailColors[trailIdx * 3 + 2] = tmpColor.b * alpha;
+      trailIdx++;
+      trailPositions[trailIdx * 3] = b.x;
+      trailPositions[trailIdx * 3 + 1] = b.y;
+      trailPositions[trailIdx * 3 + 2] = b.z;
+      trailColors[trailIdx * 3] = tmpColor.r * alpha * 0.5;
+      trailColors[trailIdx * 3 + 1] = tmpColor.g * alpha * 0.5;
+      trailColors[trailIdx * 3 + 2] = tmpColor.b * alpha * 0.5;
+      trailIdx++;
+    }
+  }
+
+  mesh.instanceMatrix.needsUpdate = true;
+  instanceColorBuf.needsUpdate = true;
+
+  // Clear unused trail verts
+  for (let i = trailIdx; i < trailIdx + 6 && i < MAX_TRAIL_VERTS; i++) {
+    trailPositions[i * 3] = 0;
+    trailPositions[i * 3 + 1] = 0;
+    trailPositions[i * 3 + 2] = 0;
+  }
+  trailGeo.setDrawRange(0, trailIdx);
+  trailGeo.attributes.position.needsUpdate = true;
+  trailGeo.attributes.color.needsUpdate = true;
+
+  glowGeo.attributes.position.needsUpdate = true;
+  glowGeo.attributes.color.needsUpdate = true;
+  glowPoints.geometry.setDrawRange(0, N);
+  glowMat.size = cfg.size * 2;
+}
+
+// ─── Animation Loop ─────────────────────────────────────
+const statsEl = document.getElementById('stats');
+let frameCount = 0, lastFpsTime = performance.now(), fps = 0;
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+
+  frameCount++;
+  const now = performance.now();
+  if (now - lastFpsTime > 500) {
+    fps = Math.round(frameCount / ((now - lastFpsTime) / 1000));
+    frameCount = 0;
+    lastFpsTime = now;
+    statsEl.textContent = `${fps} fps | ${particles.length} particles | η=${cfg.eta.toFixed(2)}`;
+  }
+
+  if (!paused) {
+    vicsekStep3D();
+    updateVisuals();
+  }
+
+  renderer.render(scene, camera);
+}
+animate();
+
+// ─── Keyboard ───────────────────────────────────────────
+window.addEventListener('keydown', e => {
+  if (e.key === ' ') { e.preventDefault(); paused = !paused; }
+  if (e.key === 'h' || e.key === 'H') togglePanel();
+  const map = { '1': 'fish', '2': 'birds', '3': 'swarm', '4': 'chaos' };
+  if (map[e.key]) {
+    applyPreset(map[e.key]);
+    document.querySelectorAll('#preset-btns button').forEach(b => {
+      b.classList.toggle('active', b.dataset.p === map[e.key]);
+    });
+  }
+});
+
+function applyPreset(name) {
+  const p = PRESETS[name];
+  cfg = { ...p };
+  initParticles(cfg.count);
+  updateBox();
+  grid.cs = cfg.R * 1.2;
+  syncSliders();
+}
+
+// ─── Panel Toggle ───────────────────────────────────────
+const panel = document.getElementById('panel');
+const toggleBtn = document.getElementById('toggle-btn');
+let panelOpen = false;
+window.togglePanel = function() {
+  panelOpen = !panelOpen;
+  panel.classList.toggle('open', panelOpen);
+  toggleBtn.classList.toggle('shifted', panelOpen);
+  toggleBtn.textContent = panelOpen ? '×' : 'ctrl';
+};
+
+// ─── Slider Binding ─────────────────────────────────────
+const SLIDERS = [
+  { id: 'count',   key: 'count',       fmt: v => Math.round(v) },
+  { id: 'speed',   key: 'v',           fmt: v => v.toFixed(4) },
+  { id: 'size',    key: 'size',        fmt: v => v.toFixed(3) },
+  { id: 'eta',     key: 'eta',         fmt: v => v.toFixed(2) },
+  { id: 'radius',  key: 'R',           fmt: v => v.toFixed(3) },
+  { id: 'inertia', key: 'inertia',     fmt: v => v.toFixed(2) },
+  { id: 'turn',    key: 'maxTurn',     fmt: v => v.toFixed(2) },
+  { id: 'sepR',    key: 'separationR', fmt: v => v.toFixed(3) },
+  { id: 'sepW',    key: 'separationW', fmt: v => v.toFixed(2) },
+  { id: 'fscale',  key: 'flowScale',   fmt: v => v.toFixed(1) },
+  { id: 'fstr',    key: 'flowStrength',fmt: v => v.toFixed(2) },
+  { id: 'fspd',    key: 'flowSpeed',   fmt: v => v.toFixed(2) },
+  { id: 'trail',   key: 'trailLen',    fmt: v => Math.round(v) },
+  { id: 'box',     key: 'boxSize',     fmt: v => v.toFixed(1) },
+];
+
+for (const s of SLIDERS) {
+  const slider = document.getElementById('s-' + s.id);
+  const valEl = document.getElementById('v-' + s.id);
+  slider.addEventListener('input', () => {
+    let v = parseFloat(slider.value);
+    if (s.key === 'count') {
+      v = Math.round(v);
+      if (v > particles.length) {
+        while (particles.length < v) particles.push(new Particle3D(cfg.boxSize));
+      } else {
+        particles.length = v;
+      }
+    }
+    if (s.key === 'trailLen') v = Math.round(v);
+    if (s.key === 'boxSize') {
+      cfg[s.key] = v;
+      updateBox();
+    }
+    cfg[s.key] = v;
+    valEl.textContent = s.fmt(v);
+  });
+}
+
+function syncSliders() {
+  for (const s of SLIDERS) {
+    const slider = document.getElementById('s-' + s.id);
+    const valEl = document.getElementById('v-' + s.id);
+    const v = cfg[s.key];
+    slider.value = v;
+    valEl.textContent = s.fmt(v);
+  }
+  document.querySelectorAll('#boundary-toggle button').forEach(b => {
+    b.classList.toggle('active', b.dataset.b === cfg.boundary);
+  });
+}
+
+// Preset buttons
+document.querySelectorAll('#preset-btns button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    applyPreset(btn.dataset.p);
+    document.querySelectorAll('#preset-btns button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+// Boundary toggle
+document.querySelectorAll('#boundary-toggle button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    cfg.boundary = btn.dataset.b;
+    document.querySelectorAll('#boundary-toggle button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+syncSliders();
+</script>
+</body>
+</html>
